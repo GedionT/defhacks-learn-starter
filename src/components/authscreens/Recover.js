@@ -1,43 +1,62 @@
-import React, { Component } from 'react';
-import * as firebase from 'firebase';
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-class Recover extends Component {
-	constructor(props) {
-    	super(props);
-    	this.state = {email: ""};
-    	//
-    	this.handleEmailChange = this.handleEmailChange.bind(this)
-    	this.handleSubmit = this.handleSubmit.bind(this)
-  }
-  handleEmailChange(e) {
-    this.setState({email: e.target.value});
-  }
-	handleSubmit(e) {
-	    e.preventDefault();
-	    var email = this.state.email.trim();
-
-	    firebase.auth().sendPasswordResetEmail(email).then(function() {
-        // Email sent.
-        alert("Please check your email "+email+" for instructions ");
-      }, function(error) {
-        alert("sorry an error has occured, Please try again")
-      });
-  }
-  render() {
-    return (
-      <div className="Login">
-        <h1>Forgot password</h1>
-        <div className="col-md-4"></div>
-        <div className="form-group col-md-4">
-          <form onSubmit={this.handleSubmit}>
-          	<input type="text" className="form-control" value={this.state.email} onChange={this.handleEmailChange} placeholder="Enter Email" />
-          	<br/>
-            <button type="submit" className="btn btn-default">Submit</button>
-          </form>
-        </div>
+const PasswordReset = () => {
+  const [email, setEmail] = useState("");
+  const [emailHasBeenSent, setEmailHasBeenSent] = useState(false);
+  const [error, setError] = useState(null);
+  const onChangeHandler = event => {
+    const { name, value } = event.currentTarget;
+    if (name === "userEmail") {
+      setEmail(value);
+    }
+  };
+  const sendResetEmail = event => {
+    event.preventDefault();
+  };
+  return (
+    <div className="mt-8">
+      <h1 className="text-xl text-center font-bold mb-3">
+        Reset your Password
+      </h1>
+      <div className="border border-blue-300 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
+        <form action="">
+          {emailHasBeenSent && (
+            <div className="py-3 bg-green-400 w-full text-white text-center mb-3">
+              An email has been sent to you!
+            </div>
+          )}
+          {error !== null && (
+            <div className="py-3 bg-red-600 w-full text-white text-center mb-3">
+              {error}
+            </div>
+          )}
+          <label htmlFor="userEmail" className="w-full block">
+            Email:
+          </label>
+          <input
+            type="email"
+            name="userEmail"
+            id="userEmail"
+            value={email}
+            placeholder="Input your email"
+            onChange={onChangeHandler}
+            className="mb-3 w-full px-1 py-2"
+          />
+          <button
+            className="w-full bg-blue-400 text-white py-3"
+          >
+            Send me a reset link
+          </button>
+        </form>
+        <Link
+         to ="/"
+          className="my-2 text-blue-700 hover:text-blue-800 text-center block"
+        >
+          &larr; back to sign in page
+        </Link>
       </div>
-    );
-  }
-}
-
-export default Recover;
+    </div>
+  );
+};
+export default PasswordReset;
