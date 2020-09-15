@@ -15,6 +15,13 @@ Once you are done installing all the dependencies, to start out making changes c
 
 and ask for environment variables from the dev team and then you can start making actual changes to the deployed site
 
+# Before pushing code or submitting a PR
+
+To run linting and tell you what is wrong with your code
+- npm run lint
+
+To format all the code based on prettier and linting configuration
+- npm run format
 
 
 
