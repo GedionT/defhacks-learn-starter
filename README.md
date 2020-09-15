@@ -3,7 +3,9 @@
 ## Instructions:
 
 To install on your local machine
-- npm clone <repo url.git>
+
+- git clone 'the url.git'
+- cd repo
 - npm install
 
 # To start making actual changes:
@@ -18,10 +20,9 @@ and ask for environment variables from the dev team and then you can start makin
 # Before pushing code or submitting a PR
 
 To run linting and tell you what is wrong with your code
+
 - npm run lint
 
 To format all the code based on prettier and linting configuration
+
 - npm run format
-
-
-
