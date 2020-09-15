@@ -27,3 +27,30 @@ To run linting and tell you what is wrong with your code
 To format all the code based on prettier and linting configuration
 
 - npm run format
+
+# File structure
+
+Most files are configuration related on the root folder. The public folder includes the static files
+to be served for hosting, but pre-build process. All components, styles, pages can be found inside the
+src folder.
+
+## Quick Map
+
+  - def-hacks-learn/
+    - public/
+        - index.html
+        - favicon.ico
+        - assets/
+            - images/
+    - src/
+        - firebase/
+        - components/
+        - styles/
+        - pages/
+        - App.js
+        - Index.js
+   - package.json
+   - README.md
+        
+
+
