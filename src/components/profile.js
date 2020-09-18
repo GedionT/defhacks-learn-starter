@@ -10,13 +10,13 @@ const ProfilePage = () => {
                 `url(https://res.cloudinary.com/dqcsk8rsc/image/upload/v1577268053/avatar-1-bitmoji_upgwhc.png)  no-repeat center center`,
             backgroundSize: "cover",
             height: "200px",
-            width: "200px"
+            width: "200px",
           }}
           className="border border-blue-300"
         ></div>
         <div className = "md:pl-4">
-        <h2 className = "text-2xl font-semibold">Leone</h2>
-        <h3 className = "italic">leonel@gmail.com</h3>
+        <h2 className = "text-2xl font-semibold">John Hankcok</h2>
+        <h3 className = "italic">herocall@gmail.com</h3>
         </div>
       </div>
       <button className = "w-full py-3 bg-red-600 mt-4 text-white">Sign out</button>
