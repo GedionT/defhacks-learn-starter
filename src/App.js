@@ -4,6 +4,7 @@ import './styles/index.css';
 
 // component import
 import Navbar from './components/common/Navbar';
+import Footer from './components/common/Footer';
 // import LogIn from './components/authScreen/Login';
 // import Signup from './components/authScreen/Signup';
 // import Recover from './components/authScreen/Recover';
@@ -22,6 +23,8 @@ function App() {
         <Route path="/dashboard" component={Dashboard} />
         {/* <Route path="/login"  component={LogIn} /> */}
       </Switch>
+
+      <Footer />
     </div>
   );
 }
