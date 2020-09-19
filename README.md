@@ -1,4 +1,4 @@
-# Def Hacks Learn - CS Outreach Website
+# Def Hacks Learn - CS Outreach Website Starter
 
 ## Instructions:
 
@@ -10,14 +10,17 @@ To install on your local machine
 
 # To start making actual changes:
 
-If you are not added as a contributor, you won't be able to make actual changes, therefore,
-once you are done installing all the dependencies, to start out making actual changes that 
-interacts with firebase, create a .env file in the root directory. use:
+If you are not added as a contributor to the repository, you won't be able to make actual
+changes because you are missing the environment variables. Therefore, once you are done 
+installing all the dependencies, to start out making actual changes that interacts with
+firebase, create a .env file in the root directory. 
 
-- "if using bash": touch .env
-- "if running windows cmd": echo '' > .env
+- if using linux or have bash installed, inside your terminal
+    -- touch .env
+- if running windows machine, inside command prompt (cmd)
+    -- echo > .env
 
-and ask for environment variables from the project lead and drop it in the .env file. You 
+Next, ask for environment variables from the project lead and drop it in the .env file. You 
 can now start making your changes to the deployed site.
 
 # Before pushing code or submitting a PR
@@ -56,4 +59,5 @@ src folder.
         
 
 
-# Please enable eslint and prettier extension in your local code editor.
+! Please enable eslint and prettier extension in your local code editor to ensure 
+code fromat rules.
