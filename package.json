@@ -15,6 +15,8 @@
     "react-scripts": "3.4.3"
   },
   "devDependencies": {
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.1.2",
     "typescript": "3.8.3"
   },
   "scripts": {
