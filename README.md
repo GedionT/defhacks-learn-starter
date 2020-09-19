@@ -4,19 +4,21 @@
 
 To install on your local machine
 
-- git clone 'the url.git'
+- git clone 'the_repo_url.git'
 - cd repo
 - npm install
 
 # To start making actual changes:
 
 If you are not added as a contributor, you won't be able to make actual changes, therefore,
-once you are done installing all the dependencies, to start out making changes create a .env file in the root directory
+once you are done installing all the dependencies, to start out making actual changes that 
+interacts with firebase, create a .env file in the root directory. use:
 
-- "on bash": touch .env
-- "on cmd": echo '' > .env
+- "if using bash": touch .env
+- "if running windows cmd": echo '' > .env
 
-and ask for environment variables from the project lead and then you can start making actual changes to the deployed site
+and ask for environment variables from the project lead and drop it in the .env file. You 
+can now start making your changes to the deployed site.
 
 # Before pushing code or submitting a PR
 
@@ -54,3 +56,4 @@ src folder.
         
 
 
+# Please enable eslint and prettier extension in your local code editor.
