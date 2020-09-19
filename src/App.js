@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/index.css';
 
-// component import 
+// component import
 import Navbar from './components/common/Navbar';
 // import LogIn from './components/authScreen/Login';
 // import Signup from './components/authScreen/Signup';
@@ -12,20 +12,16 @@ import Navbar from './components/common/Navbar';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 
-
-
-function App(props) {
-
+function App() {
   return (
     <div className="App">
-    	<Navbar />
+      <Navbar />
 
-		  <Switch>
-    	    <Route path="/" exact component={Home} />
-      		<Route path="/dashboard" component={Dashboard} />
-			{/* <Route path="/login"  component={LogIn} /> */}
-		 </Switch>
-
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/dashboard" component={Dashboard} />
+        {/* <Route path="/login"  component={LogIn} /> */}
+      </Switch>
     </div>
   );
 }
