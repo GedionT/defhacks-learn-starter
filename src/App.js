@@ -6,8 +6,8 @@ import './styles/index.css';
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import LogIn from './components/authscreens/Login';
-// import Signup from './components/authScreens/Signup';
-// import Recover from './components/authScreens/Recover';
+import Signup from './components/authscreens/Signup';
+// import Recover from './components/authscreens/Recover';
 
 // page import
 import Dashboard from './pages/Dashboard';
@@ -22,7 +22,7 @@ function App() {
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/signin" component={LogIn} />
-        {/* <Route exact path="/signup" component={Signup} /> */}
+        <Route exact path="/signup" component={Signup} />
         {/* <Route exact path="/reset" component={Recover} /> */}
       </Switch>
 
