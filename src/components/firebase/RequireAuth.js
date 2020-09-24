@@ -1,4 +1,4 @@
-import firebaseApp from '../firebase/Firebase';
+import firebaseApp from './Firebase';
 
 export default (nextState, replace) => {
   var user = firebaseApp.auth().currentUser;
