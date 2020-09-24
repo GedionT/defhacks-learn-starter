@@ -1,12 +1,25 @@
 import React, { useState } from 'react';
-// import { Link } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
+import firebase from '../firebase/base';
 
-const SignIn = () => {
+const SignIn = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-  const signInWithEmailAndPasswordHandler = (event, email, password) => {
+  const [error, setError] = useState('');
+
+  const signInWithEmailAndPasswordHandler = async (event, email, password) => {
     event.preventDefault();
+
+    await firebase
+      .login(email, password)
+      .then(() => {
+        alert('Login Successful');
+        history.push('/dashboard');
+      })
+      .catch((err) => {
+        alert(`Error: ${err.message}`);
+        setError(`Fix ${err}`);
+      });
   };
 
   const onChangeHandler = (event) => {
@@ -28,7 +41,7 @@ const SignIn = () => {
             {error}
           </div>
         )}
-        <form className="">
+        <form className="" onSubmit={(e) => e.preventDefault() && false}>
           <label htmlFor="userEmail" className="block">
             Email:
           </label>
@@ -37,10 +50,11 @@ const SignIn = () => {
             className="my-1 p-1 w-full"
             name="userEmail"
             value={email}
-            placeholder="E.g: faruq123@gmail.com"
+            placeholder="E.g: lidyaomer@gmail.com"
             id="userEmail"
             onChange={(event) => onChangeHandler(event)}
           />
+          <br />
           <label htmlFor="userPassword" className="block">
             Password:
           </label>
@@ -53,6 +67,7 @@ const SignIn = () => {
             id="userPassword"
             onChange={(event) => onChangeHandler(event)}
           />
+          <br />
           <button
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={(event) => {
@@ -68,14 +83,11 @@ const SignIn = () => {
         </button>
         <p className="text-center my-3">
           Don't have an account?{' '}
-          <Link to="signUp" className="text-blue-500 hover:text-blue-600">
+          <Link to="/signUp" className="text-blue-500 hover:text-blue-600">
             Sign up here
           </Link>{' '}
           <br />{' '}
-          <Link
-            to="passwordReset"
-            className="text-blue-500 hover:text-blue-600"
-          >
+          <Link to="/reset" className="text-blue-500 hover:text-blue-600">
             Forgot Password?
           </Link>
         </p>
@@ -83,4 +95,4 @@ const SignIn = () => {
     </div>
   );
 };
-export default SignIn;
+export default withRouter(SignIn);

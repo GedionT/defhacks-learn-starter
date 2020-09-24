@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
-// import { Link } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
+import firebase from '../firebase/base';
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('');
   const [error, setError] = useState(null);
+
   const createUserWithEmailAndPasswordHandler = (event, email, password) => {
     event.preventDefault();
     setEmail('');
@@ -18,8 +19,6 @@ const SignUp = () => {
       setEmail(value);
     } else if (name === 'userPassword') {
       setPassword(value);
-    } else if (name === 'displayName') {
-      setDisplayName(value);
     }
   };
   return (
