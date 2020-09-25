@@ -3,7 +3,7 @@ import React from 'react';
 function Footer() {
   return (
     <div>
-      <h4>This is Footer Section</h4>
+      <img src="/assets/footer_background.svg" alt="footer shapes" />
     </div>
   );
 }
