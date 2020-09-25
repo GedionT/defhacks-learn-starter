@@ -13,6 +13,9 @@ function Navbar() {
       <Link to="/signin">
         <button className="btn btn-default">Signin</button>
       </Link>
+      <Link to="/signup">
+        <button className="btn btn-default">Signup</button>
+      </Link>
     </div>
   );
 }

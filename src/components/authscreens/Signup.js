@@ -1,17 +1,32 @@
 import React, { useState } from 'react';
-// import { Link } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
+import firebase from '../firebase/base';
 
-const SignUp = () => {
+const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('');
-  const [error, setError] = useState(null);
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+  const [name, setName] = useState('');
+  const [error, setError] = useState('');
+
+  const onRegister = async (event, email, password) => {
     event.preventDefault();
+
+    await firebase
+      .register(name, email, password)
+      .then(() => {
+        alert('Signup Successful');
+        history.replace('/signin');
+      })
+      .catch((err) => {
+        alert(`Error: ${err.message}`);
+        setError(`Fix ${err}`);
+      });
+
     setEmail('');
     setPassword('');
-    setDisplayName('');
+    setName('');
   };
+
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
     if (name === 'userEmail') {
@@ -19,7 +34,7 @@ const SignUp = () => {
     } else if (name === 'userPassword') {
       setPassword(value);
     } else if (name === 'displayName') {
-      setDisplayName(value);
+      setName(value);
     }
   };
   return (
@@ -39,8 +54,8 @@ const SignUp = () => {
             type="text"
             className="my-1 p-1 w-full "
             name="displayName"
-            value={displayName}
-            placeholder="E.g: Faruq"
+            value={name}
+            placeholder="E.g: Odell"
             id="displayName"
             onChange={(event) => onChangeHandler(event)}
           />
@@ -52,7 +67,7 @@ const SignUp = () => {
             className="my-1 p-1 w-full"
             name="userEmail"
             value={email}
-            placeholder="E.g: faruq123@gmail.com"
+            placeholder="E.g: Odel32x@gmail.com"
             id="userEmail"
             onChange={(event) => onChangeHandler(event)}
           />
@@ -71,7 +86,7 @@ const SignUp = () => {
           <button
             className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
             onClick={(event) => {
-              createUserWithEmailAndPasswordHandler(event, email, password);
+              onRegister(event, email, password);
             }}
           >
             Sign up
@@ -83,7 +98,7 @@ const SignUp = () => {
         </button>
         <p className="text-center my-3">
           Already have an account?{' '}
-          <Link to="/" className="text-blue-500 hover:text-blue-600">
+          <Link to="/signin" className="text-blue-500 hover:text-blue-600">
             Sign in here
           </Link>
         </p>
@@ -91,4 +106,5 @@ const SignUp = () => {
     </div>
   );
 };
-export default SignUp;
+
+export default withRouter(SignUp);

@@ -5,9 +5,9 @@ import './styles/index.css';
 // component import
 import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
-// import LogIn from './components/authScreen/Login';
-// import Signup from './components/authScreen/Signup';
-// import Recover from './components/authScreen/Recover';
+import LogIn from './components/authscreens/Login';
+import Signup from './components/authscreens/Signup';
+// import Recover from './components/authscreens/Recover';
 
 // page import
 import Dashboard from './pages/Dashboard';
@@ -21,7 +21,9 @@ function App() {
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" component={Dashboard} />
-        {/* <Route path="/login"  component={LogIn} /> */}
+        <Route exact path="/signin" component={LogIn} />
+        <Route exact path="/signup" component={Signup} />
+        {/* <Route exact path="/reset" component={Recover} /> */}
       </Switch>
 
       <Footer />
