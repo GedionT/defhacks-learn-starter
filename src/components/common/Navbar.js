@@ -3,12 +3,15 @@ import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <div className="Navbar">
+    <div className="Navbar navbar-fixed-top">
       <Link to="/">
         <button className="btn btn-default">Home</button>
       </Link>
       <Link to="/dashboard">
-        <button className="btn btn-default dash-btn">Dashboard</button>
+        <button className="btn btn-default">Dashboard</button>
+      </Link>
+      <Link to="/explore">
+        <button className="btn btn-default">Explore</button>
       </Link>
       <Link to="/signin">
         <button className="btn btn-default">Signin</button>

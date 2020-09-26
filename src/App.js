@@ -12,12 +12,13 @@ import Signup from './components/authscreens/Signup';
 // page import
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import Navbar2 from './components/common/Navbar2';
 
 function App() {
   return (
     <div className="App">
+      <Navbar2 />
       <Navbar />
-
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" component={Dashboard} />
