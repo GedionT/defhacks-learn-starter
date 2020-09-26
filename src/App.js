@@ -4,6 +4,7 @@ import './styles/index.css';
 
 // component import
 import Navbar from './components/common/Navbar';
+import Navbar2 from './components/common/Navbar2';
 import Footer from './components/common/Footer';
 import LogIn from './components/authscreens/Login';
 import Signup from './components/authscreens/Signup';
@@ -12,7 +13,6 @@ import Signup from './components/authscreens/Signup';
 // page import
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
-import Navbar2 from './components/common/Navbar2';
 
 function App() {
   return (
