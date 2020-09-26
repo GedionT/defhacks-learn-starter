@@ -4,7 +4,6 @@ import './styles/index.css';
 
 // component import
 import Navbar from './components/common/Navbar';
-import Navbar2 from './components/common/Navbar2';
 import Footer from './components/common/Footer';
 import LogIn from './components/authscreens/Login';
 import Signup from './components/authscreens/Signup';
@@ -17,14 +16,13 @@ import Home from './pages/Home';
 function App() {
   return (
     <div className="App">
-      <Navbar2 />
       <Navbar />
+      <br />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/signin" component={LogIn} />
         <Route exact path="/signup" component={Signup} />
-        {/* <Route exact path="/reset" component={Recover} /> */}
       </Switch>
 
       <Footer />
