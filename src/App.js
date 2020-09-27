@@ -17,13 +17,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-
+      <br />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/signin" component={LogIn} />
         <Route exact path="/signup" component={Signup} />
-        {/* <Route exact path="/reset" component={Recover} /> */}
       </Switch>
 
       <Footer />
