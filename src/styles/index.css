@@ -13,8 +13,8 @@ body {
 }
 
 .Navbar {
-  margin-top: 15px;
-  margin-bottom: 25px;
+  margin-top: 8px;
+  margin-bottom: 15px;
 }
 
 @media (min-width: 768px) {

@@ -25,9 +25,19 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/dashboard">Dashboard</Nav.Link>
             <Nav.Link href="/explore">Explore</Nav.Link>
+            <Form inline>
+              <FormControl
+                type="text"
+                placeholder="Search"
+                className="md-lg-2"
+              />
+              <Button variant="outline-success">Search</Button>
+            </Form>
+          </Nav>
+          <Nav>
+            <Nav.Link href="/about">About</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Divider />
@@ -36,10 +46,6 @@ function Navigation() {
               <NavDropdown.Item href="/signout">Sign out</NavDropdown.Item>
             </NavDropdown>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-success">Search</Button>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
     </>

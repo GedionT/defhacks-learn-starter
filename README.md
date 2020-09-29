@@ -11,16 +11,16 @@ To install on your local machine
 # To start making actual changes:
 
 If you are not added as a contributor to the repository, you won't be able to make actual
-changes because you are missing the environment variables. Therefore, once you are done 
+changes because you are missing the environment variables. Therefore, once you are done
 installing all the dependencies, to start out making actual changes that interacts with
-firebase, create a .env file in the root directory. 
+firebase, create a .env file in the root directory.
 
 - if using linux or have bash installed, inside your terminal
-    -- touch .env
+  -- touch .env
 - if running windows machine, inside command prompt (cmd)
-    -- echo > .env
+  -- echo > .env
 
-Next, ask for environment variables from the project lead and drop it in the .env file. You 
+Next, ask for environment variables from the project lead and drop it in the .env file. You
 can now start making your changes to the deployed site.
 
 # Before pushing code or submitting a PR
@@ -41,23 +41,23 @@ src folder.
 
 ## Quick Map
 
-  - def-hacks-learn/
-    - public/
-        - index.html
-        - favicon.ico
-        - assets/
-            - images/
-    - src/
-        - firebase/
-        - components/
-        - styles/
-        - pages/
-        - App.js
-        - Index.js
-   - package.json
-   - README.md
-        
+- def-hacks-learn/
+  - public/
+    - index.html
+    - favicon.ico
+    - assets/
+      - images/
+  - src/
+    - components/
+      - authscreens/
+      - common/
+      - firebase/
+    - styles/
+    - pages/
+    - App.js
+    - Index.js
+- package.json
+- README.md
 
-
-! Please enable eslint and prettier extension in your local code editor to ensure 
+! Please enable eslint and prettier extension in your local code editor to ensure
 code format rules.
