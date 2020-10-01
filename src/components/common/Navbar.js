@@ -37,7 +37,7 @@ function Navigation() {
             </Form>
           </Nav>
           <Nav>
-            <Nav.Link href="/about">About</Nav.Link>
+            <Nav.Link href="/About">About</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
               <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
               <NavDropdown.Divider />
