@@ -12,6 +12,7 @@ import Signup from './components/authscreens/Signup';
 // page import
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
+import About from './pages/About';
 
 function App() {
   return (
@@ -23,8 +24,8 @@ function App() {
         <Route path="/dashboard" component={Dashboard} />
         <Route exact path="/signin" component={LogIn} />
         <Route exact path="/signup" component={Signup} />
+        <Route exact path="/about" component={About} />
       </Switch>
-
       <Footer />
     </div>
   );
