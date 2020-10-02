@@ -1,17 +1,11 @@
 import React from 'react';
-import {
-  Navbar,
-  Nav,
-  NavDropdown,
-  Button,
-  Form,
-  FormControl,
-} from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import '../../styles/navbar.css';
 
 function Navigation() {
   return (
     <>
-      <Navbar bg="white" expand="lg">
+      <Navbar bg="white" expand="lg" className="sticky-top">
         <Navbar.Brand href="/">
           <img
             alt=""
@@ -25,17 +19,14 @@ function Navigation() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Nav.Link href="/dashboard">Dashboard</Nav.Link>
+            <Nav.Link href="/dashboard">Home</Nav.Link>
             <Nav.Link href="/explore">Explore</Nav.Link>
-            <Form inline>
-              <FormControl
-                type="text"
-                placeholder="Search"
-                className="md-lg-2"
-              />
-              <Button variant="outline-success">Search</Button>
-            </Form>
           </Nav>
+          <div className="center-search">
+            <Form inline>
+              <FormControl type="text" placeholder="🔍 Search..." />
+            </Form>
+          </div>
           <Nav>
             <Nav.Link href="/About">About</Nav.Link>
             <NavDropdown title="Account" id="basic-nav-dropdown">
