@@ -1,0 +1,60 @@
+body{
+    background-color: #EEFFEE;
+}
+
+.exist-title{
+    position: absolute;
+    width: 813px;
+    height: 75px;
+    left: 461px;
+    top: 162px;
+
+    font-family: IBM Plex Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 62px;
+
+    color: #000000;
+
+}
+
+.exist-course{
+    position: absolute;
+    width: 1020px;
+    height: 574px;
+    left: 390px;
+    top: 315px;
+
+    background: #FFD883;    
+}
+
+.exist-menu{
+    position: absolute;
+    width: 210px;
+    height: 35px;
+    left: 59px;
+    top: 239px;
+
+    font-family: Karla;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 36px;
+    line-height: 42px;
+    text-align: center;
+
+    color: #000000;
+    background: #FFE2E2;
+
+}
+
+.sub-menu{
+    position: absolute;
+    width: 266px;
+    height: 69px;
+    left: 31px;
+    top: 222px;
+
+    background: #FFE2E2;
+
+}

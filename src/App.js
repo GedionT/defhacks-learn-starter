@@ -13,6 +13,7 @@ import Signup from './components/authscreens/Signup';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import About from './pages/About';
+import ExistUser from './pages/ExistUser';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/signin" component={LogIn} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/ExistUser" component={ExistUser} />
       </Switch>
       <Footer />
     </div>
