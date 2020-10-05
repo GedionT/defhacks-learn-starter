@@ -239,3 +239,45 @@ body{
     background: #FFE2E2;
     transform: matrix(-1, 0, 0, 1, 0, 0);
 }
+
+.box-content-acc{
+    position: absolute;
+    width: 1043px;
+    height: 509px;
+    left: 446px;
+    top: 436px;
+}
+
+.box-content-acc-text{
+    position: absolute;
+    width: 946px;
+    height: 502px;
+    left: 446px;
+    top: 443px;
+
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 33px;
+    text-align: left;
+    line-height: 43px;
+
+    color: #000000;
+}
+
+.box-title-acc{
+    position: absolute;
+    width: 841px;
+    height: 79px;
+    left: 439px;
+    top: 340px;
+
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 78px;
+
+    color: #000000;
+
+}
