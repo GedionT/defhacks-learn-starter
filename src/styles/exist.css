@@ -9,7 +9,7 @@ body{
     left: 461px;
     top: 162px;
 
-    font-family: IBM Plex Mono;
+    font-family: JetBrains Mono;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -19,24 +19,51 @@ body{
 
 }
 
+.exist-pattern
+{
+    position: absolute;
+    width: 462.74px;
+    height: 896.36px;
+    left: 235.26px;
+    top: 97.3px;
+
+    background: #FAF7B7;
+    transform: rotate(48.63deg);
+}
+
+.blue-box-1{
+    position: absolute;
+    width: 1022px;
+    height: 134px;
+    left: 363px;
+    top: 156px;
+
+    background: rgba(219, 218, 255, 0.6);
+}
+
+.blue-box-2{
+    position: absolute;
+    width: 1022px;
+    height: 134px;
+    left: 388px;
+    top: 132px;
+
+    background: #DBDAFF;
+
+}
+
 .exist-course{
     position: absolute;
     width: 1020px;
     height: 574px;
     left: 390px;
-    top: 315px;
-
-    background: #FFD883;    
+    top: 315px;   
 }
 
 .exist-menu{
     position: absolute;
-    width: 210px;
-    height: 35px;
-    left: 59px;
-    top: 239px;
 
-    font-family: Karla;
+    font-family: JetBrains Mono;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -44,11 +71,10 @@ body{
     text-align: center;
 
     color: #000000;
-    background: #FFE2E2;
 
 }
 
-.sub-menu{
+.sub-menu-1{
     position: absolute;
     width: 266px;
     height: 69px;
@@ -57,4 +83,159 @@ body{
 
     background: #FFE2E2;
 
+}
+.sub-menu-2{
+    position: absolute;
+    width: 266px;
+    height: 69px;
+    left: 31px;
+    top: 332px;
+
+    background: #FFE2E2;
+
+
+}
+.sub-menu-3{
+    position: absolute;
+    width: 266px;
+    height: 69px;
+    left: 31px;
+    top: 442px;
+
+    background: #FFE2E2;
+
+}
+.sub-menu-4{
+    position: absolute;
+    width: 266px;
+    height: 69px;
+    left: 31px;
+    top: 552px;
+
+    background: #FFE2E2;
+
+}
+.sub-menu-5{
+    position: absolute;
+    width: 266px;
+    height: 69px;
+    left: 31px;
+    top: 662px;
+
+    background: #FFE2E2;   
+
+}
+
+.content-box-1{
+    position: absolute;
+    width: 1020px;
+    height: 574px;
+    left: 363px;
+    top: 343px;
+
+    background: rgba(255, 216, 131, 0.4);
+}
+
+.content-box-2{
+    position: absolute;
+    width: 1020px;
+    height: 574px;
+    left: 390px;
+    top: 315px;
+
+    background: #FFD883;
+
+}
+
+.box-title{
+    position: absolute;
+    width: 447px;
+    height: 74px;
+    left: 428px;
+    top: 346px;
+
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 60px;
+    line-height: 78px;
+
+    color: #222222;
+
+}
+
+.box-content{
+    position: absolute;
+    width: 933px;
+    height: 323px;
+    left: 428px;
+    top: 460px;
+
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 48px;
+    line-height: 62px;
+    text-align: left;
+
+    color: #222222;
+}
+
+.mini-progress-1{
+    width: 170px;
+    height: 28px;
+    left: 428px;
+    top: 554px;
+
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+/* identical to box height */
+
+
+    color: #222222;
+
+
+}
+
+.mini-progress-2{
+    position: absolute;
+    width: 170px;
+    height: 28px;
+    left: 428px;
+    top: 745px;
+
+    font-family: JetBrains Mono;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 24px;
+    line-height: 28px;
+    /* identical to box height */
+
+
+    color: #222222;
+}
+
+.shape-tri{
+    position: absolute;
+    width: 611.99px;
+    height: 275.3px;
+    left: 1204.19px;
+    top: 1064.36px;
+
+    background: #C1BFEE;
+    transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
+}
+
+.shape-circle{
+    position: absolute;
+    width: 295px;
+    height: 295px;
+    left: 1566.85px;
+    top: 149px;
+
+    background: #FFE2E2;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
 }

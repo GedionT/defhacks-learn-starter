@@ -4,31 +4,34 @@ import '../styles/exist.css';
 function ExistUser() {
   return (
     <div className="exist-main">
+      <div className="exist-menu">
+        <div className="exist-pattern"></div>
+        <div className="shape-circle"></div>
+        <div className="shape-tri"></div>
+        <div className="sub-menu-1">Account</div>
+        <br />
+        <div className="sub-menu-2">Courses</div>
+        <br />
+        <div className="sub-menu-3">Activity</div>
+        <br />
+        <div className="sub-menu-4">Settings</div>
+        <br />
+        <div className="sub-menu-5">About</div>
+      </div>
+      <div className="blue-box-1"></div>
+      <div className="blue-box-2"></div>
       <div className="exist-title">Welcome back, $username!</div>
       <br />
-      <div className="exist-menu">
-        <div className="sub-menu">
-          Account
-          <br />
-          Courses
-          <br />
-          Activity
-          <br />
-          Settings
-          <br />
-          About
-        </div>
-      </div>
-      <div className="exist-course">
-        My Courses
-        <br />
+      <div className="content-box-1"></div>
+      <div className="content-box-2"></div>
+      <div className="box-title">My Courses</div>
+      <div className="box-content">
         Intro to HTML, CSS
         <br />
-        65% complete
+        <div className="mini-progress-1">Percent</div>
         <br />
         Intro to Git
         <br />
-        50% complete
         <br />
       </div>
     </div>
