@@ -1,0 +1,61 @@
+.title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 28px;
+  font-weight: bold;
+  text-shadow: 3px 3px #b6cdb8;
+}
+
+.greetingPart1 {
+  width: 500px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 110px;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+}
+
+.getStartedButton {
+  background-color: #62a337;
+  color: #ffffff;
+  box-shadow: -5px 5px #c5cfd6;
+  margin-top: auto;
+  border: none;
+  width: 125px;
+  height: 40px;
+  font-family: 'Karla', sans-serif;
+}
+
+.getStartedButton:hover {
+  background-color: #3b7217;
+  box-shadow: none;
+  margin: 5px -5px;
+}
+
+.scroll {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 8px;
+}
+
+.mid {
+  position: absolute;
+  margin-top: 40px;
+  background-image: url('/assets/shapes_middle_min.svg');
+  background-size: 100%;
+  align-self: center;
+  background-repeat: no-repeat;
+  top: 100%;
+}
+
+.homeQuestion {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 28px;
+  width: 900px;
+  height: 50px;
+  border: 1px solid black;
+  background: #dcebd3;
+  box-shadow: 50px -30px rgba(94, 146, 225, 0.35);
+}
