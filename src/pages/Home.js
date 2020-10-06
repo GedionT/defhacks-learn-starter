@@ -15,7 +15,7 @@ function Home() {
             <h1 className="title"> DEF HACKS LEARN </h1>
             <br />
             <p className="greetingPart1">
-              Welcome <bold>Def-Hackers!</bold> Take your future into your own
+              Welcome <mark>Def-Hackers!</mark> Take your future into your own
               hands and dive into your first computer science course today,{' '}
               <em>for free!</em>
             </p>

@@ -38,6 +38,8 @@
   position: absolute;
   margin-top: -50px;
   margin-left: 8px;
+  background-color: #eeffee;
+  border: none;
 }
 
 .mid {
