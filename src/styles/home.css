@@ -42,6 +42,11 @@
   border: none;
 }
 
+.scroll:hover {
+  position: absolute;
+  margin-top: -45px;
+}
+
 .mid {
   position: absolute;
   margin-top: 40px;
