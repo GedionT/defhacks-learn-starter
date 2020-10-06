@@ -1,4 +1,9 @@
 .center-search {
-  position: absolute;
-  margin-left: 320px;
+  margin: 0px auto;
+  text-align: center;
+  max-width: 500px;
+}
+
+.search-input:focus {
+  background-color: #f1f5f1;
 }
