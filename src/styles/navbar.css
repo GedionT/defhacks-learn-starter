@@ -7,3 +7,7 @@
 .search-input:focus {
   background-color: #f1f5f1;
 }
+
+.search {
+  color: #62a337;
+}
