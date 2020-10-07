@@ -12,7 +12,7 @@ function Home() {
             <img src="/assets/guy_left_min.svg" alt="male with a desktop" />
           </div>
           <div className="col-xs-6">
-            <h1 className="title"> DEF HACKS LEARN </h1>
+            <h1 className="title"> Def Hacks Learn</h1>
             <br />
             <p className="greetingPart1">
               Welcome <mark>Def-Hackers!</mark> Take your future into your own
@@ -29,27 +29,24 @@ function Home() {
             <img src="/assets/lady_right_min.svg" alt="female with a laptop" />
           </div>
         </div>
-        <button className="scroll" type="button">
-          <span role="img" aria-label="pointer">
-            🔰
-          </span>
-        </button>
       </div>
       <br />
       <div className="mid">
         <p className="homeQuestion"> Why Computer Science? </p>
-        <article>
-          hello info this is lorum epusm dolor sadat dchangehello info this is
-          lorum epusm dolor sadat dchangehello info this is lorum epusm dolor
-          sadat dchangehello info this is lorum epusm dolor sadat dchangehello
-          info this is lorum epusm dolor sadat dchangehello info this is lorum
-          epusm dolor sadat dchangehello info this is lorum epusm dolor sadat
-          cerhello info this is lorum epusm dolor sadat dchangehello info this
-          is lorum epusm dolor sadat dchangehello info this is lorum epusm dolor
-          sadat dchangehello info this is lorum epusm dolor sadat dchangehello
-          info this is lorum epusm dolor sadat dchangehello info this is lorum
-          epusm dolor sadat dchangehello info this is lorum epusm dolor sadat
-        </article>
+        <div className="homeAnswer">
+          <article>
+            Technology is seeping into just about every line of work. It’s
+            become necessary for everyone to learn about computers, an integral
+            part of our lives. No matter what you do, computer science will be
+            relevant!
+          </article>
+        </div>
+      </div>
+      <div className="end">
+        <p className="hook">So what are you waiting for?</p>
+        <Link to="/signup">
+          <button className="registerNowButton">Register Now!</button>
+        </Link>
       </div>
     </div>
   );
