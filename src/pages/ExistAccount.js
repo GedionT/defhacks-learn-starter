@@ -1,5 +1,6 @@
 import React from 'react';
 import '../styles/exist.css';
+import { Link } from 'react-router-dom';
 
 function ExistAccount() {
   return (
@@ -8,11 +9,17 @@ function ExistAccount() {
         <div className="exist-pattern"></div>
         <div className="shape-circle"></div>
         <div className="shape-tri"></div>
-        <div className="sub-menu-1">Account</div>
+        <div className="sub-menu-1">
+          <Link to="/ExistAccount">Account</Link>
+        </div>
         <br />
-        <div className="sub-menu-2">Courses</div>
+        <div className="sub-menu-2">
+          <Link to="/ExistUser">Courses</Link>
+        </div>
         <br />
-        <div className="sub-menu-3">Activity</div>
+        <div className="sub-menu-3">
+          <Link to="/ExistActivity">Activity</Link>
+        </div>
         <br />
         <div className="sub-menu-4">Settings</div>
         <br />

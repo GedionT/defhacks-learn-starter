@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 
-function ExistUser() {
+function ExistActivity() {
   return (
     <div className="exist-main">
       <div className="exist-menu">
@@ -27,22 +27,22 @@ function ExistUser() {
       </div>
       <div className="blue-box-1"></div>
       <div className="blue-box-2"></div>
-      <div className="exist-title">Welcome back, $username!</div>
+      <div className="exist-title">$username</div>
       <br />
-      <div className="content-box-1"></div>
-      <div className="content-box-2"></div>
-      <div className="box-title">My Courses</div>
-      <div className="box-content">
-        Intro to HTML, CSS
-        <br />
-        <div className="mini-progress-1">Percent</div>
-        <br />
-        Intro to Git
-        <br />
-        <br />
+      <div className="green-box-1"></div>
+      <div className="green-box-2"></div>
+      <div className="act-cont">Daily Activity</div>
+      <div className="cal-act">
+        <img
+          alt=""
+          src="/assets/16.0_1-JavaScript-date.png"
+          width="400"
+          height="550"
+          className="bottom-lines-right"
+        />{' '}
       </div>
     </div>
   );
 }
 
-export default ExistUser;
+export default ExistActivity;

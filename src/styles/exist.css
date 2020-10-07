@@ -281,3 +281,51 @@ body{
     color: #000000;
 
 }
+
+.green-box-1{
+    position: absolute;
+    width: 1020px;
+    height: 574px;
+    left: 345px;
+    top: 350px;
+
+    background: rgba(167, 215, 136, 0.6);
+    border-radius: 6px; 
+}
+
+.green-box-2{
+    position: absolute;
+    width: 1020px;
+    height: 574px;
+    left: 372px;
+    top: 323px;
+
+    background: #A7D788;
+    border-radius: 6px;
+}
+
+.act-cont{
+    position: absolute;
+width: 292px;
+height: 54px;
+left: 701px;
+top: 358px;
+
+font-family: Calibri;
+font-style: normal;
+font-weight: bold;
+font-size: 45px;
+line-height: 54px;
+text-align: center;
+
+color: #FFFFFF;
+
+}
+
+.cal-act{
+    position: absolute;
+    width: 350px;
+    height: 200px;
+    left: 350px;
+    top: 400px;
+}
