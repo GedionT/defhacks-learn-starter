@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import firebase from '../firebase/base';
 
+import './Signup.css';
+
 const SignUp = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -45,43 +47,87 @@ const SignUp = ({ history }) => {
             <h5>{error}</h5>
           </div>
         )}
-        <form className="">
-          <label htmlFor="displayName" className="block">
-            Display Name:
+        <span className="greeting">
+          <h1 className="start">Welcome!</h1>
+          <p className="description">Sign up to join the fun!</p>
+        </span>
+        <form className="form">
+          {' '}
+          <label htmlFor="firstName" className="block">
+            First Name
           </label>
           <input
             type="text"
-            className="my-1 p-1 w-full "
-            name="displayName"
+            className="mt-1 mb-3 p-1 w-full"
+            name="firstName"
             value={name}
-            placeholder="E.g: Odell"
-            id="displayName"
+            placeholder="John"
+            id="firstName"
+            onChange={(event) => onChangeHandler(event)}
+          />
+          <br />
+          <label htmlFor="lastName" className="block">
+            Last Name
+          </label>
+          <input
+            type="text"
+            className="mt-1 mb-3 p-1 w-full"
+            name="lastName"
+            value={name}
+            placeholder="Doe"
+            id="lastName"
             onChange={(event) => onChangeHandler(event)}
           />
           <br />
           <label htmlFor="userEmail" className="block">
-            Email:
+            Email
           </label>
           <input
             type="email"
-            className="my-1 p-1 w-full"
+            className="mt-1 mb-3 p-1 w-full"
             name="userEmail"
             value={email}
-            placeholder="E.g: Odel32x@gmail.com"
+            placeholder="johndoe@gmail.com"
             id="userEmail"
             onChange={(event) => onChangeHandler(event)}
           />
           <br />
           <label htmlFor="userPassword" className="block">
-            Password:
+            Password
           </label>
           <input
             type="password"
             className="mt-1 mb-3 p-1 w-full"
             name="userPassword"
             value={password}
-            placeholder="Your Password"
+            placeholder="123456"
             id="userPassword"
+            onChange={(event) => onChangeHandler(event)}
+          />
+          <br />
+          <label htmlFor="confirmPassword" className="block">
+            Confirm Password
+          </label>
+          <input
+            type="password"
+            className="mt-1 mb-3 p-1 w-full"
+            name="confirmPassword"
+            value={password}
+            placeholder="123456"
+            id="confirmPassword"
+            onChange={(event) => onChangeHandler(event)}
+          />
+          <br />
+          <label htmlFor="country" className="block">
+            Country
+          </label>
+          <input
+            type="text"
+            className="mt-1 mb-3 p-1 w-full"
+            name="country"
+            value={password}
+            placeholder="USA"
+            id="country"
             onChange={(event) => onChangeHandler(event)}
           />
           <br />
@@ -91,17 +137,13 @@ const SignUp = ({ history }) => {
               onRegister(event, email, password);
             }}
           >
-            Sign up
+            Register
           </button>
         </form>
-        <p className="text-center my-3">or</p>
-        <button className="bg-red-500 hover:bg-red-600 w-full py-2">
-          Sign In with Google
-        </button>
         <p className="text-center my-3">
           Already have an account?{' '}
           <Link to="/signin" className="text-blue-500 hover:text-blue-600">
-            Sign in here
+            Login here
           </Link>
         </p>
       </div>

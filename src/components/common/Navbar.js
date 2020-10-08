@@ -1,43 +1,44 @@
 import React from 'react';
-import { Navbar, Nav, NavDropdown, Form, FormControl } from 'react-bootstrap';
+import { Navbar, Nav, NavDropdown, Form } from 'react-bootstrap';
+import SearchIcon from '@material-ui/icons/Search';
 import '../../styles/navbar.css';
 
 function Navigation() {
   return (
     <>
-      <Navbar bg="white" expand="lg" className="sticky-top">
+      <Navbar bg="white" className="sticky-top">
         <Navbar.Brand href="/">
           <img
-            alt=""
+            alt="logo"
             src="/assets/logo.png"
             width="30"
             height="30"
             className="d-inline-block align-top"
           />{' '}
-          DEF HACKS LEARN
         </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="mr-auto">
-            <Nav.Link href="/dashboard">Home</Nav.Link>
-            <Nav.Link href="/explore">Explore</Nav.Link>
-          </Nav>
-          <div className="center-search">
-            <Form inline>
-              <FormControl type="text" placeholder="🔍 Search..." />
-            </Form>
-          </div>
-          <Nav>
-            <Nav.Link href="/About">About</Nav.Link>
-            <NavDropdown title="Account" id="basic-nav-dropdown">
-              <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="/signin">Sign in</NavDropdown.Item>
-              <NavDropdown.Item href="/signup">Sign up</NavDropdown.Item>
-              <NavDropdown.Item href="/signout">Sign out</NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+        <Nav className="mr-auto">
+          <Nav.Link href="/dashboard">Home</Nav.Link>
+          <Nav.Link href="/explore">Explore</Nav.Link>
+        </Nav>
+        <Form className="center-search">
+          <input
+            className="search-input"
+            width="100%"
+            type="text"
+            placeholder="Search..."
+          />
+          <SearchIcon className="search" style={{ fontSize: 30 }} />
+        </Form>
+        <Nav className="ml-auto">
+          <Nav.Link href="/About">About</Nav.Link>
+          <NavDropdown title="Account" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="/signin">Login</NavDropdown.Item>
+            <NavDropdown.Item href="/signup">Register</NavDropdown.Item>
+            <NavDropdown.Item href="/signout">Logout</NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
       </Navbar>
     </>
   );

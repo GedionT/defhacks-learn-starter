@@ -1,0 +1,126 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+.container-fluid {
+  display: flex;
+  justify-content: center;
+}
+
+.title {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 45px;
+  font-weight: bold;
+  text-shadow: 3px 3px #b6cdb8;
+}
+
+.greetingPart1 {
+  width: 500px;
+  height: 30px;
+  top: 50%;
+  left: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 110px;
+  font-family: 'Karla', sans-serif;
+  font-size: 20px;
+}
+
+.getStartedButton {
+  background-color: #62a337;
+  color: #ffffff;
+  border: none;
+  box-shadow: -5px 5px #c5cfd6;
+  margin-top: auto;
+  width: 125px;
+  height: 40px;
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+}
+
+.getStartedButton:hover {
+  background-color: #84b960;
+  box-shadow: none;
+  margin: 5px -5px;
+}
+
+.scroll {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: 8px;
+  background-color: #eeffee;
+}
+
+.mid {
+  position: absolute;
+  margin-top: 40px;
+  background-image: url('/assets/shapes_middle_min.svg');
+  background-size: 100%;
+  align-self: center;
+  background-repeat: no-repeat;
+}
+
+.homeQuestion {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 28px;
+  width: 900px;
+  height: 50px;
+  background: #dcebd3;
+  box-shadow: 25px -15px rgba(94, 146, 225, 0.35);
+  bottom: 510px;
+}
+
+article {
+  font-family: 'Karla', sans-serif;
+  font-size: 35px;
+  color: #222222;
+  margin-left: 1080px;
+  width: 600px;
+  padding-right: 30px;
+  text-align: right;
+  background: #faf7b7;
+  box-shadow: 40px -30px rgba(219, 218, 225, 0.6);
+  z-index: 100;
+  margin-top: 70px;
+  margin-bottom: 400px;
+}
+
+.end {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 600px;
+}
+
+.hook {
+  position: absolute;
+  font-size: 70px;
+  font-family: 'Inter', sans-serif;
+  font-style: italic;
+  text-align: center;
+  width: 1000px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #dcf0d0;
+}
+
+.registerNowButton {
+  background-color: #99c87a;
+  color: #ffffff;
+  border: none;
+  box-shadow: -55px 55px rgba(255, 176, 0, 0.28);
+  margin-top: auto;
+  width: 750px;
+  height: 140px;
+  font-size: 75px;
+  font-family: 'Karla', sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 5px 3px #b6cdb8;
+  margin-top: 350px;
+  margin-left: 500px;
+}
+
+.registerNowButton:hover {
+  background-color: #84b960;
+  box-shadow: none;
+}

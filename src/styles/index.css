@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
 body {
   margin: 0;
   padding: 0;
@@ -11,7 +14,7 @@ body {
 }
 
 .Home {
-  padding-top: 15px;
+  padding-top: 35px;
 }
 
 .Navbar {
@@ -20,10 +23,14 @@ body {
 }
 
 .footer {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.copyright {
+  font-family: 'Karla', sans-serif;
+  color: #777777;
 }
 
 @media (min-width: 768px) {
