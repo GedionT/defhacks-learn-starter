@@ -1,3 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
 body{
     background-color: #EEFFEE;
 }
@@ -9,7 +13,7 @@ body{
     left: 461px;
     top: 162px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -63,7 +67,7 @@ body{
 .exist-menu{
     position: absolute;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: bold;
     font-size: 36px;
@@ -154,7 +158,7 @@ body{
     left: 428px;
     top: 346px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: 600;
     font-size: 60px;
@@ -171,7 +175,7 @@ body{
     left: 428px;
     top: 460px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: normal;
     font-size: 48px;
@@ -187,7 +191,7 @@ body{
     left: 428px;
     top: 554px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -207,7 +211,7 @@ body{
     left: 428px;
     top: 745px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: normal;
     font-size: 24px;
@@ -255,7 +259,7 @@ body{
     left: 446px;
     top: 443px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: 300;
     font-size: 33px;
@@ -272,7 +276,7 @@ body{
     left: 439px;
     top: 340px;
 
-    font-family: JetBrains Mono;
+    font-family: IBM Plex Mono;
     font-style: normal;
     font-weight: 600;
     font-size: 60px;
@@ -311,7 +315,7 @@ height: 54px;
 left: 701px;
 top: 358px;
 
-font-family: Calibri;
+font-family: Karla;
 font-style: normal;
 font-weight: bold;
 font-size: 45px;
@@ -328,4 +332,22 @@ color: #FFFFFF;
     height: 200px;
     left: 350px;
     top: 400px;
+}
+
+.color{
+    color: #000000;
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    background: linear-gradient(to right, gold, gold 50%, black 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: background-position 275ms ease;
+}
+
+.color:hover{
+    background-position: 0 100%;
 }
