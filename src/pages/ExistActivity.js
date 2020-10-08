@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/exist.css';
 import { Link } from 'react-router-dom';
+import Calendar from '../components/calendar/calendar';
 
 function ExistActivity() {
   return (
@@ -43,13 +44,7 @@ function ExistActivity() {
       <div className="green-box-2"></div>
       <div className="act-cont">Daily Activity</div>
       <div className="cal-act">
-        <img
-          alt=""
-          src="/assets/16.0_1-JavaScript-date.png"
-          width="400"
-          height="550"
-          className="bottom-lines-right"
-        />{' '}
+        <Calendar className="cal-act-1" />
       </div>
     </div>
   );

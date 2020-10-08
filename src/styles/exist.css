@@ -328,10 +328,10 @@ color: #FFFFFF;
 
 .cal-act{
     position: absolute;
-    width: 350px;
-    height: 200px;
-    left: 350px;
-    top: 400px;
+    width: 400px;
+    height: 450px;
+    left: 650px;
+    top: 475px;
 }
 
 .color{
@@ -350,4 +350,9 @@ color: #FFFFFF;
 
 .color:hover{
     background-position: 0 100%;
+}
+
+.cal-act-1{
+    color: black;
+    --fc-border-color: black;
 }
