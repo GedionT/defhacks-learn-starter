@@ -13,6 +13,9 @@ import Signup from './components/authscreens/Signup';
 import Dashboard from './pages/Dashboard';
 import Home from './pages/Home';
 import About from './pages/About';
+import ExistUser from './pages/ExistUser';
+import ExistAccount from './pages/ExistAccount';
+import ExistActivity from './pages/ExistActivity';
 
 function App() {
   return (
@@ -25,6 +28,9 @@ function App() {
         <Route exact path="/signin" component={LogIn} />
         <Route exact path="/signup" component={Signup} />
         <Route exact path="/about" component={About} />
+        <Route exact path="/ExistUser" component={ExistUser} />
+        <Route exact path="/ExistAccount" component={ExistAccount} />
+        <Route exact path="/ExistActivity" component={ExistActivity} />
       </Switch>
       <Footer />
     </div>
