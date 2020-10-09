@@ -7,6 +7,7 @@ import Navbar from './components/common/Navbar';
 import Footer from './components/common/Footer';
 import LogIn from './components/authscreens/Login';
 import Signup from './components/authscreens/Signup';
+//import Calendar from './components/calendar/calendar';
 // import Recover from './components/authscreens/Recover';
 
 // page import
