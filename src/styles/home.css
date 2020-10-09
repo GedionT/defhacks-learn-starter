@@ -14,8 +14,11 @@
   text-shadow: 3px 3px #b6cdb8;
 }
 
-.greetingPart1 {
-  width: 500px;
+.personWithComputer {
+  width: 100%;
+}
+
+.greetingPart {
   height: 30px;
   top: 50%;
   left: 50%;
