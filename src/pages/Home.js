@@ -40,18 +40,20 @@ function Home() {
       </div>
       <br />
       <div className="mid">
-        <p className="homeQuestion"> Why Computer Science? </p>
-        <div className="homeAnswer">
-          <article>
+        <p className="homeQuestion col-5"> Why Computer Science? </p>
+        <div className="d-flex justify-content-end m-5 homeAnswer">
+          <p className="p-2">
             Technology is seeping into just about every line of work. It’s
             become necessary for everyone to learn about computers, an integral
             part of our lives. No matter what you do, computer science will be
             relevant!
-          </article>
+          </p>
         </div>
       </div>
-      <div className="end">
-        <p className="hook">So what are you waiting for?</p>
+      <div className="col-8 col-md-7">
+        <div className="mt-5">
+          <p className="col-5 hook">So what are you waiting for?</p>
+        </div>
         <Link to="/signup">
           <button className="registerNowButton">Register Now!</button>
         </Link>
