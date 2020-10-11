@@ -47,11 +47,11 @@ const SignUp = ({ history }) => {
             <h5>{error}</h5>
           </div>
         )}
-        <span className="greeting">
+        <span className="col-2 greeting">
           <h1 className="start">Welcome!</h1>
           <p className="description">Sign up to join the fun!</p>
         </span>
-        <form className="form">
+        <form className="col-12 form">
           {' '}
           <label htmlFor="firstName" className="block">
             First Name

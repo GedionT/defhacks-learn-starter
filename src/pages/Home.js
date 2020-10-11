@@ -7,14 +7,18 @@ function Home() {
     <div className="Home">
       <div className="container-fluid">
         <div className="row">
-          <div className="col-xs-3">
+          <div className="col-3 d-none d-md-flex">
             <br />
-            <img src="/assets/guy_left_min.svg" alt="male with a desktop" />
+            <img
+              src="/assets/guy_left_min.svg"
+              alt="male with a desktop"
+              className="personWithComputer"
+            />
           </div>
-          <div className="col-xs-6">
+          <div className="col-12 col-md-6">
             <h1 className="title"> Def Hacks Learn</h1>
             <br />
-            <p className="greetingPart1">
+            <p className="greetingPart">
               Welcome <mark>Def-Hackers!</mark> Take your future into your own
               hands and dive into your first computer science course today,{' '}
               <em>for free!</em>
@@ -25,27 +29,31 @@ function Home() {
               </button>
             </Link>
           </div>
-          <div className="col-xs-3">
-            <img src="/assets/lady_right_min.svg" alt="female with a laptop" />
+          <div className="col-3 d-none d-md-flex">
+            <img
+              src="/assets/lady_right_min.svg"
+              alt="female with a laptop"
+              className="personWithComputer"
+            />
           </div>
         </div>
       </div>
       <br />
       <div className="mid">
-        <p className="homeQuestion"> Why Computer Science? </p>
-        <div className="homeAnswer">
-          <article>
+        <p className="homeQuestion col-5"> Why Computer Science? </p>
+        <div className="d-flex justify-content-end m-5 homeAnswer">
+          <p className="">
             Technology is seeping into just about every line of work. It’s
             become necessary for everyone to learn about computers, an integral
             part of our lives. No matter what you do, computer science will be
             relevant!
-          </article>
+          </p>
         </div>
       </div>
       <div className="end">
-        <p className="hook">So what are you waiting for?</p>
+        <p className="col-8 col-md-7 hook">So what are you waiting for?</p>
         <Link to="/signup">
-          <button className="registerNowButton">Register Now!</button>
+          <button className="col-5 registerNowButton">Register Now!</button>
         </Link>
       </div>
     </div>

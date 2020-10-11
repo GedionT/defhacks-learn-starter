@@ -4,6 +4,7 @@
 
 .greeting {
   font-family: 'Inter', sans-serif;
+  margin-left: 500px !important;
 }
 
 .start {
@@ -18,14 +19,12 @@
 
 .form {
   height: 875px;
-  width: 500px;
   justify-content: center;
-  margin-left: 575px;
 }
 
-.block {
+.form label {
   display: flex;
-  justify-content: flex-start;
+  justify-content: center;
   text-align: left;
   font-family: 'Karla', sans-serif;
 }
