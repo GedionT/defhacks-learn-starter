@@ -15,7 +15,7 @@ const SignUp = ({ history }) => {
       .register(name, email, password)
       .then(() => {
         alert('Signup Successful');
-        history.replace('/signin');
+        history.replace('/newuser');
       })
       .catch((err) => {
         alert(`Error: ${err.message}`);
