@@ -1,11 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
 .upper-about {
   background-color: #cde6f8;
   position: absolute;
   left: 2%;
-  font-family: IBM Plex Mono;
+  font-family: 'IBM Plex Mono', monospace;
   font-style: italic;
   font-weight: 500;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 40px;
   text-align: center;
   letter-spacing: 0.01em;
@@ -26,10 +29,10 @@
   width: 50%;
   height: 70%;
   stroke: Solid rgba(98, 163, 55, 0.4);
-  font-family: Karla;
+  font-family: 'Karla', sans-serif;
   font-style: normal;
   font-weight: normal;
-  font-size: 30px;
+  font-size: 24px;
   line-height: 40px;
   text-align: center;
   letter-spacing: 0.01em;
