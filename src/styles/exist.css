@@ -241,6 +241,7 @@ body{
     top: 149px;
 
     background: #FFE2E2;
+    border-radius: 65%;
     transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
