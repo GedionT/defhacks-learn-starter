@@ -2,6 +2,10 @@ import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
+import 'bootstrap/dist/css/bootstrap.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import bootstrapPlugin from '@fullcalendar/bootstrap';
+import 'bootswatch/dist/cosmo/bootstrap.min.css';
 
 export default class DemoApp extends React.Component {
   state = {
@@ -14,7 +18,7 @@ export default class DemoApp extends React.Component {
       <div className="demo-app">
         <div className="demo-app-main">
           <FullCalendar
-            plugins={[dayGridPlugin, timeGridPlugin]}
+            plugins={[dayGridPlugin, timeGridPlugin, bootstrapPlugin]}
             headerToolbar={{
               left: 'prev,next today',
               center: 'title',
@@ -23,6 +27,7 @@ export default class DemoApp extends React.Component {
             initialView="dayGridMonth"
             editable={true}
             selectable={true}
+            themeSystem="bootstrap"
             selectMirror={true}
             dayMaxEvents={true}
             weekends={this.state.weekendsVisible}
