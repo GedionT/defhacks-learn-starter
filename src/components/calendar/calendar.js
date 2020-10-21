@@ -5,7 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import 'bootstrap/dist/css/bootstrap.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import bootstrapPlugin from '@fullcalendar/bootstrap';
-import 'bootswatch/dist/cosmo/bootstrap.min.css';
+import 'bootswatch/dist/flatly/bootstrap.min.css';
 
 export default class DemoApp extends React.Component {
   state = {
