@@ -1,33 +1,30 @@
 name: Firebase Deploy
-
 on:
   push:
     branches:
       - master
-
 jobs:
   build:
-    name: Build 
+    name: Build
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v2.3.2
-      - name: Install Dependencies 
-        run: npm install --verbose
+      - name: Install Dependencies
+        run: npm install
       - name: Run Tests
         env:
           CI: true
-        run: npm test 
-      - name: Build Work
+        run: npm test
+      - name: Build
         run: npm run build
-      - name: Archive Prod Artifact
-        run: actions/upload-artifact@v2
-        with: 
+      - name: Archive Production Artifact
+        uses: actions/upload-artifact@v2
+        with:
           name: build
           path: build
-
-deploy:
-  name: Deploy
+  deploy:
+    name: Deploy
     needs: build
     runs-on: ubuntu-latest
     steps:
