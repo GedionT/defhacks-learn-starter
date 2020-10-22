@@ -4,7 +4,7 @@
 
 To install on your local machine
 
-- `git clone **REPO_URL**`'
+- `git clone REPO_URL`
 - `cd def-hacks-learn`
 - `npm install`
 
