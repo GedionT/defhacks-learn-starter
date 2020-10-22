@@ -4,9 +4,9 @@
 
 To install on your local machine
 
-- git clone 'the_repo_url.git'
-- cd repo
-- npm install
+- `git clone REPO_URL`
+- `cd def-hacks-learn`
+- `npm install`
 
 # To start making actual changes:
 
