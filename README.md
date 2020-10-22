@@ -2,7 +2,7 @@
 
 ## Instructions:
 
-To install on your local machine
+To install on your local machine:
 
 - `git clone REPO_URL`
 - `cd def-hacks-learn`
