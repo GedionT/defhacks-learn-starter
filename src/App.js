@@ -36,7 +36,7 @@ function App() {
         <Route exact path="/newusercourses" component={NewUserCourses} />
         <Route exact path="/newuserfinal" component={NewUserFinal} />
         <Route exact path="/ExistUser" component={ExistUser} />
-        <Route exact path="/ExistAccount" component={ExistAccount} />
+        <Route exact path="/account" component={ExistAccount} />
         <Route exact path="/ExistActivity" component={ExistActivity} />
       </Switch>
       <Footer />

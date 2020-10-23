@@ -32,7 +32,7 @@ function Navigation() {
         <Nav className="ml-auto">
           <Nav.Link href="/About">About</Nav.Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+            <NavDropdown.Item href="/account">Profile</NavDropdown.Item>
             <NavDropdown.Divider />
             <NavDropdown.Item href="/signin">Login</NavDropdown.Item>
             <NavDropdown.Item href="/signup">Register</NavDropdown.Item>
