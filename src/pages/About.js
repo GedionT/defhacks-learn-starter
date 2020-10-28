@@ -20,7 +20,7 @@ function About() {
         education. We believe that closing this gap will allow everyone to have
         the tools they need to build a successful future. <br /> <br /> That’s
         why Learn is working to level out the playing field for underrepresented
-        communites by creating a free, project-based online curriculum that
+        communities by creating a free, project-based online curriculum that
         anyone can learn from.
         <img
           alt=""
