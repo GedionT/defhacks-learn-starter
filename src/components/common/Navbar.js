@@ -32,21 +32,40 @@ function Navigation() {
             {' '}
             <span className="navl-hover">Explore</span>
           </Nav.Link>
+          <NavDropdown title="Search" id="basic-nav-dropdown">
+            <div className="d-flex">
+              <Form className="center-search ml-2">
+                <input
+                  className="form-control"
+                  width="1000"
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(e) => setSearchText(e.target.value)}
+                />
+              </Form>
+              <SearchIcon
+                className="search ml-2 mr-2 my-2"
+                onClick={() => searchClick()}
+              />
+            </div>
+          </NavDropdown>
         </Nav>
-        <Form className="center-search">
-          <input
-            className="search-input"
-            width="100%"
-            type="text"
-            placeholder="Search..."
-            onChange={(e) => setSearchText(e.target.value)}
-          />
+        {/* <div className="d-flex">
+          <Form className="center-search">
+            <input
+              className="form-control"
+              width="1000"
+              type="text"
+              placeholder="Search..."
+              onChange={(e) => setSearchText(e.target.value)}
+            />
+          </Form>
           <SearchIcon
-            className="search"
+            className="search ml-2"
             style={{ fontSize: 30 }}
             onClick={() => searchClick()}
           />
-        </Form>
+        </div> */}
         <Nav className="ml-auto">
           <Nav.Link href="/About">
             <span className="navl-hover">About</span>
