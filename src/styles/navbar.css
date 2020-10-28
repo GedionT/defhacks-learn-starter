@@ -1,5 +1,5 @@
 .center-search {
-  margin: 0px auto;
+  margin: 0 auto;
   text-align: center;
   max-width: 500px;
 }
@@ -9,5 +9,16 @@
 }
 
 .search {
+  margin-left: 5px;
   color: #62a337;
+  cursor: pointer;
+}
+
+.search:hover {
+  color: #2a733e;
+}
+
+.navl-hover:hover {
+  padding-bottom: 4px;
+  border-bottom: 2px solid black;
 }

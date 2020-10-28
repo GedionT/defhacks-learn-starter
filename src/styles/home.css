@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
+body {
+  height: 100%;
+}
+
 .container-fluid {
   display: flex;
   justify-content: center;
@@ -113,4 +117,9 @@
   background-color: #84b960;
   box-shadow: none;
   text-decoration: none;
+}
+
+p {
+  font-size: 2vw;
+  padding: 0 1vw;
 }

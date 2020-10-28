@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Navbar, Nav, NavDropdown, Form } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 import '../../styles/navbar.css';
 
 function Navigation() {
+  const [searchText, setSearchText] = useState('');
+
+  const searchClick = () => {
+    if (searchText === '') alert('Search Box was Empty');
+    if (searchText !== '') alert(`You searched up "${searchText}"`);
+  };
+
   return (
     <>
       <Navbar bg="white" className="sticky-top">
@@ -17,8 +24,14 @@ function Navigation() {
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Home</Nav.Link>
-          <Nav.Link href="/explore">Explore</Nav.Link>
+          <Nav.Link href="/dashboard">
+            {' '}
+            <span className="navl-hover">Home</span>
+          </Nav.Link>
+          <Nav.Link href="/explore">
+            {' '}
+            <span className="navl-hover">Explore</span>
+          </Nav.Link>
         </Nav>
         <Form className="center-search">
           <input
@@ -26,11 +39,18 @@ function Navigation() {
             width="100%"
             type="text"
             placeholder="Search..."
+            onChange={(e) => setSearchText(e.target.value)}
           />
-          <SearchIcon className="search" style={{ fontSize: 30 }} />
+          <SearchIcon
+            className="search"
+            style={{ fontSize: 30 }}
+            onClick={() => searchClick()}
+          />
         </Form>
         <Nav className="ml-auto">
-          <Nav.Link href="/About">About</Nav.Link>
+          <Nav.Link href="/About">
+            <span className="navl-hover">About</span>
+          </Nav.Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item href="/account">Profile</NavDropdown.Item>
             <NavDropdown.Divider />
