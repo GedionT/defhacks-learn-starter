@@ -1,7 +1,7 @@
 If you're opening a pull request for this repo, then do answer a few questions below, before submitting!
 <!-- To put a tick in the boxes below, use X (uppercase X) to mark -->
 
-Does your PR solve any of the issues mentioned or raised in this repo?
+Does your PR solve any issues opened or raised in this repo or from the projects bug section?
   - [ ] Yes
   - [ ] No
   
@@ -17,7 +17,7 @@ Is it a bug fix, security fix, feature update, UI Update or other?
   - [ ] Other
   
 If you've mentioned Other, then state your answer here (like what actually is and that):
-<!-- Like what it is actually below-->
+<!--describe what it does-->
 
 If page addition is marked, mention the page name here:
 <!-- Page name -->
