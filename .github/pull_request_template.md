@@ -1,10 +1,3 @@
----
-name: Pull request Template
-about: If you're contributing to this repo, then make a PR through this template
-title: "[PR]"
-assignees: Nathan-Yap
-
----
 If you're opening a pull request for this repo, then do answer a few questions below, before submitting!
 <!-- To put a tick in the boxes below, use X (uppercase X) to mark -->
 
