@@ -1,7 +1,7 @@
 import React from 'react';
 import '../styles/course.css';
 
-function course() {
+function Course() {
   return (
     <div className="div-main">
       <div className="menu-bar">
@@ -19,4 +19,4 @@ function course() {
   );
 }
 
-export default course;
+export default Course;
