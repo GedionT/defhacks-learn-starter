@@ -131,7 +131,7 @@ body {
   background-color: #84b960;
   box-shadow: none;
   text-emphasis: none;
-  text-decoration: none;
+  text-decoration: none !important;
 }
 
 .rg-b-txt {

@@ -32,7 +32,7 @@ function Navigation() {
             {' '}
             <span className="navl-hover">Explore</span>
           </Nav.Link>
-          <NavDropdown title="Search" id="basic-nav-dropdown">
+          {/* <NavDropdown title="Search" id="basic-nav-dropdown">
             <div className="d-flex">
               <Form className="center-search ml-2">
                 <input
@@ -48,9 +48,9 @@ function Navigation() {
                 onClick={() => searchClick()}
               />
             </div>
-          </NavDropdown>
+          </NavDropdown> */}
         </Nav>
-        {/* <div className="d-flex">
+        <div className="d-flex">
           <Form className="center-search">
             <input
               className="form-control"
@@ -65,7 +65,7 @@ function Navigation() {
             style={{ fontSize: 30 }}
             onClick={() => searchClick()}
           />
-        </div> */}
+        </div>
         <Nav className="ml-auto">
           <Nav.Link href="/About">
             <span className="navl-hover">About</span>
