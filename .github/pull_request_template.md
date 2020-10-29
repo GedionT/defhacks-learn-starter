@@ -1,6 +1,6 @@
 ---
 name: Pull request Template
-about: If you're contributing to this repo, do make an issue and then make a PR
+about: If you're contributing to this repo, then make a PR through this template
 title: "[PR]"
 assignees: Nathan-Yap
 
