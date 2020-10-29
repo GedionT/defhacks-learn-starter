@@ -20,6 +20,7 @@ import NewUserFinal from './pages/NewUserFinal';
 import ExistUser from './pages/ExistUser';
 import ExistAccount from './pages/ExistAccount';
 import ExistActivity from './pages/ExistActivity';
+import course from './pages/course';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/ExistUser" component={ExistUser} />
         <Route exact path="/ExistAccount" component={ExistAccount} />
         <Route exact path="/ExistActivity" component={ExistActivity} />
+        <Route exact path="/course" component={course} />
       </Switch>
       <Footer />
     </div>
