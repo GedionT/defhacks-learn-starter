@@ -2,358 +2,355 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
-body{
-    background-color: #EEFFEE;
+body {
+  background-color: #eeffee;
 }
 
-.exist-title{
-    position: absolute;
-    width: 813px;
-    height: 75px;
-    left: 461px;
-    top: 162px;
+.exist-title {
+  position: block;
+  /* width: 813px;
+  height: 75px;
+  left: 461px;
+  top: 162px; */
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 62px;
+  margin: 0 auto;
 
-    color: #000000;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 62px;
 
+  color: #000000;
 }
 
-.exist-pattern
-{
-    position: absolute;
-    width: 462.74px;
-    height: 896.36px;
-    left: 235.26px;
-    top: 97.3px;
+.exist-pattern {
+  position: absolute;
+  width: 462.74px;
+  height: 896.36px;
+  left: 235.26px;
+  top: 97.3px;
 
-    background: #FAF7B7;
-    transform: rotate(48.63deg);
+  background: #faf7b7;
+  transform: rotate(48.63deg);
 }
 
-.blue-box-1{
-    position: absolute;
-    width: 1022px;
-    height: 134px;
-    left: 363px;
-    top: 156px;
+.blue-box-1 {
+  position: absolute;
+  width: 1022px;
+  height: 134px;
+  left: 363px;
+  top: 156px;
 
-    background: rgba(219, 218, 255, 0.6);
+  background: rgba(219, 218, 255, 0.6);
 }
 
-.blue-box-2{
-    position: absolute;
-    width: 1022px;
-    height: 134px;
-    left: 388px;
-    top: 132px;
+.blue-box-2 {
+  position: absolute;
+  width: 1022px;
+  height: 134px;
+  left: 388px;
+  top: 132px;
 
-    background: #DBDAFF;
-
+  background: #dbdaff;
 }
 
-.exist-course{
-    position: absolute;
-    width: 1020px;
-    height: 574px;
-    left: 390px;
-    top: 315px;   
+.exist-course {
+  position: absolute;
+  width: 1020px;
+  height: 574px;
+  left: 390px;
+  top: 315px;
 }
 
-.exist-menu{
-    position: absolute;
+.exist-menu {
+  position: absolute;
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: bold;
-    font-size: 36px;
-    line-height: 42px;
-    text-align: center;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 36px;
+  line-height: 42px;
+  text-align: center;
 
-    color: #000000;
-
+  color: #000000;
 }
 
-.sub-menu-1{
-    position: absolute;
-    width: 266px;
-    height: 69px;
-    left: 31px;
-    top: 222px;
+.sub-menu-1 {
+  position: absolute;
+  width: 266px;
+  height: 69px;
+  left: 31px;
+  top: 222px;
 
-    background: #FFE2E2;
-
+  background: #ffe2e2;
 }
-.sub-menu-2{
-    position: absolute;
-    width: 266px;
-    height: 69px;
-    left: 31px;
-    top: 332px;
+.sub-menu-2 {
+  position: absolute;
+  width: 266px;
+  height: 69px;
+  left: 31px;
+  top: 332px;
 
-    background: #FFE2E2;
-
-
+  background: #ffe2e2;
 }
-.sub-menu-3{
-    position: absolute;
-    width: 266px;
-    height: 69px;
-    left: 31px;
-    top: 442px;
+.sub-menu-3 {
+  position: absolute;
+  width: 266px;
+  height: 69px;
+  left: 31px;
+  top: 442px;
 
-    background: #FFE2E2;
-
+  background: #ffe2e2;
 }
-.sub-menu-4{
-    position: absolute;
-    width: 266px;
-    height: 69px;
-    left: 31px;
-    top: 552px;
+.sub-menu-4 {
+  position: absolute;
+  width: 266px;
+  height: 69px;
+  left: 31px;
+  top: 552px;
 
-    background: #FFE2E2;
-
+  background: #ffe2e2;
 }
-.sub-menu-5{
-    position: absolute;
-    width: 266px;
-    height: 69px;
-    left: 31px;
-    top: 662px;
+.sub-menu-5 {
+  position: absolute;
+  width: 266px;
+  height: 69px;
+  left: 31px;
+  top: 662px;
 
-    background: #FFE2E2;   
-
+  background: #ffe2e2;
 }
 
-.content-box-1{
-    position: absolute;
-    width: 1020px;
-    height: 574px;
-    left: 363px;
-    top: 343px;
+.content-box-1 {
+  position: absolute;
+  width: 1020px;
+  height: 574px;
+  left: 363px;
+  top: 343px;
 
-    background: rgba(255, 216, 131, 0.4);
+  background: rgba(255, 216, 131, 0.4);
 }
 
-.content-box-2{
-    position: absolute;
-    width: 1020px;
-    height: 574px;
-    left: 390px;
-    top: 315px;
+.content-box-2 {
+  position: absolute;
+  width: 1020px;
+  height: 574px;
+  left: 390px;
+  top: 315px;
 
-    background: #FFD883;
-
+  background: #ffd883;
 }
 
-.box-title{
-    position: absolute;
-    width: 447px;
-    height: 74px;
-    left: 428px;
-    top: 346px;
+.box-title {
+  position: absolute;
+  width: 447px;
+  height: 74px;
+  left: 428px;
+  top: 346px;
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 60px;
-    line-height: 78px;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 60px;
+  line-height: 78px;
 
-    color: #222222;
-
+  color: #222222;
 }
 
-.box-content{
-    position: absolute;
-    width: 933px;
-    height: 323px;
-    left: 428px;
-    top: 460px;
+.box-content {
+  position: absolute;
+  width: 933px;
+  height: 323px;
+  left: 428px;
+  top: 460px;
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 48px;
-    line-height: 62px;
-    text-align: left;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 48px;
+  line-height: 62px;
+  text-align: left;
 
-    color: #222222;
+  color: #222222;
 }
 
-.mini-progress-1{
-    width: 170px;
-    height: 28px;
-    left: 428px;
-    top: 554px;
+.mini-progress-1 {
+  width: 170px;
+  height: 28px;
+  left: 428px;
+  top: 554px;
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-/* identical to box height */
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  /* identical to box height */
 
-
-    color: #222222;
-
-
+  color: #222222;
 }
 
-.mini-progress-2{
-    position: absolute;
-    width: 170px;
-    height: 28px;
-    left: 428px;
-    top: 745px;
+.mini-progress-2 {
+  position: absolute;
+  width: 170px;
+  height: 28px;
+  left: 428px;
+  top: 745px;
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 24px;
-    line-height: 28px;
-    /* identical to box height */
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 24px;
+  line-height: 28px;
+  /* identical to box height */
 
-
-    color: #222222;
+  color: #222222;
 }
 
-.shape-tri{
-    position: absolute;
-    width: 611.99px;
-    height: 275.3px;
-    left: 1204.19px;
-    top: 1064.36px;
+.shape-tri {
+  position: absolute;
+  width: 611.99px;
+  height: 275.3px;
+  left: 1204.19px;
+  top: 564.36px;
 
-    background: #C1BFEE;
-    transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
+  background: #c1bfee;
+  transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
 }
 
-.shape-circle{
-    position: absolute;
-    width: 295px;
-    height: 295px;
-    left: 1566.85px;
-    top: 149px;
+.shape-circle {
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  left: 1566.85px;
+  top: 149px;
 
-    background: #FFE2E2;
-    border-radius: 65%;
-    transform: matrix(-1, 0, 0, 1, 0, 0);
+  background: #ffe2e2;
+  border-radius: 65%;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
 }
 
-.box-content-acc{
-    position: absolute;
-    width: 1043px;
-    height: 509px;
-    left: 446px;
-    top: 436px;
+.box-content-acc {
+  position: absolute;
+  width: 1043px;
+  height: 509px;
+  left: 446px;
+  top: 436px;
 }
 
-.box-content-acc-text{
-    position: absolute;
-    width: 946px;
-    height: 502px;
-    left: 446px;
-    top: 443px;
+.box-content-acc-text {
+  position: absolute;
+  /* width: 946px;
+  height: 502px;
+  left: 446px;
+  top: 443px; */
+  left: 3vh;
+  margin: 0;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: 300;
-    font-size: 33px;
-    text-align: left;
-    line-height: 43px;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 33px;
+  text-align: left;
+  line-height: 43px;
 
-    color: #000000;
+  vertical-align: middle;
+
+  color: #000000;
 }
 
-.box-title-acc{
-    position: absolute;
-    width: 841px;
-    height: 79px;
-    left: 439px;
-    top: 340px;
+.box-title-acc {
+  position: block;
+  width: max-content;
+  padding-top: 1vh;
 
-    font-family: IBM Plex Mono;
-    font-style: normal;
-    font-weight: 600;
-    font-size: 60px;
-    line-height: 78px;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 7vh;
+  line-height: 78px;
 
-    color: #000000;
+  text-align: center;
+  margin: 0 auto;
+  /* border: 5px solid black; */
 
+  @media only screen and (min-width: 1200px) {
+    font-size: 30px;
+  }
+
+  color: #000000;
 }
 
-.green-box-1{
-    position: absolute;
-    width: 1020px;
-    height: 574px;
-    left: 345px;
-    top: 350px;
+.green-box-1 {
+  position: absolute;
+  width: 1020px;
+  height: 574px;
+  left: 345px;
+  top: 350px;
 
-    background: rgba(167, 215, 136, 0.6);
-    border-radius: 6px; 
+  background: rgba(167, 215, 136, 0.6);
+  border-radius: 6px;
 }
 
-.green-box-2{
-    position: absolute;
-    width: 1020px;
-    height: 574px;
-    left: 372px;
-    top: 323px;
+.green-box-2 {
+  position: absolute;
+  width: 1020px;
+  height: 574px;
+  left: 372px;
+  top: 323px;
 
-    background: #A7D788;
-    border-radius: 6px;
+  background: #a7d788;
+  border-radius: 6px;
 }
 
-.act-cont{
-    position: absolute;
-width: 292px;
-height: 54px;
-left: 701px;
-top: 358px;
+.act-cont {
+  position: absolute;
+  width: 292px;
+  height: 54px;
+  left: 701px;
+  top: 358px;
 
-font-family: Karla;
-font-style: normal;
-font-weight: bold;
-font-size: 45px;
-line-height: 54px;
-text-align: center;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 54px;
+  text-align: center;
 
-color: #FFFFFF;
-
+  color: #ffffff;
 }
 
-.cal-act{
-    position: absolute;
-    width: 400px;
-    height: 450px;
-    left: 650px;
-    top: 475px;
+.cal-act {
+  position: absolute;
+  width: 400px;
+  height: 450px;
+  left: 650px;
+  top: 475px;
 }
 
-.color{
-    color: #000000;
-    position: relative;
-    display: inline-block;
-    overflow: hidden;
-    background: linear-gradient(to right, gold, gold 50%, black 50%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    background-position: 100%;
-    transition: background-position 275ms ease;
+.color {
+  color: #000000;
+  position: relative;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(to right, gold, gold 50%, black 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
 }
 
-.color:hover{
-    background-position: 0 100%;
+.color:hover {
+  background-position: 0 100%;
 }
 
-.cal-act-1{
-    color: black;
-    --fc-border-color: black;
+.cal-act-1 {
+  color: black;
+  --fc-border-color: black;
 }

@@ -27,7 +27,11 @@ function ExistUser() {
           </Link>
         </div>
         <br />
-        <div className="sub-menu-4">Settings</div>
+        <div className="sub-menu-4">
+          <Link className="color" onClick={() => alert('Coming soon!')}>
+            Settings
+          </Link>
+        </div>
         <br />
         <div className="sub-menu-5">
           <Link to="/About" className="color">

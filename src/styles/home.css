@@ -2,6 +2,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
+body {
+  height: 100%;
+}
+
 .container-fluid {
   display: flex;
   justify-content: center;
@@ -61,11 +65,24 @@
 }
 
 .homeQuestion {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+  min-width: 300px;
+  min-height: 80px;
   font-family: 'IBM Plex Mono', monospace;
-  font-size: 28px;
-  height: 50px;
+  vertical-align: middle;
+  height: calc(400px - 17vw);
   background: #dcebd3;
   box-shadow: 25px -15px rgba(94, 146, 225, 0.35);
+  width: 50%;
+  text-align: center;
+}
+
+.hq-txt {
+  margin: auto;
+  font-size: 50px;
+  padding: 0 5px;
 }
 
 .homeAnswer {
@@ -107,10 +124,21 @@
   font-style: italic;
   text-shadow: 5px 3px #b6cdb8;
   text-align: center;
+  text-decoration: none;
 }
 
 .registerNowButton:hover {
   background-color: #84b960;
   box-shadow: none;
+  text-emphasis: none;
   text-decoration: none;
+}
+
+.rg-b-txt {
+  text-decoration: none;
+}
+
+p {
+  font-size: 2vw;
+  padding: 0 1vw;
 }

@@ -40,7 +40,10 @@ function Home() {
       </div>
       <br />
       <div className="mid">
-        <p className="homeQuestion col-5"> Why Computer Science? </p>
+        <div className="homeQuestion col-5">
+          {' '}
+          <h2 className="hq-txt">Why Computer Science?</h2>{' '}
+        </div>
         <div className="d-flex justify-content-end m-5 homeAnswer">
           <p className="">
             Technology is seeping into just about every line of work. It’s
