@@ -40,7 +40,7 @@ const SignUp = ({ history }) => {
     }
   };
   return (
-    <div className="mt-8">
+    <div className="mt-8 text-center">
       <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
         {error !== null && (
           <div className="py-4 bg-red-600 w-full text-center mb-3">
