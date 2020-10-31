@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useMediaQuery } from 'react-responsive';
+// import { useMediaQuery } from 'react-responsive';
 
 const passwordDOMElement = (pw) => {
   return Array(pw.length + 1).join('*');
