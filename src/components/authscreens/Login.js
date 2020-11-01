@@ -17,10 +17,9 @@ const SignIn = ({ history }) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
-  const signInWithEmailAndPasswordHandler = async (event, email, password) => {
+  const signInWithEmailAndPasswordHandler = (event) => {
     event.preventDefault();
-
-    await firebase
+    firebase
       .login(email, password)
       .then(() => {
         alert('Login Successful');
@@ -32,12 +31,16 @@ const SignIn = ({ history }) => {
       });
   };
 
+  const signInWithGoogle = () => {
+    console.log('Sign in with Google. No implementation yet');
+  };
+
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
 
-    if (name === 'userEmail') {
+    if (name === 'email') {
       setEmail(value);
-    } else if (name === 'userPassword') {
+    } else if (name === 'password') {
       setPassword(value);
     }
   };
@@ -51,7 +54,7 @@ const SignIn = ({ history }) => {
       )}
       <div>{/* Space for future decoration */}</div>
 
-      <Form>
+      <Form onSubmit={signInWithEmailAndPasswordHandler}>
         <Form.Group
           controlId="formBasicEmail"
           style={matches ? { width: '50%', marginLeft: '25%' } : null}
@@ -88,14 +91,13 @@ const SignIn = ({ history }) => {
             marginLeft: matches ? '25%' : null,
           }}
           block
-          onSubmit={signInWithEmailAndPasswordHandler}
         >
           Log in
         </Button>
 
         <Button
           variant="light"
-          type="submit"
+          type="button"
           style={{
             width: matches ? '50%' : null,
             marginLeft: matches ? '25%' : null,
@@ -103,7 +105,7 @@ const SignIn = ({ history }) => {
             boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
           }}
           block
-          onSubmit={signInWithEmailAndPasswordHandler}
+          onClick={signInWithGoogle}
         >
           <img
             src="/assets/google-logo.svg"
