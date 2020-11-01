@@ -1,4 +1,4 @@
-# Def Hacks Learn - CS Outreach Website Starter
+# Def Hacks Learn - CS Outreach Learning Platform
 
 ## Instructions:
 
