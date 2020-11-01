@@ -1,4 +1,5 @@
-# Def Hacks Learn - CS Outreach Website Starter
+# Def Hacks Learn - CS Outreach Learning Platform
+[![Firebase-CD Actions Status](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/workflows/Firebase-CD/badge.svg)](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/actions)
 
 ## Instructions:
 

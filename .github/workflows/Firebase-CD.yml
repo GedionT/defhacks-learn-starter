@@ -1,4 +1,4 @@
-name: Firebase Auto-Deployment
+name: Firebase-CD
 on:
   push:
     branches:

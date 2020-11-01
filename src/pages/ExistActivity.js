@@ -11,7 +11,7 @@ function ExistActivity() {
         <div className="shape-circle"></div>
         <div className="shape-tri"></div>
         <div className="sub-menu-1">
-          <Link to="/ExistAccount" className="color">
+          <Link to="/account" className="color">
             Account
           </Link>
         </div>

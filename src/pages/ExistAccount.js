@@ -2,7 +2,6 @@ import React from 'react';
 import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useMediaQuery } from 'react-responsive';
 
 const passwordDOMElement = (pw) => {
   return Array(pw.length + 1).join('*');
@@ -19,7 +18,7 @@ function ExistAccount() {
         <div className="shape-circle"></div>
         <div className="shape-tri"></div>
         <div className="sub-menu-1">
-          <Link to="/ExistAccount" className="color mt-2">
+          <Link to="/account" className="color mt-2">
             Account
           </Link>
         </div>
