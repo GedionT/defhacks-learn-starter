@@ -1,4 +1,5 @@
 # Def Hacks Learn - CS Outreach Learning Platform
+[![Build-Passing Actions Status](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/workflows/Firebase Auto-Deployment/badge.svg)](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/actions)
 
 ## Instructions:
 
