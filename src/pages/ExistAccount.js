@@ -18,7 +18,7 @@ function ExistAccount() {
         <div className="shape-circle"></div>
         <div className="shape-tri"></div>
         <div className="sub-menu-1">
-          <Link to="/ExistAccount" className="color mt-2">
+          <Link to="/account" className="color mt-2">
             Account
           </Link>
         </div>
