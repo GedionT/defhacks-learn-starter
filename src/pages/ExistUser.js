@@ -3,6 +3,8 @@ import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 
 function ExistUser() {
+  const USERNAME = 'admin';
+
   return (
     <div className="exist-main">
       <div className="exist-menu">
@@ -16,7 +18,7 @@ function ExistUser() {
         </div>
         <br />
         <div className="sub-menu-2">
-          <Link to="/ExistUser" className="color">
+          <Link to="/ExistUser" className="color  mt-2">
             Courses
           </Link>
         </div>
@@ -40,8 +42,11 @@ function ExistUser() {
         </div>
       </div>
       <div className="blue-box-1"></div>
-      <div className="blue-box-2"></div>
-      <div className="exist-title">Welcome back, $username!</div>
+      <div className="blue-box-2">
+        {' '}
+        <div className="exist-title">Welcome back, {USERNAME}!</div>
+      </div>
+
       <br />
       <div className="content-box-1"></div>
       <div className="content-box-2"></div>

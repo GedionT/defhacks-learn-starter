@@ -41,7 +41,7 @@ function App() {
         <Route exact path="/ExistActivity" component={ExistActivity} />
         <Route exact path="/course" component={Course} />
       </Switch>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }

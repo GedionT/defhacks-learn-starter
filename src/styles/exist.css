@@ -7,12 +7,8 @@ body {
 }
 
 .exist-title {
-  position: block;
-  /* width: 813px;
-  height: 75px;
-  left: 461px;
-  top: 162px; */
-
+  position: absolute;
+  width: max-content;
   margin: 0 auto;
 
   font-family: IBM Plex Mono;
@@ -22,6 +18,8 @@ body {
   line-height: 62px;
 
   color: #000000;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .exist-pattern {

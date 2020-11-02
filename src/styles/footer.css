@@ -1,4 +1,14 @@
-.fter {
+.ftr {
+  background-color: gray;
+  color: aliceblue;
+  padding: 30px 100px;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.footer-copyright-text {
   background-color: gray;
   color: aliceblue;
   width: 100%;
@@ -9,5 +19,22 @@
   align-items: center;
 }
 .fter-txt {
+  margin-top: 10px;
   color: #fff;
+}
+
+.ftr-col {
+  list-style-type: none;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+span {
+  text-decoration: none;
 }

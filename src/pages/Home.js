@@ -56,7 +56,9 @@ function Home() {
       <div className="end">
         <p className="col-8 col-md-7 hook">So what are you waiting for?</p>
         <Link to="/signup">
-          <button className="col-5 registerNowButton">Register Now!</button>
+          <button className="col-5 registerNowButton" type="button">
+            <span className="regBtnTxt">Register Now!</span>
+          </button>
         </Link>
       </div>
     </div>
