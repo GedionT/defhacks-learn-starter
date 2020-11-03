@@ -43,6 +43,7 @@ function ExistAccount() {
                 } else {
                   Swal.fire('Updated!', '', 'success');
                   setUsername(newUsername);
+
                   // Update username in Firebase
                 }
               }
@@ -96,11 +97,13 @@ function ExistAccount() {
             if (result.value) {
               var newEmail = result.value[0];
 
-              // TASK FOR BACKEND: Make sure username isn't already taken in the account database
+              // TASK FOR BACKEND: Make sure email isn't already taken in the account database
               if (newEmail !== null && newEmail !== '') {
                 if (emailValid(newEmail)) {
                   Swal.fire('Updated!', '', 'success');
                   setEmail(newEmail);
+
+                  // Update email in Firebase
                 } else {
                   Swal.fire('Invalid Email!', '', 'error');
                 }
