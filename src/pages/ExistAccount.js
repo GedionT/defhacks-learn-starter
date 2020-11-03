@@ -1,16 +1,88 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
-const passwordDOMElement = (pw) => {
-  return Array(pw.length + 1).join('*');
-};
+import Swal from 'sweetalert2';
 
 function ExistAccount() {
   var ID = 4824063202;
-  var USERNAME = 'admin';
-  var PASSWORD = 'helloworld';
+  const [USERNAME, setUsername] = useState('admin');
+  const [PASSWORD, setPassword] = useState('helloworld');
+
+  const passwordDOMElement = (pw) => {
+    return Array(pw.length + 1).join('*');
+  };
+
+  const changeSetting = (setting) => {
+    switch (setting) {
+      case 'username':
+        Swal.mixin({
+          input: 'text',
+          showCancelButton: true,
+          confirmButtonText: 'Update',
+        })
+          .queue([
+            {
+              title: 'Change Username',
+            },
+          ])
+          .then((result) => {
+            if (result.value) {
+              var newUsername = result.value[0];
+
+              // TASK FOR BACKEND: Make sure username isn't already taken in the account database
+              if (newUsername !== null && newUsername !== '') {
+                if (newUsername === USERNAME) {
+                  Swal.fire('Nothing is changed!', '', 'error');
+                } else {
+                  Swal.fire('Updated!', '', 'success');
+                  setUsername(newUsername);
+                  // Update username in Firebase
+                }
+              }
+            }
+          });
+        break;
+      case 'password':
+        Swal.mixin({
+          input: 'password',
+          confirmButtonText: 'Change &rarr;',
+          showCancelButton: true,
+        })
+          .queue([
+            {
+              title: 'Change Password',
+            },
+            'Confirm Password',
+          ])
+          .then((result) => {
+            if (result.value) {
+              const pwToUpdate = result.value;
+
+              // If password is not empty
+              if (!pwToUpdate.includes('')) {
+                if (pwToUpdate[0] === pwToUpdate[1]) {
+                  Swal.fire('Updated!', '', 'success');
+                  setPassword(pwToUpdate[1]);
+
+                  // Update Password in Firebase
+                } else {
+                  Swal.fire("Password doesn't match!", '', 'error');
+                }
+              } else {
+                Swal.fire('Nothing is changed!', '', 'error');
+              }
+            }
+          });
+        break;
+      default:
+        Swal.fire({
+          icon: 'error',
+          title: 'Error...',
+          text: 'Nothing has changed!',
+        });
+    }
+  };
   return (
     <div className="exist-main">
       <div className="exist-menu">
@@ -49,7 +121,7 @@ function ExistAccount() {
       </div>
       <div className="blue-box-1"></div>
       <div className="blue-box-2">
-        <div className="exist-title mb-3">
+        <div className="exist-title">
           Welcome {USERNAME}!
           <br />
           User ID: {ID}
@@ -62,7 +134,13 @@ function ExistAccount() {
         {' '}
         <div className="box-title-acc">Account Information</div>
         <div className="box-content-acc-text">
-          Username: {USERNAME}
+          Username:{' '}
+          <button
+            className="btn pr-5"
+            onClick={() => changeSetting('username')}
+          >
+            <p style={{ fontSize: '30px' }}>{USERNAME}</p>
+          </button>
           <br />
           <br />
           Email: defhacks@xyz.com
@@ -71,7 +149,12 @@ function ExistAccount() {
           Location: USA
           <br />
           <br />
-          Password: {passwordDOMElement(PASSWORD)}
+          <div>
+            Password:{' '}
+            <button className="btn" onClick={() => changeSetting('password')}>
+              {passwordDOMElement(PASSWORD)}{' '}
+            </button>{' '}
+          </div>
         </div>
       </div>
     </div>

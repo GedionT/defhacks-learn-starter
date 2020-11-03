@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { Sticky, StickyContainer } from 'react-sticky';
 import './styles/index.css';
 
 // component import
@@ -23,6 +24,19 @@ import ExistActivity from './pages/ExistActivity';
 import Course from './pages/Course';
 
 function App() {
+  var body = document.body,
+    html = document.documentElement;
+
+  var docHeight = Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  );
+
+  useEffect(() => console.log(document.body.scrollHeight), []);
+
   return (
     <div className="App">
       <Navbar />
@@ -41,7 +55,7 @@ function App() {
         <Route exact path="/ExistActivity" component={ExistActivity} />
         <Route exact path="/course" component={Course} />
       </Switch>
-      <Footer />
+      <Footer bottomMost={docHeight} />
     </div>
   );
 }

@@ -1,0 +1,40 @@
+.ftr {
+  background-color: gray;
+  color: aliceblue;
+  padding: 30px 100px;
+  position: absolute;
+  width: 100%;
+  margin-top: 150px;
+}
+
+.footer-copyright-text {
+  background-color: gray;
+  color: aliceblue;
+  width: 100%;
+  height: 100px;
+  margin-top: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.fter-txt {
+  margin-top: 10px;
+  color: #fff;
+}
+
+.ftr-col {
+  list-style-type: none;
+  text-align: left;
+}
+
+li {
+  margin: 10px 0;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+span {
+  text-decoration: none;
+}
