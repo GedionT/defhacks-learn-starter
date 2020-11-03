@@ -8,9 +8,15 @@ function ExistAccount() {
   var ID = 4824063202;
   const [USERNAME, setUsername] = useState('admin');
   const [PASSWORD, setPassword] = useState('helloworld');
+  const [EMAIL, setEmail] = useState('defhacks@xyz.com');
 
   const passwordDOMElement = (pw) => {
     return Array(pw.length + 1).join('*');
+  };
+
+  const emailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   };
 
   const changeSetting = (setting) => {
@@ -75,11 +81,38 @@ function ExistAccount() {
             }
           });
         break;
+      case 'email':
+        Swal.mixin({
+          input: 'text',
+          showCancelButton: true,
+          confirmButtonText: 'Update',
+        })
+          .queue([
+            {
+              title: 'Change Email Address',
+            },
+          ])
+          .then((result) => {
+            if (result.value) {
+              var newEmail = result.value[0];
+
+              // TASK FOR BACKEND: Make sure username isn't already taken in the account database
+              if (newEmail !== null && newEmail !== '') {
+                if (emailValid(newEmail)) {
+                  Swal.fire('Updated!', '', 'success');
+                  setEmail(newEmail);
+                } else {
+                  Swal.fire('Invalid Email!', '', 'error');
+                }
+              }
+            }
+          });
+        break;
       default:
         Swal.fire({
           icon: 'error',
           title: 'Error...',
-          text: 'Nothing has changed!',
+          text: 'Invalid Request!',
         });
     }
   };
@@ -143,7 +176,10 @@ function ExistAccount() {
           </button>
           <br />
           <br />
-          Email: defhacks@xyz.com
+          Email:{' '}
+          <button className="btn" onClick={() => changeSetting('email')}>
+            <p style={{ fontSize: '30px' }}>{EMAIL}</p>
+          </button>{' '}
           <br />
           <br />
           Location: USA
