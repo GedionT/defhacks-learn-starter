@@ -1,153 +1,183 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+
+import { Form, Button, Container } from 'react-bootstrap';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
 import firebase from '../firebase/base';
 
 import './Signup.css';
 
 const SignUp = ({ history }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [name, setName] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
 
-  const onRegister = async (event, email, password) => {
+  // These hooks from material-ui is used for checking the current width of the window
+  // In particularly, check whether the window is over sm scale
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const onRegister = async (event) => {
     event.preventDefault();
-
-    await firebase
+    const name = `${firstName} ${lastName}`;
+    firebase
       .register(name, email, password)
       .then(() => {
         alert('Signup Successful');
+        setEmail('');
+        setPassword('');
+        setFirstName('');
+        setLastName('');
+        setError('');
         history.replace('/newuser');
       })
       .catch((err) => {
         alert(`Error: ${err.message}`);
         setError(`Fix ${err}`);
+        setEmail('');
+        setPassword('');
       });
+  };
 
-    setEmail('');
-    setPassword('');
-    setName('');
+  const registerWithGoogle = () => {
+    console.log('Sign in with Google. No implementation yet');
   };
 
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
-    if (name === 'userEmail') {
+    if (name === 'email') {
       setEmail(value);
-    } else if (name === 'userPassword') {
+    } else if (name === 'password') {
       setPassword(value);
-    } else if (name === 'displayName') {
-      setName(value);
+    } else if (name === 'firstName') {
+      setFirstName(value);
+    } else if (name === 'lastName') {
+      setLastName(value);
     }
   };
   return (
-    <div className="mt-8 text-center">
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
-        {error !== null && (
-          <div className="py-4 bg-red-600 w-full text-center mb-3">
-            <h5>{error}</h5>
-          </div>
-        )}
-        <span className="col-2 greeting">
-          <h1 className="start">Welcome!</h1>
-          <p className="description">Sign up to join the fun!</p>
-        </span>
-        <form className="col-12 form">
-          {' '}
-          <label htmlFor="firstName" className="block">
-            First Name
-          </label>
-          <input
+    <Container>
+      {error !== null && (
+        <div className="py-4 bg-red-600 w-full text-center mb-3">
+          <h5>{error}</h5>
+        </div>
+      )}
+      <span>
+        <h1 className="start">Welcome!</h1>
+        <p className="description">Sign up to join the fun!</p>
+      </span>
+
+      <Form onSubmit={onRegister}>
+        {/* For first name */}
+        <Form.Group
+          style={matches ? { width: '50%', marginLeft: '25%' } : null}
+        >
+          <Form.Label>First name</Form.Label>
+          <Form.Control
             type="text"
-            className="mt-1 mb-3 p-1 w-full"
             name="firstName"
-            value={name}
-            placeholder="John"
-            id="firstName"
-            onChange={(event) => onChangeHandler(event)}
+            placeholder="First name"
+            value={firstName}
+            onChange={onChangeHandler}
           />
-          <br />
-          <label htmlFor="lastName" className="block">
-            Last Name
-          </label>
-          <input
+        </Form.Group>
+
+        {/* For last name */}
+        <Form.Group
+          style={matches ? { width: '50%', marginLeft: '25%' } : null}
+        >
+          <Form.Label>Last name</Form.Label>
+          <Form.Control
             type="text"
-            className="mt-1 mb-3 p-1 w-full"
             name="lastName"
-            value={name}
-            placeholder="Doe"
-            id="lastName"
-            onChange={(event) => onChangeHandler(event)}
+            placeholder="Last name"
+            value={lastName}
+            onChange={onChangeHandler}
           />
-          <br />
-          <label htmlFor="userEmail" className="block">
-            Email
-          </label>
-          <input
+        </Form.Group>
+
+        {/* For email address */}
+        <Form.Group
+          style={matches ? { width: '50%', marginLeft: '25%' } : null}
+        >
+          <Form.Label>Email address</Form.Label>
+          <Form.Control
+            autoComplete="off"
             type="email"
-            className="mt-1 mb-3 p-1 w-full"
-            name="userEmail"
+            name="email"
+            placeholder="Enter email"
             value={email}
-            placeholder="johndoe@gmail.com"
-            id="userEmail"
-            onChange={(event) => onChangeHandler(event)}
+            onChange={onChangeHandler}
           />
-          <br />
-          <label htmlFor="userPassword" className="block">
-            Password
-          </label>
-          <input
+        </Form.Group>
+
+        {/* For password */}
+        <Form.Group
+          style={matches ? { width: '50%', marginLeft: '25%' } : null}
+        >
+          <Form.Label>Password</Form.Label>
+          <Form.Control
             type="password"
-            className="mt-1 mb-3 p-1 w-full"
-            name="userPassword"
+            autoComplete="off"
+            placeholder="Password"
+            name="password"
             value={password}
-            placeholder="123456"
-            id="userPassword"
-            onChange={(event) => onChangeHandler(event)}
+            onChange={onChangeHandler}
           />
-          <br />
-          <label htmlFor="confirmPassword" className="block">
-            Confirm Password
-          </label>
-          <input
-            type="password"
-            className="mt-1 mb-3 p-1 w-full"
-            name="confirmPassword"
-            value={password}
-            placeholder="123456"
-            id="confirmPassword"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <br />
-          <label htmlFor="country" className="block">
-            Country
-          </label>
-          <input
-            type="text"
-            className="mt-1 mb-3 p-1 w-full"
-            name="country"
-            value={password}
-            placeholder="USA"
-            id="country"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <br />
-          <button
-            className="bg-green-400 hover:bg-green-500 w-full py-2"
-            onClick={(event) => {
-              onRegister(event, email, password);
+        </Form.Group>
+
+        {/* Register button */}
+        <Button
+          variant="success"
+          type="submit"
+          style={{
+            width: matches ? '50%' : null,
+            marginLeft: matches ? '25%' : null,
+          }}
+          block
+        >
+          Register
+        </Button>
+
+        {/* Register with Google button */}
+        <Button
+          variant="light"
+          type="button"
+          style={{
+            width: matches ? '50%' : null,
+            marginLeft: matches ? '25%' : null,
+            backgroundColor: '#fff',
+            boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+          }}
+          block
+          onClick={registerWithGoogle}
+        >
+          <img
+            src="/assets/google-logo.svg"
+            alt="google-logo"
+            style={{
+              display: 'inline-block',
+              maxWidth: '30px',
+              maxHeight: '30px',
+              marginLeft: '-5%',
+              marginRight: '5%',
             }}
-          >
-            Register
-          </button>
-        </form>
-        <p className="text-center my-3">
-          Already have an account?{' '}
-          <Link to="/signin" className="text-blue-500 hover:text-blue-600">
-            Login here
-          </Link>
-        </p>
-      </div>
-    </div>
+          />
+          <span>Continue with Google with Google</span>
+        </Button>
+
+        <div className="text-center mt-3">
+          <p>
+            Already has an account ? {'  '}
+            <Link to="/signup">Log in here</Link>
+          </p>
+        </div>
+      </Form>
+    </Container>
   );
 };
 
