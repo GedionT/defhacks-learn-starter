@@ -36,7 +36,7 @@ class Firebase {
   }
 
   getCurrentUsername() {
-    return this.auth.currentUser && this.auth.currentUser.email;
+    return this.auth.currentUser;
   }
 }
 

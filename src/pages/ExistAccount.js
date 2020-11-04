@@ -3,12 +3,23 @@ import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
+import firebase from '../components/firebase/base';
 
 function ExistAccount() {
-  var ID = 4824063202;
-  const [USERNAME, setUsername] = useState('admin');
+  let username = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().displayName
+    : 'user';
+  let id = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().uid.substring(0, 12)
+    : '83172389573475437524';
+  let email = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().email
+    : 'defhacks@xyz.com';
+
+  var ID = id;
+  const [USERNAME, setUsername] = useState(username);
   const [PASSWORD, setPassword] = useState('helloworld');
-  const [EMAIL, setEmail] = useState('defhacks@xyz.com');
+  const [EMAIL, setEmail] = useState(email);
 
   const passwordDOMElement = (pw) => {
     return Array(pw.length + 1).join('*');
@@ -41,10 +52,23 @@ function ExistAccount() {
                 if (newUsername === USERNAME) {
                   Swal.fire('Nothing is changed!', '', 'error');
                 } else {
-                  Swal.fire('Updated!', '', 'success');
-                  setUsername(newUsername);
-
-                  // Update username in Firebase
+                  let fbuser = firebase.getCurrentUsername();
+                  fbuser
+                    .updateProfile({
+                      displayName: newUsername,
+                    })
+                    .then(function () {
+                      Swal.fire(
+                        `Updated your username to ${newUsername}!`,
+                        '',
+                        'success'
+                      );
+                      setUsername(newUsername);
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                      Swal.fire(error, '', 'error');
+                    });
                 }
               }
             }
@@ -69,10 +93,12 @@ function ExistAccount() {
               // If password is not empty
               if (!pwToUpdate.includes('')) {
                 if (pwToUpdate[0] === pwToUpdate[1]) {
-                  Swal.fire('Updated!', '', 'success');
-                  setPassword(pwToUpdate[1]);
-
                   // Update Password in Firebase
+                  let fbuser = firebase.getCurrentUsername();
+                  fbuser.updatePassword(pwToUpdate[1]).then(function () {
+                    Swal.fire('Updated!', '', 'success');
+                    setPassword(pwToUpdate[1]);
+                  });
                 } else {
                   Swal.fire("Password doesn't match!", '', 'error');
                 }
@@ -101,10 +127,12 @@ function ExistAccount() {
               if (newEmail !== null && newEmail !== '') {
                 if (newEmail !== EMAIL) {
                   if (emailValid(newEmail)) {
-                    Swal.fire('Updated!', '', 'success');
-                    setEmail(newEmail);
-
                     // Update email in Firebase
+                    let fbuser = firebase.getCurrentUsername();
+                    fbuser.updateEmail(newEmail).then(function () {
+                      Swal.fire('Updated!', '', 'success');
+                      setEmail(newEmail);
+                    });
                   } else {
                     Swal.fire('Invalid Email!', '', 'error');
                   }
