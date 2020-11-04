@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 
-import { Form, Button, Container } from 'react-bootstrap';
+import { Alert, Form, Button, Container } from 'react-bootstrap';
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
@@ -24,10 +24,19 @@ const SignUp = ({ history }) => {
   const onRegister = async (event) => {
     event.preventDefault();
     const name = `${firstName} ${lastName}`;
+
+    if (!passwordValidate(password)) {
+      setError(
+        'Password need to contain one uppercase, one lowercase, one digit, one special character'
+      );
+      setPassword('');
+      return;
+    }
+
     firebase
       .register(name, email, password)
       .then(() => {
-        alert('Signup Successful');
+        //alert('Signup Successful');
         setEmail('');
         setPassword('');
         setFirstName('');
@@ -36,8 +45,8 @@ const SignUp = ({ history }) => {
         history.replace('/newuser');
       })
       .catch((err) => {
-        alert(`Error: ${err.message}`);
-        setError(`Fix ${err}`);
+        // alert(`Error: ${err.message}`);
+        setError(err.message);
         setEmail('');
         setPassword('');
       });
@@ -61,11 +70,7 @@ const SignUp = ({ history }) => {
   };
   return (
     <Container>
-      {error !== null && (
-        <div className="py-4 bg-red-600 w-full text-center mb-3">
-          <h5>{error}</h5>
-        </div>
-      )}
+      {error !== null && <Alert variant="danger">{error}</Alert>}
       <span>
         <h1 className="start">Welcome!</h1>
         <p className="description">Sign up to join the fun!</p>
@@ -83,6 +88,7 @@ const SignUp = ({ history }) => {
             placeholder="First name"
             value={firstName}
             onChange={onChangeHandler}
+            required
           />
         </Form.Group>
 
@@ -112,6 +118,7 @@ const SignUp = ({ history }) => {
             placeholder="Enter email"
             value={email}
             onChange={onChangeHandler}
+            required
           />
         </Form.Group>
 
@@ -127,6 +134,8 @@ const SignUp = ({ history }) => {
             name="password"
             value={password}
             onChange={onChangeHandler}
+            required
+            minLength={8}
           />
         </Form.Group>
 
@@ -182,3 +191,9 @@ const SignUp = ({ history }) => {
 };
 
 export default withRouter(SignUp);
+
+const passwordValidate = (password) => {
+  // String of length 8 or more, contain at least on digit, one uppercase, one lowercase and one special character
+  const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\W).{8,}$/gm;
+  return regex.test(password);
+};
