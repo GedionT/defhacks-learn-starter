@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 import '../styles/newuser.css';
 
 const NewUserCourses = () => {
@@ -11,16 +13,18 @@ const NewUserCourses = () => {
   const [showPanelPro, togglePanelPro] = useState(false);
   const [showPanelGit, togglePanelGit] = useState(false);
   const [showPanelHC, togglePanelHC] = useState(false);
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
   return (
     <div className="new-user">
       <img alt="" src="/assets/Polygon_6.png" className="polygon6" />
       <img alt="" src="/assets/Ellipse.png" className="ellipse" />
       <img alt="" src="/assets/Polygon_5.png" className="polygon5" />
-      <div className="upper-box">
+      <div className="upper-box" style={matches ? { width: '85%' } : null}>
         Please select which course(s) you would like to <br /> take.
       </div>
-      <div className="lower-box">
+      <div className="lower-box" style={matches ? { width: '85%' } : null}>
         <div className="options">
           Basics of Programming
           <div
@@ -30,7 +34,12 @@ const NewUserCourses = () => {
               togglePanelPro(!showPanelPro);
             }}
           ></div>
-          <button className="interested">Interested</button>
+          <button
+            className="interested"
+            style={matches ? { width: '10%', fontSize: '50%' } : null}
+          >
+            Interested
+          </button>
         </div>
         {showPanelPro && (
           <div className="info-panel">
@@ -51,7 +60,12 @@ const NewUserCourses = () => {
               togglePanelJS(!showPanelJS);
             }}
           ></div>
-          <button className="interested">Interested</button>
+          <button
+            className="interested"
+            style={matches ? { width: '10%', fontSize: '50%' } : null}
+          >
+            Interested
+          </button>
         </div>
 
         {showPanelJS && (
@@ -72,7 +86,12 @@ const NewUserCourses = () => {
               togglePanelHC(!showPanelHC);
             }}
           ></div>
-          <button className="interested">Interested</button>
+          <button
+            className="interested"
+            style={matches ? { width: '10%', fontSize: '50%' } : null}
+          >
+            Interested
+          </button>
         </div>
 
         {showPanelHC && (
@@ -94,7 +113,12 @@ const NewUserCourses = () => {
               togglePanelGit(!showPanelGit);
             }}
           ></div>
-          <button className="interested">Interested</button>
+          <button
+            className="interested"
+            style={matches ? { width: '10%', fontSize: '50%' } : null}
+          >
+            Interested
+          </button>
         </div>
 
         {showPanelGit && (
@@ -108,7 +132,14 @@ const NewUserCourses = () => {
         )}
         <br />
         <Link to="/newuserfinal">
-          <input type="submit" value="Next" className="submit" />
+          <input
+            type="submit"
+            value="Next"
+            className="submit"
+            style={
+              matches ? { width: '10%', fontSize: '70%', height: '15%' } : null
+            }
+          />
         </Link>
       </div>
     </div>
