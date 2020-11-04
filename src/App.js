@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
-import { Sticky, StickyContainer } from 'react-sticky';
 import './styles/index.css';
 
 // component import
