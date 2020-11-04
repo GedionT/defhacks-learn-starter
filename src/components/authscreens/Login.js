@@ -23,7 +23,7 @@ const SignIn = ({ history }) => {
       .login(email, password)
       .then(() => {
         alert('Login Successful');
-        history.push('/account');
+        history.push('/dashboard');
       })
       .catch((err) => {
         alert(`Error: ${err.message}`);
