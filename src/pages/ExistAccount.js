@@ -3,14 +3,31 @@ import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
+import firebase from '../components/firebase/base';
 
 function ExistAccount() {
-  var ID = 4824063202;
-  const [USERNAME, setUsername] = useState('admin');
+  let username = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().displayName
+    : 'user';
+  let id = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().uid.substring(0, 12)
+    : '83172389573475437524';
+  let email = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().email
+    : 'defhacks@xyz.com';
+
+  var ID = id;
+  const [USERNAME, setUsername] = useState(username);
   const [PASSWORD, setPassword] = useState('helloworld');
+  const [EMAIL, setEmail] = useState(email);
 
   const passwordDOMElement = (pw) => {
     return Array(pw.length + 1).join('*');
+  };
+
+  const emailValid = (email) => {
+    const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   };
 
   const changeSetting = (setting) => {
@@ -35,9 +52,18 @@ function ExistAccount() {
                 if (newUsername === USERNAME) {
                   Swal.fire('Nothing is changed!', '', 'error');
                 } else {
-                  Swal.fire('Updated!', '', 'success');
-                  setUsername(newUsername);
-                  // Update username in Firebase
+                  let fbuser = firebase.getCurrentUsername();
+                  fbuser
+                    .updateProfile({
+                      displayName: newUsername,
+                    })
+                    .then(function () {
+                      Swal.fire('Updated!', '', 'success');
+                      setUsername(newUsername);
+                    })
+                    .catch(function (error) {
+                      console.log(error);
+                    });
                 }
               }
             }
@@ -62,10 +88,12 @@ function ExistAccount() {
               // If password is not empty
               if (!pwToUpdate.includes('')) {
                 if (pwToUpdate[0] === pwToUpdate[1]) {
-                  Swal.fire('Updated!', '', 'success');
-                  setPassword(pwToUpdate[1]);
-
                   // Update Password in Firebase
+                  let fbuser = firebase.getCurrentUsername();
+                  fbuser.updatePassword(pwToUpdate[1]).then(function () {
+                    Swal.fire('Updated!', '', 'success');
+                    setPassword(pwToUpdate[1]);
+                  });
                 } else {
                   Swal.fire("Password doesn't match!", '', 'error');
                 }
@@ -75,11 +103,46 @@ function ExistAccount() {
             }
           });
         break;
+      case 'email':
+        Swal.mixin({
+          input: 'text',
+          showCancelButton: true,
+          confirmButtonText: 'Update',
+        })
+          .queue([
+            {
+              title: 'Change Email Address',
+            },
+          ])
+          .then((result) => {
+            if (result.value) {
+              var newEmail = result.value[0];
+
+              // TASK FOR BACKEND: Make sure email isn't already taken in the account database
+              if (newEmail !== null && newEmail !== '') {
+                if (newEmail !== EMAIL) {
+                  if (emailValid(newEmail)) {
+                    // Update email in Firebase
+                    let fbuser = firebase.getCurrentUsername();
+                    fbuser.updateEmail(newEmail).then(function () {
+                      Swal.fire('Updated!', '', 'success');
+                      setEmail(newEmail);
+                    });
+                  } else {
+                    Swal.fire('Invalid Email!', '', 'error');
+                  }
+                } else {
+                  Swal.fire('Nothing is changed!', '', 'error');
+                }
+              }
+            }
+          });
+        break;
       default:
         Swal.fire({
           icon: 'error',
           title: 'Error...',
-          text: 'Nothing has changed!',
+          text: 'Invalid Request!',
         });
     }
   };
@@ -143,7 +206,10 @@ function ExistAccount() {
           </button>
           <br />
           <br />
-          Email: defhacks@xyz.com
+          Email:{' '}
+          <button className="btn" onClick={() => changeSetting('email')}>
+            <p style={{ fontSize: '30px' }}>{EMAIL}</p>
+          </button>{' '}
           <br />
           <br />
           Location: USA
