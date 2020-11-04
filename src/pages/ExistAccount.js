@@ -95,10 +95,15 @@ function ExistAccount() {
                 if (pwToUpdate[0] === pwToUpdate[1]) {
                   // Update Password in Firebase
                   let fbuser = firebase.getCurrentUsername();
-                  fbuser.updatePassword(pwToUpdate[1]).then(function () {
-                    Swal.fire('Updated!', '', 'success');
-                    setPassword(pwToUpdate[1]);
-                  });
+                  fbuser
+                    .updatePassword(pwToUpdate[1])
+                    .then(function () {
+                      Swal.fire('Updated!', '', 'success');
+                      setPassword(pwToUpdate[1]);
+                    })
+                    .catch((err) => {
+                      Swal.fire(err, '', 'error');
+                    });
                 } else {
                   Swal.fire("Password doesn't match!", '', 'error');
                 }
@@ -129,10 +134,15 @@ function ExistAccount() {
                   if (emailValid(newEmail)) {
                     // Update email in Firebase
                     let fbuser = firebase.getCurrentUsername();
-                    fbuser.updateEmail(newEmail).then(function () {
-                      Swal.fire('Updated!', '', 'success');
-                      setEmail(newEmail);
-                    });
+                    fbuser
+                      .updateEmail(newEmail)
+                      .then(function () {
+                        Swal.fire('Updated!', '', 'success');
+                        setEmail(newEmail);
+                      })
+                      .catch((err) => {
+                        Swal.fire(err, '', 'error');
+                      });
                   } else {
                     Swal.fire('Invalid Email!', '', 'error');
                   }
