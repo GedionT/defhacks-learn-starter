@@ -53,7 +53,17 @@ const SignUp = ({ history }) => {
   };
 
   const registerWithGoogle = () => {
-    console.log('Sign in with Google. No implementation yet');
+    firebase
+      .signInWithGoogle()
+      .then(() => {
+        setEmail('');
+        setPassword('');
+        history.push('/dashboard');
+      })
+      .catch((err) => {
+        setError(err.message);
+        setPassword('');
+      });
   };
 
   const onChangeHandler = (event) => {
@@ -176,13 +186,13 @@ const SignUp = ({ history }) => {
               marginRight: '5%',
             }}
           />
-          <span>Continue with Google with Google</span>
+          <span>Continue with Google</span>
         </Button>
 
         <div className="text-center mt-3">
           <p>
             Already has an account ? {'  '}
-            <Link to="/signup">Log in here</Link>
+            <Link to="/signin">Log in here</Link>
           </p>
         </div>
       </Form>
