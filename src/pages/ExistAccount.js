@@ -57,7 +57,7 @@ function ExistAccount() {
                     .updateProfile({
                       displayName: newUsername,
                     })
-                    .then(function () {
+                    .then(() => {
                       Swal.fire(
                         `Updated your username to ${newUsername}!`,
                         '',
@@ -136,7 +136,7 @@ function ExistAccount() {
                     let fbuser = firebase.getCurrentUsername();
                     fbuser
                       .updateEmail(newEmail)
-                      .then(function () {
+                      .then(() => {
                         Swal.fire('Updated!', '', 'success');
                         setEmail(newEmail);
                       })
@@ -186,7 +186,12 @@ function ExistAccount() {
         </div>
         <br />
         <div className="sub-menu-4">
-          <Link className="color mt-2" onClick={() => alert('Coming soon!')}>
+          <Link
+            className="color mt-2"
+            onClick={() => {
+              Swal.fire('Settings', 'Coming Soon!', 'info');
+            }}
+          >
             Settings
           </Link>
         </div>
