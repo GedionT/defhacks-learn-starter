@@ -19,7 +19,7 @@ function Footer(props) {
           <ul className="ftr-col mt-4">
             <li>
               <i
-                class="fab fa-facebook-square"
+                className="fab fa-facebook-square"
                 style={{ fontSize: '20px' }}
               ></i>
               <a
@@ -31,7 +31,10 @@ function Footer(props) {
               </a>
             </li>
             <li>
-              <i class="fab fa-twitter-square" style={{ fontSize: '20px' }}></i>
+              <i
+                className="fab fa-twitter-square"
+                style={{ fontSize: '20px' }}
+              ></i>
               <a
                 href="https://twitter.com/def_hacks"
                 target="__blank"
@@ -41,7 +44,7 @@ function Footer(props) {
               </a>
             </li>
             <li>
-              <i class="fab fa-instagram" style={{ fontSize: '20px' }}></i>
+              <i className="fab fa-instagram" style={{ fontSize: '20px' }}></i>
 
               <a
                 href="https://www.instagram.com/def_hacks/"
@@ -52,7 +55,7 @@ function Footer(props) {
               </a>
             </li>
             <li>
-              <i class="fab fa-linkedin" style={{ fontSize: '20px' }}></i>
+              <i className="fab fa-linkedin" style={{ fontSize: '20px' }}></i>
               <a
                 href="https://www.linkedin.com/company/def-hacks/"
                 target="__blank"

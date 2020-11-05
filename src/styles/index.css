@@ -33,6 +33,11 @@ body {
   color: #777777;
 }
 
+/* This modifies the bootstrap class. Use with caution */
+.form-control {
+  color: #495057 !important;
+}
+
 @media (min-width: 768px) {
   .navbar-brand.abs {
     position: absolute;
