@@ -35,7 +35,17 @@ const SignIn = ({ history }) => {
   };
 
   const signInWithGoogle = () => {
-    console.log('Sign in with Google. No implementation yet');
+    firebase
+      .signInWithGoogle()
+      .then(() => {
+        setEmail('');
+        setPassword('');
+        history.push('/dashboard');
+      })
+      .catch((err) => {
+        setError(err.message);
+        setPassword('');
+      });
   };
 
   const onChangeHandler = (event) => {
