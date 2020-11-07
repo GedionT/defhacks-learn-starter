@@ -1,5 +1,6 @@
 # Def Hacks Learn - CS Outreach Learning Platform
 [![Firebase-CD Actions Status](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/workflows/Firebase-CD/badge.svg)](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/actions)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/afd7d8ad160c426280810c7b80749ca9)](https://www.codacy.com/gh/alphaX86/def-hacks-learn/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=alphaX86/def-hacks-learn&amp;utm_campaign=Badge_Grade)
 
 ## Instructions:
 
