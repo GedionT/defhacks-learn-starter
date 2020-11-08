@@ -17,15 +17,7 @@
   justify-content: center;
 }
 
-.form {
-  height: 875px;
-  justify-content: center;
-}
-
 .form label {
-  display: flex;
-  justify-content: center;
-  text-align: left;
   font-family: 'Karla', sans-serif;
 }
 

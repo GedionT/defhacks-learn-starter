@@ -13,17 +13,21 @@ function Home() {
               src="/assets/guy_left_min.svg"
               alt="male with a desktop"
               className="personWithComputer"
+              draggable="false"
             />
           </div>
           <div className="col-12 col-md-6">
             <h1 className="title"> Def Hacks Learn</h1>
             <br />
             <p className="greetingPart">
-              Welcome <mark>Def-Hackers!</mark> Take your future into your own
+              Welcome, <mark>Def-Hackers!</mark> Take your future into your own
               hands and dive into your first computer science course today,{' '}
               <em>for free!</em>
             </p>
-            <Link to="/signup">
+            <Link
+              to="/signup"
+              style={{ color: 'inherit', textDecoration: 'inherit' }}
+            >
               <button className="getStartedButton" type="button">
                 Get Started
               </button>
@@ -34,6 +38,7 @@ function Home() {
               src="/assets/lady_right_min.svg"
               alt="female with a laptop"
               className="personWithComputer"
+              draggable="false"
             />
           </div>
         </div>
@@ -55,8 +60,13 @@ function Home() {
       </div>
       <div className="end">
         <p className="col-8 col-md-7 hook">So what are you waiting for?</p>
-        <Link to="/signup">
-          <button className="col-5 registerNowButton">Register Now!</button>
+        <Link
+          to="/signup"
+          style={{ color: 'inherit', textDecoration: 'inherit' }}
+        >
+          <button className="col-5 registerNowButton" type="button">
+            <span className="regBtnTxt">Register Now!</span>
+          </button>
         </Link>
       </div>
     </div>

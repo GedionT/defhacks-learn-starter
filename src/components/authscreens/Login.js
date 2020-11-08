@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Alert, Form, Button, Container } from 'react-bootstrap';
 
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
@@ -10,7 +10,7 @@ import firebase from '../firebase/base';
 const SignIn = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
+  const [error, setError] = useState(null);
 
   // These hooks from material-ui is used for checking the current width of the window
   // In particularly, check whether the window is over sm scale
@@ -22,17 +22,30 @@ const SignIn = ({ history }) => {
     firebase
       .login(email, password)
       .then(() => {
-        alert('Login Successful');
+        // alert('Login Successful');
+        setEmail('');
+        setPassword('');
         history.push('/dashboard');
       })
       .catch((err) => {
-        alert(`Error: ${err.message}`);
-        setError(`Fix ${err}`);
+        // alert(`Error: ${err.message}`);
+        setError(err.message);
+        setPassword('');
       });
   };
 
   const signInWithGoogle = () => {
-    console.log('Sign in with Google. No implementation yet');
+    firebase
+      .signInWithGoogle()
+      .then(() => {
+        setEmail('');
+        setPassword('');
+        history.push('/dashboard');
+      })
+      .catch((err) => {
+        setError(err.message);
+        setPassword('');
+      });
   };
 
   const onChangeHandler = (event) => {
@@ -47,11 +60,8 @@ const SignIn = ({ history }) => {
 
   return (
     <Container>
-      {error !== null && (
-        <div className="py-4 bg-red-600 w-full text-center mb-3">
-          <h5>{error}</h5>
-        </div>
-      )}
+      {error !== null && <Alert variant="danger">{error}</Alert>}
+
       <div>{/* Space for future decoration */}</div>
 
       <Form onSubmit={signInWithEmailAndPasswordHandler}>
@@ -66,6 +76,7 @@ const SignIn = ({ history }) => {
             placeholder="Enter email"
             value={email}
             onChange={onChangeHandler}
+            required
           />
         </Form.Group>
 
@@ -80,6 +91,7 @@ const SignIn = ({ history }) => {
             name="password"
             value={password}
             onChange={onChangeHandler}
+            required
           />
         </Form.Group>
 

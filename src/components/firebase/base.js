@@ -8,6 +8,7 @@ class Firebase {
     app.initializeApp(config);
     this.auth = app.auth();
     this.db = app.firestore();
+    this.googleProvider = new app.auth.GoogleAuthProvider();
   }
 
   dbreturns() {
@@ -20,6 +21,10 @@ class Firebase {
 
   logout() {
     return this.auth.signOut();
+  }
+
+  signInWithGoogle() {
+    return this.auth.signInWithPopup(this.googleProvider);
   }
 
   async register(name, email, password) {
@@ -36,7 +41,7 @@ class Firebase {
   }
 
   getCurrentUsername() {
-    return this.auth.currentUser && this.auth.currentUser.email;
+    return this.auth.currentUser;
   }
 }
 

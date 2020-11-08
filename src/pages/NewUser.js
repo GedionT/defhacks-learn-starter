@@ -1,14 +1,18 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import { useTheme } from '@material-ui/core/styles';
 import '../styles/newuser.css';
 
 function NewUser() {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
   return (
     <div className="new-user">
       <img alt="" src="/assets/Polygon_6.png" className="polygon6" />
       <img alt="" src="/assets/Ellipse.png" className="ellipse" />
       <img alt="" src="/assets/Polygon_5.png" className="polygon5" />
-      <div className="upper-box">
+      <div className="upper-box" style={matches ? { width: '85%' } : null}>
         Welcome to Def Hacks Learn! To get started,
         <br /> please answer a few questions about yourself.
       </div>
@@ -16,7 +20,10 @@ function NewUser() {
         Describe your current knowledge of computer science.
         <br />
         <br />
-        <div className="radio-buttons">
+        <div
+          className="radio-buttons"
+          style={matches ? { width: '85%' } : null}
+        >
           <input type="radio" value="Beginner" className="box" />
           &nbsp; Beginner (0-6 months)
           <br />
