@@ -11,7 +11,7 @@ function Footer(props) {
         <div className="col">
           <div className="text-left">
             <h2>Def Hacks Inc. 2020</h2>
-            <h5>Organization mission description</h5>
+            <h5>Made by Students for Students</h5>
           </div>
         </div>
         <div className="col-md-auto">
@@ -27,7 +27,9 @@ function Footer(props) {
                 target="__blank"
                 className="ml-2"
               >
-                <span className="h5">Facebook</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  Facebook
+                </span>
               </a>
             </li>
             <li>
@@ -40,7 +42,9 @@ function Footer(props) {
                 target="__blank"
                 className="ml-2"
               >
-                <span className="h5">Twitter</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  Twitter
+                </span>
               </a>
             </li>
             <li>
@@ -51,7 +55,9 @@ function Footer(props) {
                 target="__blank"
                 className="ml-2"
               >
-                <span className="h5">Instagram</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  Instagram
+                </span>
               </a>
             </li>
             <li>
@@ -61,7 +67,9 @@ function Footer(props) {
                 target="__blank"
                 className="ml-2"
               >
-                <span className="h5">LinkedIn</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  LinkedIn
+                </span>
               </a>
             </li>
           </ul>
@@ -71,22 +79,30 @@ function Footer(props) {
           <ul className="ftr-col mt-4">
             <li>
               <Link to="/">
-                <span className="h5">Home</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  Home
+                </span>
               </Link>
             </li>
             <li>
               <Link to="/about">
-                <span className="h5">About</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  About
+                </span>
               </Link>
             </li>
             <li>
               <Link to="/explore">
-                <span className="h5">Explore</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  Explore
+                </span>
               </Link>
             </li>
             <li>
               <Link to="/account">
-                <span className="h5">My Account</span>
+                <span className="h5" style={{ color: 'white' }}>
+                  My Account
+                </span>
               </Link>
             </li>
           </ul>

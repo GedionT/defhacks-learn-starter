@@ -1,5 +1,5 @@
 .ftr {
-  background-color: gray;
+  background-color: #99c87a;
   color: aliceblue;
   padding: 30px 100px;
   position: absolute;
@@ -25,13 +25,14 @@
 .ftr-col {
   list-style-type: none;
   text-align: left;
+  color: #fff;
 }
 
 li {
   margin: 10px 0;
 }
 
-a:hover {
+a:active {
   text-decoration: none;
 }
 
