@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import '../styles/newuser.css';
+import{Link} from "react-scroll";
 
 const NewUserCourses = () => {
   const [isActiveJS, toggleClassJS] = useState(false);
@@ -22,6 +23,15 @@ const NewUserCourses = () => {
       </div>
       <div className="lower-box">
         <div className="options">
+          <Link
+  activeClass="active"
+  to="options"
+  spy={true}
+  smooth={true}
+  offset={}
+  duration={500}
+  >
+    </Link>
           Basics of Programming
           <div
             className={isActivePro ? 'arrow-up' : 'arrow-down'}
@@ -43,6 +53,15 @@ const NewUserCourses = () => {
         )}
 
         <div className="options">
+          <Link
+  activeClass="active"
+  to="options"
+  spy={true}
+  smooth={true}
+  offset={}
+  duration={500}
+  >
+    </Link>
           Intro to JavaScript
           <div
             className={isActiveJS ? 'arrow-up' : 'arrow-down'}
@@ -64,6 +83,15 @@ const NewUserCourses = () => {
         )}
 
         <div className="options">
+          <Link
+  activeClass="active"
+  to="options"
+  spy={true}
+  smooth={true}
+  offset={}
+  duration={500}
+  >
+    </Link>
           Intro to HTML and CSS
           <div
             className={isActiveHC ? 'arrow-up' : 'arrow-down'}
@@ -86,6 +114,15 @@ const NewUserCourses = () => {
         )}
 
         <div className="options">
+          <Link
+  activeClass="active"
+  to="options"
+  spy={true}
+  smooth={true}
+  offset={}
+  duration={500}
+  >
+    </Link>
           Intro to Git
           <div
             className={isActiveGit ? 'arrow-up' : 'arrow-down'}
@@ -99,6 +136,15 @@ const NewUserCourses = () => {
 
         {showPanelGit && (
           <div className="info-panel">
+          <Link
+  activeClass="active"
+  to="options"
+  spy={true}
+  smooth={true}
+  offset={}
+  duration={500}
+  >
+    </Link>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
             iaculis nisl dolor, eu condimentum ante auctor efficitur. Phasellus
             placerat, dolor ac dignissim ornare, enim ligula sodales sapien, at
