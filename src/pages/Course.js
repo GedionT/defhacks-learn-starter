@@ -4,8 +4,21 @@ import '../styles/course.css';
 import Sidebar from '../components/common/Sidebar';
 import { Container, Row, Col } from 'react-bootstrap';
 
-function VideoPart() {
-  return <h1>Video here</h1>;
+const videoObj = {
+  videoname: 'Introduction to Git - Lesson 1',
+  instructor: 'John Doe',
+  createdDate: 'Jan 1st, 2021',
+};
+
+function VideoPart(props) {
+  var video = props.video;
+  return (
+    <>
+      <h1>{video.videoname}</h1>
+      <h3>Instructor: {video.instructor}</h3>
+      <h3>Published on: {video.createdDate}</h3>
+    </>
+  );
 }
 function CodePart() {
   return <h1>Code here</h1>;
@@ -24,7 +37,7 @@ function Course() {
         <Col>
           <Switch>
             <Route path="/course/video">
-              <VideoPart />
+              <VideoPart video={videoObj} />
             </Route>
             <Route path="/course/code">
               <CodePart />
