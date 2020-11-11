@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
 import Sidebar from '../components/common/Sidebar';
 import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const videoObj = {
   videoname: 'Introduction to Git - Lesson 1',
@@ -12,11 +13,22 @@ const videoObj = {
 
 function VideoPart(props) {
   var video = props.video;
+
+  var vidplayerCSS = {
+    height: '500px',
+    width: '600px',
+    backgroundColor: 'gray',
+    textAlign: 'center',
+  };
+
   return (
     <>
       <h1>{video.videoname}</h1>
-      <h3>Instructor: {video.instructor}</h3>
-      <h3>Published on: {video.createdDate}</h3>
+      <h4>Instructor: {video.instructor}</h4>
+      <h4>Published on: {video.createdDate}</h4>
+      <div className="video-player" style={vidplayerCSS}>
+        <h4 className="align-middle">Video Player</h4>
+      </div>
     </>
   );
 }
