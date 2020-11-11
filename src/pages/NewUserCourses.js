@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link as RouteLink, withRouter } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import '../styles/newuser.css';
+import { Link } from 'react-scroll';
 
 const NewUserCourses = () => {
   const [isActiveJS, toggleClassJS] = useState(false);
@@ -26,6 +27,14 @@ const NewUserCourses = () => {
       </div>
       <div className="lower-box" style={matches ? { width: '85%' } : null}>
         <div className="options">
+          <Link
+            activeClass="active"
+            to="options"
+            spy={true}
+            smooth={true}
+            offset={200}
+            duration={500}
+          ></Link>
           Basics of Programming
           <div
             className={isActivePro ? 'arrow-up' : 'arrow-down'}
@@ -52,6 +61,14 @@ const NewUserCourses = () => {
         )}
 
         <div className="options">
+          <Link
+            activeClass="active"
+            to="options"
+            spy={true}
+            smooth={true}
+            offset={250}
+            duration={500}
+          ></Link>
           Intro to JavaScript
           <div
             className={isActiveJS ? 'arrow-up' : 'arrow-down'}
@@ -78,6 +95,14 @@ const NewUserCourses = () => {
         )}
 
         <div className="options">
+          <Link
+            activeClass="active"
+            to="options"
+            spy={true}
+            smooth={true}
+            offset={250}
+            duration={500}
+          ></Link>
           Intro to HTML and CSS
           <div
             className={isActiveHC ? 'arrow-up' : 'arrow-down'}
@@ -105,6 +130,14 @@ const NewUserCourses = () => {
         )}
 
         <div className="options">
+          <Link
+            activeClass="active"
+            to="options"
+            spy={true}
+            smooth={true}
+            offset={250}
+            duration={500}
+          ></Link>
           Intro to Git
           <div
             className={isActiveGit ? 'arrow-up' : 'arrow-down'}
@@ -123,6 +156,14 @@ const NewUserCourses = () => {
 
         {showPanelGit && (
           <div className="info-panel">
+            <Link
+              activeClass="active"
+              to="options"
+              spy={true}
+              smooth={true}
+              offset={250}
+              duration={500}
+            ></Link>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
             iaculis nisl dolor, eu condimentum ante auctor efficitur. Phasellus
             placerat, dolor ac dignissim ornare, enim ligula sodales sapien, at
@@ -131,7 +172,7 @@ const NewUserCourses = () => {
           </div>
         )}
         <br />
-        <Link to="/newuserfinal">
+        <RouteLink to="/newuserfinal">
           <input
             type="submit"
             value="Next"
@@ -140,7 +181,7 @@ const NewUserCourses = () => {
               matches ? { width: '10%', fontSize: '70%', height: '15%' } : null
             }
           />
-        </Link>
+        </RouteLink>
       </div>
     </div>
   );

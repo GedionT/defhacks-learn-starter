@@ -52,7 +52,7 @@ function App() {
         <Route exact path="/ExistUser" component={ExistUser} />
         <Route exact path="/account" component={ExistAccount} />
         <Route exact path="/ExistActivity" component={ExistActivity} />
-        <Route exact path="/course" component={Course} />
+        <Route path="/course" component={Course} />
       </Switch>
       <Footer bottomMost={docHeight} />
     </div>
