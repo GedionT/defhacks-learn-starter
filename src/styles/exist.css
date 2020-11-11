@@ -8,18 +8,32 @@ body {
 
 .exist-title {
   position: absolute;
-  width: max-content;
-  margin: 0 auto;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
-  line-height: 62px;
-
+  font-size: 35px;
   color: #000000;
-  left: 50%;
+  right: -25%;
   transform: translateX(-50%);
+}
+
+.user-id {
+  position: relative;
+  width: max-content;
+  margin: auto;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 0px;
+  color: #000000;
+  right: -25%;
+  transform: translateX(-50%);
+}
+
+.MuiSvgIcon-root{
+  top: 5% !important;
+  left: 70% !important;
 }
 
 .exist-pattern {
@@ -28,7 +42,6 @@ body {
   height: 896.36px;
   left: 235.26px;
   top: 97.3px;
-
   background: #faf7b7;
   transform: rotate(48.63deg);
 }
@@ -39,17 +52,15 @@ body {
   height: 134px;
   left: 363px;
   top: 156px;
-
   background: rgba(219, 218, 255, 0.6);
 }
 
 .blue-box-2 {
   position: absolute;
-  width: 1022px;
+  width: 1022px !important;
   height: 134px;
   left: 388px;
   top: 132px;
-
   background: #dbdaff;
 }
 
@@ -63,14 +74,12 @@ body {
 
 .exist-menu {
   position: absolute;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
   font-size: 36px;
   line-height: 42px;
   text-align: center;
-
   color: #000000;
 }
 
@@ -80,7 +89,6 @@ body {
   height: 69px;
   left: 31px;
   top: 222px;
-
   background: #ffe2e2;
 }
 .sub-menu-2 {
@@ -89,7 +97,6 @@ body {
   height: 69px;
   left: 31px;
   top: 332px;
-
   background: #ffe2e2;
 }
 .sub-menu-3 {
@@ -98,7 +105,6 @@ body {
   height: 69px;
   left: 31px;
   top: 442px;
-
   background: #ffe2e2;
 }
 .sub-menu-4 {
@@ -107,7 +113,6 @@ body {
   height: 69px;
   left: 31px;
   top: 552px;
-
   background: #ffe2e2;
 }
 .sub-menu-5 {
@@ -116,7 +121,6 @@ body {
   height: 69px;
   left: 31px;
   top: 662px;
-
   background: #ffe2e2;
 }
 
@@ -126,7 +130,6 @@ body {
   height: 574px;
   left: 363px;
   top: 343px;
-
   background: rgba(255, 216, 131, 0.4);
 }
 
@@ -136,7 +139,6 @@ body {
   height: 574px;
   left: 390px;
   top: 315px;
-
   background: #ffd883;
 }
 
@@ -146,13 +148,11 @@ body {
   height: 74px;
   left: 428px;
   top: 346px;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: 600;
   font-size: 60px;
   line-height: 78px;
-
   color: #222222;
 }
 
@@ -162,14 +162,12 @@ body {
   height: 323px;
   left: 428px;
   top: 460px;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
   font-size: 48px;
   line-height: 62px;
   text-align: left;
-
   color: #222222;
 }
 
@@ -178,14 +176,12 @@ body {
   height: 28px;
   left: 428px;
   top: 554px;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
   /* identical to box height */
-
   color: #222222;
 }
 
@@ -195,14 +191,12 @@ body {
   height: 28px;
   left: 428px;
   top: 745px;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
   font-size: 24px;
   line-height: 28px;
   /* identical to box height */
-
   color: #222222;
 }
 
@@ -212,7 +206,6 @@ body {
   height: 275.3px;
   left: 1204.19px;
   top: 564.36px;
-
   background: #c1bfee;
   transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
 }
@@ -223,7 +216,6 @@ body {
   height: 295px;
   left: 1566.85px;
   top: 149px;
-
   background: #ffe2e2;
   border-radius: 65%;
   transform: matrix(-1, 0, 0, 1, 0, 0);
@@ -255,9 +247,7 @@ body {
   font-size: 33px;
   text-align: left;
   line-height: 43px;
-
   vertical-align: middle;
-
   color: #000000;
 }
 
@@ -265,13 +255,11 @@ body {
   position: block;
   width: max-content;
   padding-top: 1vh;
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: 600;
   font-size: 7vh;
   line-height: 78px;
-
   text-align: center;
   margin: 0 auto;
   /* border: 5px solid black; */
@@ -289,7 +277,6 @@ body {
   height: 574px;
   left: 345px;
   top: 350px;
-
   background: rgba(167, 215, 136, 0.6);
   border-radius: 6px;
 }
@@ -300,7 +287,6 @@ body {
   height: 574px;
   left: 372px;
   top: 323px;
-
   background: #a7d788;
   border-radius: 6px;
 }
@@ -311,14 +297,12 @@ body {
   height: 54px;
   left: 701px;
   top: 358px;
-
   font-family: Karla;
   font-style: normal;
   font-weight: bold;
   font-size: 45px;
   line-height: 54px;
   text-align: center;
-
   color: #ffffff;
 }
 
