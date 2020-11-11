@@ -138,8 +138,9 @@
 
 /*CSS Start here*/
 
-.testbox {
-  width: 800px;
-  height: 800px;
-  background-color: black;
+.course_container {
+  margin-right: 0;
+  margin-left: 0;
+  padding-right: 0;
+  padding-left: 0;
 }
