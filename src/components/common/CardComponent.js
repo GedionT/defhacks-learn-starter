@@ -12,9 +12,7 @@ function CardComponent() {
             <Card.Body>
               <Card.Title>Intro to HTML/CSS</Card.Title>
               <hr style={{ color: 'white' }} />
-              <Card.Text>
-                Next Lesson: Tables
-              </Card.Text>
+              <Card.Text>Next Lesson: Tables</Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -23,9 +21,7 @@ function CardComponent() {
             <Card.Body>
               <Card.Title>Intro to Git</Card.Title>
               <hr style={{ color: 'white' }} />
-              <Card.Text>
-                Next Lesson: Push and Pull
-              </Card.Text>
+              <Card.Text>Next Lesson: Push and Pull</Card.Text>
             </Card.Body>
           </Card>
         </Col>
