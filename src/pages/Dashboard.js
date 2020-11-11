@@ -1,5 +1,8 @@
 import React from 'react';
 import firebase from '../components/firebase/base';
+import Sidebar from '../components/common/Sidebar';
+import HeaderExistUser from '../components/common/HeaderExistUser';
+import CardComponent from '../components/common/CardComponent';
 
 function Dashboard() {
   return (
@@ -11,6 +14,9 @@ function Dashboard() {
       ) : (
         <h4>Not Logged in</h4>
       )}
+      <Sidebar />
+      <HeaderExistUser />
+      <CardComponent />
     </div>
   );
 }
