@@ -4,7 +4,6 @@ import './styles/index.css';
 
 // component import
 import Navbar from './components/common/Navbar';
-import Footer from './components/common/Footer';
 import LogIn from './components/authscreens/Login';
 import Signup from './components/authscreens/Signup';
 //import Calendar from './components/calendar/calendar';
@@ -23,17 +22,6 @@ import ExistActivity from './pages/ExistActivity';
 import Course from './pages/Course';
 
 function App() {
-  var body = document.body,
-    html = document.documentElement;
-
-  var docHeight = Math.max(
-    body.scrollHeight,
-    body.offsetHeight,
-    html.clientHeight,
-    html.scrollHeight,
-    html.offsetHeight
-  );
-
   useEffect(() => console.log(document.body.scrollHeight), []);
 
   return (
@@ -54,7 +42,6 @@ function App() {
         <Route exact path="/ExistActivity" component={ExistActivity} />
         <Route path="/course" component={Course} />
       </Switch>
-      <Footer bottomMost={docHeight} />
     </div>
   );
 }

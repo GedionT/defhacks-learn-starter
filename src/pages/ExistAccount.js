@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
-import '../styles/exist.css';
 import { Link } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
+
+import '../styles/exist.css';
 import firebase from '../components/firebase/base';
+import Footer from '../components/common/Footer';
 
 function ExistAccount() {
   let username = firebase.getCurrentUsername()
@@ -162,88 +164,93 @@ function ExistAccount() {
     }
   };
   return (
-    <div className="exist-main">
-      <div className="exist-menu">
-        <div className="exist-pattern"></div>
-        <div className="shape-circle"></div>
-        <div className="shape-tri"></div>
-        <div className="sub-menu-1">
-          <Link to="/account" className="color mt-2">
-            Account
-          </Link>
-        </div>
-        <br />
-        <div className="sub-menu-2">
-          <Link to="/ExistUser" className="color mt-2">
-            Courses
-          </Link>
-        </div>
-        <br />
-        <div className="sub-menu-3">
-          <Link to="/ExistActivity" className="color mt-2">
-            Activity
-          </Link>
-        </div>
-        <br />
-        <div className="sub-menu-4">
-          <Link
-            className="color mt-2"
-            onClick={() => {
-              Swal.fire('Settings', 'Coming Soon!', 'info');
-            }}
-          >
-            Settings
-          </Link>
-        </div>
-        <br />
-        <div className="sub-menu-5">
-          <Link to="/About" className="color mt-2">
-            About
-          </Link>
-        </div>
-      </div>
-      <div className="blue-box-1"></div>
-      <div className="blue-box-2">
-        <div className="exist-title">
-          Welcome {USERNAME}!
+    <>
+      <div className="exist-main">
+        <div className="exist-menu">
+          <div className="exist-pattern"></div>
+          <div className="shape-circle"></div>
+          <div className="shape-tri"></div>
+          <div className="sub-menu-1">
+            <Link to="/account" className="color mt-2">
+              Account
+            </Link>
+          </div>
           <br />
-          User ID: {ID}
+          <div className="sub-menu-2">
+            <Link to="/ExistUser" className="color mt-2">
+              Courses
+            </Link>
+          </div>
+          <br />
+          <div className="sub-menu-3">
+            <Link to="/ExistActivity" className="color mt-2">
+              Activity
+            </Link>
+          </div>
+          <br />
+          <div className="sub-menu-4">
+            <Link
+              className="color mt-2"
+              onClick={() => {
+                Swal.fire('Settings', 'Coming Soon!', 'info');
+              }}
+            >
+              Settings
+            </Link>
+          </div>
+          <br />
+          <div className="sub-menu-5">
+            <Link to="/About" className="color mt-2">
+              About
+            </Link>
+          </div>
         </div>
-      </div>
+        <div className="blue-box-1"></div>
+        <div className="blue-box-2">
+          <div className="exist-title">
+            Welcome {USERNAME}!
+            <br />
+            User ID: {ID}
+          </div>
+        </div>
 
-      <br />
-      <div className="content-box-1"></div>
-      <div className="content-box-2">
-        {' '}
-        <div className="box-title-acc">Account Information</div>
-        <div className="box-content-acc-text">
-          Username:{' '}
-          <button
-            className="btn pr-5"
-            onClick={() => changeSetting('username')}
-          >
-            <p style={{ fontSize: '30px' }}>{USERNAME}</p>
-          </button>
-          <br />
-          <br />
-          Email:{' '}
-          <button className="btn" onClick={() => changeSetting('email')}>
-            <p style={{ fontSize: '30px' }}>{EMAIL}</p>
-          </button>{' '}
-          <br />
-          <br />
-          Location: USA
-          <br />
-          <br />
-          <div>
-            Password:{' '}
-            <button className="btn" onClick={() => changeSetting('password')}>
-              {passwordDOMElement(PASSWORD)}{' '}
+        <br />
+        <div className="content-box-1"></div>
+        <div className="content-box-2">
+          {' '}
+          <div className="box-title-acc">Account Information</div>
+          <div className="box-content-acc-text">
+            Username:{' '}
+            <button
+              className="btn pr-5"
+              onClick={() => changeSetting('username')}
+            >
+              <p style={{ fontSize: '30px' }}>{USERNAME}</p>
+            </button>
+            <br />
+            <br />
+            Email:{' '}
+            <button className="btn" onClick={() => changeSetting('email')}>
+              <p style={{ fontSize: '30px' }}>{EMAIL}</p>
             </button>{' '}
+            <br />
+            <br />
+            Location: USA
+            <br />
+            <br />
+            <div>
+              Password:{' '}
+              <button className="btn" onClick={() => changeSetting('password')}>
+                {passwordDOMElement(PASSWORD)}{' '}
+              </button>{' '}
+            </div>
           </div>
         </div>
       </div>
-    </div>
+
+      {/* Footer here */}
+      <Footer />
+    </>
   );
 }
 

@@ -1,13 +1,13 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
-import Sidebar from '../components/common/Sidebar';
+import Sidebar from '../components/common/CourseSidebar';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoPlayer from './Course-Components/videoPlayer';
 
 const videoObj = {
-  videoname: 'Introduction to HTML - Lesson 1',
+  videoName: 'Introduction to HTML - Lesson 1',
   instructor: 'John Doe',
   createdDate: 'Jan 1st, 2021',
 };
