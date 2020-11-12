@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Row, Col } from 'react-bootstrap';
 import '@fortawesome/fontawesome-free/css/all.css';
+import '../../styles/VideoPlayer.css';
 
 function VideoPlayer(props) {
   var video = props.video;
@@ -19,7 +20,6 @@ function VideoPlayer(props) {
     width: '1000px',
     backgroundColor: 'black',
     display: 'flex',
-    flexDirecton: 'row',
     alignItems: 'center',
     padding: '0 10px',
   };
@@ -31,7 +31,7 @@ function VideoPlayer(props) {
     marginRight: '20px',
   };
 
-  var playPauseChoice = ['fas fa-pause'];
+  const playPauseChoice = ['fas fa-pause'];
   const [Choice, setChoice] = useState('fas fa-play');
 
   return (

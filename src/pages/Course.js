@@ -1,10 +1,11 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
-import Sidebar from '../components/common/Sidebar';
+import Sidebar from '../components/common/C-Sidebar';
 import { Container, Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoPlayer from './Course-Components/videoPlayer';
+import CodePlayground from './Course-Components/codePlayground';
 
 const videoObj = {
   videoname: 'Introduction to HTML - Lesson 1',
@@ -32,7 +33,7 @@ function Course() {
               <VideoPlayer video={videoObj} />
             </Route>
             <Route path="/course/code">
-              <CodePart />
+              <CodePlayground />
             </Route>
             <Route path="/course/test">
               <TestPart />
