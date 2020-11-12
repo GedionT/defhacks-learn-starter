@@ -31,7 +31,6 @@ function VideoPlayer(props) {
     marginRight: '20px',
   };
 
-//   var playPauseChoice = ['fas fa-pause'];
   const [Choice, setChoice] = useState('fas fa-play');
 
   return (
