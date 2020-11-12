@@ -3,10 +3,15 @@ import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
 import Sidebar from '../components/common/Sidebar';
 import { Container, Row, Col } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import VideoPlayer from './Course-Components/videoPlayer';
 
-function VideoPart() {
-  return <h1>Video here</h1>;
-}
+const videoObj = {
+  videoname: 'Introduction to HTML - Lesson 1',
+  instructor: 'John Doe',
+  createdDate: 'Jan 1st, 2021',
+};
+
 function CodePart() {
   return <h1>Code here</h1>;
 }
@@ -16,7 +21,7 @@ function TestPart() {
 
 function Course() {
   return (
-    <Container className="course_container">
+    <>
       <Row>
         <Col>
           <Sidebar />
@@ -24,7 +29,7 @@ function Course() {
         <Col>
           <Switch>
             <Route path="/course/video">
-              <VideoPart />
+              <VideoPlayer video={videoObj} />
             </Route>
             <Route path="/course/code">
               <CodePart />
@@ -34,8 +39,8 @@ function Course() {
             </Route>
           </Switch>
         </Col>
-      </Row>
-    </Container>
+      </Row>{' '}
+    </>
   );
 }
 export default Course;
