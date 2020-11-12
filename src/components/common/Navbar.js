@@ -13,7 +13,7 @@ function Navigation() {
 
   return (
     <>
-      <Navbar bg="white" className="sticky-top">
+      <Navbar bg="white" className="sticky-top" id="app_navbar">
         <Navbar.Brand href="/">
           <img
             alt="logo"

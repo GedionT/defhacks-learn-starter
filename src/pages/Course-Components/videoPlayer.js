@@ -1,33 +1,32 @@
 import React, { useState } from 'react';
 import '@fortawesome/fontawesome-free/css/all.css';
 
+const videoPlayerCSS = {
+  height: '600px',
+  width: '1000px',
+  backgroundColor: 'gray',
+  textAlign: 'center',
+  padding: '5px',
+};
+
+const trackBarCSS = {
+  height: '50px',
+  width: '1000px',
+  backgroundColor: 'black',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '0 10px',
+};
+
+const trackIconCss = {
+  color: 'white',
+  fontSize: '30px',
+  cursor: 'pointer',
+  marginRight: '20px',
+};
+
 function VideoPlayer(props) {
   const video = props.video;
-
-  const videoPlayerCSS = {
-    height: '600px',
-    width: '1000px',
-    backgroundColor: 'gray',
-    textAlign: 'center',
-    padding: '5px',
-  };
-
-  const trackBarCSS = {
-    height: '50px',
-    width: '1000px',
-    backgroundColor: 'black',
-    display: 'flex',
-    alignItems: 'center',
-    padding: '0 10px',
-  };
-
-  const trackIconCss = {
-    color: 'white',
-    fontSize: '30px',
-    cursor: 'pointer',
-    marginRight: '20px',
-  };
-
   // const playPauseChoice = ['fas fa-pause'];
   const [choice, setChoice] = useState('fas fa-play');
 
@@ -47,8 +46,8 @@ function VideoPlayer(props) {
           class={choice}
           style={trackIconCss}
         ></i>
-        <i class="fas fa-backward" style={trackIconCss}></i>
-        <i class="fas fa-forward" style={trackIconCss}></i>
+        <i className="fas fa-backward" style={trackIconCss}></i>
+        <i className="fas fa-forward" style={trackIconCss}></i>
       </div>
       <h4>Instructor: {video.instructor}</h4>
       <h4>Published on: {video.createdDate}</h4>

@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
 import Sidebar from '../components/common/CourseSidebar';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col, Container } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoPlayer from './Course-Components/videoPlayer';
 
@@ -20,13 +20,26 @@ function TestPart() {
 }
 
 function Course() {
+  const [navbarHeight, setNavbarHeight] = useState('75px');
+
+  useEffect(() => {
+    setNavbarHeight(document.getElementById('app_navbar').style.height);
+  }, []);
+
   return (
-    <>
+    <div
+      className="course_container"
+      style={{ height: `calc(100vh - ${navbarHeight})` }}
+    >
       <Row>
-        <Col>
+        <Col xs={3} lg={3}>
           <Sidebar />
         </Col>
-        <Col>
+        <Col
+          xs={9}
+          lg={9}
+          style={{ height: `calc(100vh - ${navbarHeight})`, overflowY: 'auto' }}
+        >
           <Switch>
             <Route path="/course/video">
               <VideoPlayer video={videoObj} />
@@ -39,8 +52,8 @@ function Course() {
             </Route>
           </Switch>
         </Col>
-      </Row>{' '}
-    </>
+      </Row>
+    </div>
   );
 }
 export default Course;

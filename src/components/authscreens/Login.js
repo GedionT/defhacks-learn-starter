@@ -65,6 +65,7 @@ const SignIn = ({ history }) => {
         {error !== null && <Alert variant="danger">{error}</Alert>}
 
         <div>{/* Space for future decoration */}</div>
+        <h1 style={{ textAlign: 'center' }}>Sign in</h1>
 
         <Form onSubmit={signInWithEmailAndPasswordHandler}>
           <Form.Group
