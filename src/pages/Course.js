@@ -2,7 +2,7 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
 import Sidebar from '../components/common/Sidebar';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoPlayer from './Course-Components/videoPlayer';
 
