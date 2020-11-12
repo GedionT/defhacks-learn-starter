@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/index.css';
 
@@ -22,8 +22,6 @@ import ExistActivity from './pages/ExistActivity';
 import Course from './pages/Course';
 
 function App() {
-  useEffect(() => console.log(document.body.scrollHeight), []);
-
   return (
     <div className="App">
       <Navbar />

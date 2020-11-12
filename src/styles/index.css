@@ -9,7 +9,7 @@ body {
 }
 
 .App {
-  margin: 2px, 15px, 15px, 15px;
+  margin: 0px, 15px, 15px, 15px;
   /* text-align: center; */
 }
 
@@ -18,8 +18,9 @@ body {
 }
 
 .Navbar {
-  margin-top: 8px;
-  margin-bottom: 15px;
+  padding-top: 10px;
+  margin-top: 0px;
+  margin-bottom: 14px;
 }
 
 .footer {

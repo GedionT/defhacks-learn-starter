@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
 import Sidebar from '../components/common/CourseSidebar';
-import { Row, Col, Container } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 import VideoPlayer from './Course-Components/videoPlayer';
 
