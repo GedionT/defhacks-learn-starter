@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/index.css';
 
@@ -33,8 +33,6 @@ function App() {
     html.scrollHeight,
     html.offsetHeight
   );
-
-  useEffect(() => console.log(document.body.scrollHeight), []);
 
   return (
     <div className="App">

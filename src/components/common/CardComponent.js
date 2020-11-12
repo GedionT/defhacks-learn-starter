@@ -1,7 +1,7 @@
 import React from 'react';
 import '../../styles/exist.css';
 import '../../styles/dashboard.css';
-import { Card, Button, Container, Row, Col } from 'react-bootstrap';
+import { Card, Container, Row, Col } from 'react-bootstrap';
 
 function CardComponent() {
   return (
@@ -12,7 +12,9 @@ function CardComponent() {
             <Card.Body>
               <Card.Title>Intro to HTML/CSS</Card.Title>
               <hr style={{ color: 'white' }} />
-              <Card.Text>Next Lesson: Tables</Card.Text>
+              <Card.Text>
+                <em>Next Lesson</em> Tables
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>
@@ -21,7 +23,9 @@ function CardComponent() {
             <Card.Body>
               <Card.Title>Intro to Git</Card.Title>
               <hr style={{ color: 'white' }} />
-              <Card.Text>Next Lesson: Push and Pull</Card.Text>
+              <Card.Text>
+                <em>Next Lesson</em> Push and Pull
+              </Card.Text>
             </Card.Body>
           </Card>
         </Col>
