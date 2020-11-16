@@ -37,7 +37,7 @@ function CodeEditor() {
     editor.current.focus();
   };
 
-//   const outputComponent = [];
+  //   const outputComponent = [];
   return (
     <>
       <div
