@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import '../styles/course.css';
-import { Container, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 import Sidebar from '../components/common/CourseSidebar';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -14,9 +14,9 @@ const videoObj = {
   createdDate: 'Jan 1st, 2021',
 };
 
-function CodePart() {
-  return <h1>Code here</h1>;
-}
+// function CodePart() {
+//   return <h1>Code here</h1>;
+// }
 function TestPart() {
   return <h1>Test here</h1>;
 }
