@@ -1,6 +1,5 @@
-import React, { useState, useRef, useEffect, convertToRaw } from 'react';
-import ReactDOM from 'react-dom';
-import { Editor, EditorBlock, EditorState, ContentState } from 'draft-js';
+import React, { useState, useRef } from 'react';
+import { Editor, EditorBlock, EditorState } from 'draft-js';
 import './codeEditor.css';
 import OutputPanel from './outputPanel';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -38,7 +37,7 @@ function CodeEditor() {
     editor.current.focus();
   };
 
-  const outputComponent = [];
+//   const outputComponent = [];
   return (
     <>
       <div
