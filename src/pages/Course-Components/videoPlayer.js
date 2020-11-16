@@ -3,7 +3,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '../../styles/VideoPlayer.css';
 
 function VideoPlayer(props) {
-  const playPauseChoice = ['fas fa-pause'];
+//   const playPauseChoice = ['fas fa-pause'];
   const [choice, setChoice] = useState('fas fa-play');
   const videoPlayerCSS = {
     height: '600px',
