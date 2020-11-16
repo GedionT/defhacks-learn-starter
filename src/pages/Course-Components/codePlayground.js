@@ -9,9 +9,9 @@ import CodeEditor from './codeEditor';
 function CodePlayground() {
   const editor = useRef(null);
 
-//   const focusEditor = () => {
-//     editor.current.focus();
-//   };
+  //   const focusEditor = () => {
+  //     editor.current.focus();
+  //   };
 
   return (
     <div style={{ marginRight: '500px' }}>
