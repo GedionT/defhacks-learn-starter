@@ -7,7 +7,7 @@ import CodeEditor from './codeEditor';
 // import OutputPanel from './outputPanel';
 
 function CodePlayground() {
-  const editor = useRef(null);
+  //   const editor = useRef(null);
 
   //   const focusEditor = () => {
   //     editor.current.focus();
