@@ -3,9 +3,9 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import '../../styles/VideoPlayer.css';
 
 function VideoPlayer(props) {
-  var video = props.video;
-
-  var vidplayerCSS = {
+  const playPauseChoice = ['fas fa-pause'];
+  const [choice, setChoice] = useState('fas fa-play');
+  const videoPlayerCSS = {
     height: '600px',
     width: '1000px',
     backgroundColor: 'gray',
@@ -13,7 +13,7 @@ function VideoPlayer(props) {
     padding: '5px',
   };
 
-  var trackBarCSS = {
+  const trackBarCSS = {
     height: '50px',
     width: '1000px',
     backgroundColor: 'black',
@@ -22,45 +22,15 @@ function VideoPlayer(props) {
     padding: '0 10px',
   };
 
-  var trackIconCss = {
+  const trackIconCss = {
     color: 'white',
     fontSize: '30px',
     cursor: 'pointer',
     marginRight: '20px',
   };
 
-  const playPauseChoice = ['fas fa-pause'];
-  const [Choice, setChoice] = useState('fas fa-play');
-=======
-const videoPlayerCSS = {
-  height: '600px',
-  width: '1000px',
-  backgroundColor: 'gray',
-  textAlign: 'center',
-  padding: '5px',
-};
-
-const trackBarCSS = {
-  height: '50px',
-  width: '1000px',
-  backgroundColor: 'black',
-  display: 'flex',
-  alignItems: 'center',
-  padding: '0 10px',
-};
-
-const trackIconCss = {
-  color: 'white',
-  fontSize: '30px',
-  cursor: 'pointer',
-  marginRight: '20px',
-};
-
-function VideoPlayer(props) {
   const video = props.video;
   // const playPauseChoice = ['fas fa-pause'];
-  const [choice, setChoice] = useState('fas fa-play');
->>>>>>> ff1a7b2dfd06fde10a40a14f0690f516556454f5
 
   return (
     <div>

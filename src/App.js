@@ -20,6 +20,7 @@ import ExistUser from './pages/ExistUser';
 import ExistAccount from './pages/ExistAccount';
 import ExistActivity from './pages/ExistActivity';
 import Course from './pages/Course';
+import NotFound from './pages/NotFound';
 
 function App() {
   return (
@@ -38,6 +39,7 @@ function App() {
         <Route exact path="/account" component={ExistAccount} />
         <Route exact path="/ExistActivity" component={ExistActivity} />
         <Route path="/course" component={Course} />
+        <Route component={NotFound} />
       </Switch>
     </div>
   );

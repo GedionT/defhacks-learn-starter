@@ -1,0 +1,46 @@
+.fof-container {
+  text-align: center;
+  width: max-content;
+  padding: 0;
+  margin: 0 auto;
+  top: 50%;
+  transform: translateY(50%);
+}
+
+.four-o-four-text {
+  font-size: 10vw;
+  font-weight: 900;
+  text-align: center;
+  color: #72ba41;
+  text-shadow: #fffca8 2px 2px 1px, #9c9c9c 4px 4px 2px;
+}
+
+.fof-subtitle {
+  font-weight: 600;
+}
+
+.fof-paragraph {
+  font-size: 1vw;
+}
+
+.fof-homepage-btn,
+.fof-homepage-btn:focus {
+  width: 10vw;
+  height: 3vw;
+  border: none;
+  background-color: #72ba41;
+  color: #fff;
+  font-size: 1vw;
+  border-radius: 10px;
+  box-shadow: 5px 5px 1px 5px #fffca8;
+  outline: none;
+}
+
+.fof-homepage-btn:hover {
+  box-shadow: none;
+}
+
+.fof-homepage-btn-text {
+  color: white;
+  border: 1px solid black;
+}
