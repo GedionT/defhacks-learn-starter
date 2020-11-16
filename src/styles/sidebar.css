@@ -1,17 +1,15 @@
 .sidebar {
-  width: 20vw;
-  height: 80vh;
+  height: 100%;
+  overflow: auto;
   background-color: #b2de8e;
   text-align: center;
   padding: 20px;
-  position: relative;
   display: flex;
   flex-direction: column;
 }
 
 .btn-col {
   margin-top: 50px;
-  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;

@@ -4,9 +4,19 @@ import '../../styles/footer.css';
 import '@fortawesome/fontawesome-free/css/all.css';
 import { Link } from 'react-router-dom';
 
-function Footer(props) {
+function Footer() {
+  const body = document.body;
+  const html = document.documentElement;
+
+  const docHeight = Math.max(
+    body.scrollHeight,
+    body.offsetHeight,
+    html.clientHeight,
+    html.scrollHeight,
+    html.offsetHeight
+  );
   return (
-    <footer className="ftr" style={{ top: `${props.bottomMost + 150}px` }}>
+    <footer className="ftr" style={{ top: `${docHeight + 150}px` }}>
       <div className="row">
         <div className="col">
           <div className="text-left">

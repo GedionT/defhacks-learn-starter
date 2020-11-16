@@ -1,6 +1,4 @@
 import React, { useState } from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import { Row, Col } from 'react-bootstrap';
 import '@fortawesome/fontawesome-free/css/all.css';
 import '../../styles/VideoPlayer.css';
 
@@ -33,25 +31,55 @@ function VideoPlayer(props) {
 
   const playPauseChoice = ['fas fa-pause'];
   const [Choice, setChoice] = useState('fas fa-play');
+=======
+const videoPlayerCSS = {
+  height: '600px',
+  width: '1000px',
+  backgroundColor: 'gray',
+  textAlign: 'center',
+  padding: '5px',
+};
+
+const trackBarCSS = {
+  height: '50px',
+  width: '1000px',
+  backgroundColor: 'black',
+  display: 'flex',
+  alignItems: 'center',
+  padding: '0 10px',
+};
+
+const trackIconCss = {
+  color: 'white',
+  fontSize: '30px',
+  cursor: 'pointer',
+  marginRight: '20px',
+};
+
+function VideoPlayer(props) {
+  const video = props.video;
+  // const playPauseChoice = ['fas fa-pause'];
+  const [choice, setChoice] = useState('fas fa-play');
+>>>>>>> ff1a7b2dfd06fde10a40a14f0690f516556454f5
 
   return (
-    <div style={{ marginRight: '400px' }}>
-      <h1>{video.videoname}</h1>
+    <div>
+      <h1>{video.videoName}</h1>
 
-      <div className="video-player" style={vidplayerCSS}>
+      <div className="video-player" style={videoPlayerCSS}>
         <h4>Video Player</h4>
       </div>
       <div className="track-bar" style={trackBarCSS}>
         <i
           onClick={() => {
-            if (Choice === 'fas fa-play') setChoice('fas fa-pause');
-            if (Choice === 'fas fa-pause') setChoice('fas fa-play');
+            if (choice === 'fas fa-play') setChoice('fas fa-pause');
+            if (choice === 'fas fa-pause') setChoice('fas fa-play');
           }}
-          class={Choice}
+          class={choice}
           style={trackIconCss}
         ></i>
-        <i class="fas fa-backward" style={trackIconCss}></i>
-        <i class="fas fa-forward" style={trackIconCss}></i>
+        <i className="fas fa-backward" style={trackIconCss}></i>
+        <i className="fas fa-forward" style={trackIconCss}></i>
       </div>
       <h4>Instructor: {video.instructor}</h4>
       <h4>Published on: {video.createdDate}</h4>

@@ -4,8 +4,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 //import '../../styles/sidebar.css';
 
 function Sidebar() {
-  var LESSON_NAME = 'Intro to HTML';
-
   return (
     // <div className="sidebar">
     //   <h3>{LESSON_NAME}</h3>
