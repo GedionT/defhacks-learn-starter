@@ -85,7 +85,7 @@ export default function TestPanel() {
           <Quiz test={test} />
         </div>
       ))}
-      <button type="submit" class="btn btn-success">
+      <button type="submit" className="btn btn-success">
         Submit
       </button>
     </>
@@ -102,18 +102,19 @@ function Quiz(props) {
   };
 
   return (
-    <Form>
+    <Form className="border my-4 p-2">
       <Form.Group>
-        <h5>{question}</h5>
+        <h5 className="my-3 d-block">{question}</h5>
         {options.map((option) => (
           <Form.Check
             value={option.content}
             type="radio"
-            name={option.content}
+            name={option.question}
             label={option.content}
             key={option.id}
             onChange={handleChange}
             checked={option.content === selectedOptions}
+            required
           />
         ))}
       </Form.Group>
