@@ -38,7 +38,9 @@ function App() {
         <Route exact path="/ExistUser" component={ExistUser} />
         <Route exact path="/account" component={ExistAccount} />
         <Route exact path="/ExistActivity" component={ExistActivity} />
+
         <Route path="/course" component={Course} />
+
         <Route component={NotFound} />
       </Switch>
     </div>
