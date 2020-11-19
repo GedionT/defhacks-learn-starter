@@ -5,23 +5,6 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Sidebar() {
   return (
-    // <div className="sidebar">
-    //   <h3>{LESSON_NAME}</h3>
-    //   <div className="btn-col">
-    //     <Link>
-    //       <button className="sidebar-button">Videos</button>
-    //     </Link>
-    //     <Link>
-    //       <button className="sidebar-button">Code</button>
-    //     </Link>
-    //     <div className="code-samples">
-    //       <h4>List of code samples</h4>
-    //     </div>
-    //     <Link>
-    //       <button className="sidebar-button">Tests</button>
-    //     </Link>
-    //   </div>
-    // </div>
     <div className="exist-main">
       <div className="exist-menu">
         <div className="exist-pattern"></div>

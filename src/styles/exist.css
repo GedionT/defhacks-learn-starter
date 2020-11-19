@@ -6,6 +6,14 @@ body {
   background-color: #eeffee;
 }
 
+.general_container {
+  margin-right: -20px;
+  margin-left: -20px;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+}
+
 .exist-title {
   position: absolute;
   font-family: IBM Plex Mono;
@@ -31,7 +39,7 @@ body {
   transform: translateX(-50%);
 }
 
-.MuiSvgIcon-root{
+.MuiSvgIcon-root {
   top: 5% !important;
   left: 70% !important;
 }
