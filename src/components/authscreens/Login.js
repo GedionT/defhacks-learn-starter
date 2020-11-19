@@ -179,7 +179,11 @@ const SignIn = ({ history }) => {
                         );
                       })
                       .catch(function (error) {
-                        console.log(error);
+                        Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: "This email address hasn't been registered!",
+                        });
                       });
                     // If email is found in account database: Invoke reset action
                     // Else: Fire error alert
