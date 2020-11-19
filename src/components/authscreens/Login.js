@@ -168,12 +168,19 @@ const SignIn = ({ history }) => {
               }).then((result) => {
                 if (result.isConfirmed) {
                   if (emailValid(result.value)) {
-                    Swal.fire(
-                      'Sent!',
-                      'We have sent an password reset link to your Email',
-                      'success'
-                    );
-
+                    let auth = firebase.authreturns();
+                    auth
+                      .sendPasswordResetEmail(result.value)
+                      .then(function () {
+                        Swal.fire(
+                          'Sent!',
+                          'We have sent an password reset link to your Email',
+                          'success'
+                        );
+                      })
+                      .catch(function (error) {
+                        console.log(error);
+                      });
                     // If email is found in account database: Invoke reset action
                     // Else: Fire error alert
                   } else {
@@ -187,7 +194,7 @@ const SignIn = ({ history }) => {
               });
             }}
           >
-            <p>Forgot Password?</p>
+            <p style={{ color: '#38BC9C' }}>Forgot Password?</p>
           </button>
         </div>
       </Container>

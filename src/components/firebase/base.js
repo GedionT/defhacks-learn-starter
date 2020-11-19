@@ -12,7 +12,7 @@ class Firebase {
   }
 
   authreturns() {
-    return this.auth();
+    return this.auth;
   }
 
   dbreturns() {
