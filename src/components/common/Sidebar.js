@@ -4,11 +4,11 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 function Sidebar() {
   return (
-    <div className="exist-menu">
+    <div className="exist-menu mx-3 mt-3">
       {/* This part go to background as decoration */}
       <div className="exist-pattern"></div>
-      <div className="shape-circle"></div>
-      <div className="shape-tri"></div>
+      {/* <div className="shape-circle"></div>
+      <div className="shape-tri"></div> */}
 
       {/* Actually button */}
       <div className="sub-menu">
@@ -30,7 +30,11 @@ function Sidebar() {
       </div>
       <br />
       <div className="sub-menu">
-        <Link className="color" onClick={() => alert('Coming soon!')}>
+        <Link
+          className="color"
+          onClick={() => alert('Coming soon!')}
+          to="/dashboard"
+        >
           Settings
         </Link>
       </div>

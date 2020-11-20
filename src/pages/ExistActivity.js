@@ -9,12 +9,12 @@ import '../styles/exist.css';
 function ExistActivity() {
   return (
     <div className="general_container">
-      <Row>
+      <Row style={{ marginRight: 0, marginLeft: 0 }}>
         <Col xs={3} lg={3}>
           <Sidebar />
         </Col>
 
-        <Col xs={9} lg={9}>
+        <Col xs={9} lg={9} style={{ position: 'relative' }}>
           <div className="blue-box-1"></div>
           <div className="blue-box-2"></div>
           <div className="exist-title">$username</div>

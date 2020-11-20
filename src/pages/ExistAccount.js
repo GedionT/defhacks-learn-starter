@@ -165,65 +165,41 @@ function ExistAccount() {
     }
   };
   return (
-    <>
-      <div className="general_container">
-        <Row>
-          <Col xs={3} lg={3}>
-            <Sidebar />
-          </Col>
+    <div className="general_container">
+      <Row style={{ marginRight: 0, marginLeft: 0 }}>
+        <Col xs={3} lg={3}>
+          <Sidebar />
+        </Col>
 
-          <Col xs={9} lg={9}>
-            <div className="blue-box-1"></div>
-            <div className="blue-box-2">
-              <div className="exist-title">
-                Welcome {USERNAME}!
-                <br />
-                User ID: {ID}
+        <Col xs={9} lg={9} style={{ position: 'relative' }}>
+          <div className="blue-box-1"></div>
+          <div className="blue-box-2">
+            <div className="exist-title">
+              Welcome {USERNAME}!
+              <br />
+              User ID: {ID}
+            </div>
+          </div>
+
+          <div className="content-box-1"></div>
+          <div className="content-box-2">
+            <div className="box-title-acc">Account Information</div>
+            <div className="box-content-acc-text">
+              <p onClick={() => changeSetting('username')}>
+                Username: {USERNAME}
+              </p>
+              <p onClick={() => changeSetting('email')}>Email: {EMAIL}</p>
+              <p>Location: USA</p>
+              <div>
+                <p onClick={() => changeSetting('password')}>
+                  Password: {passwordDOMElement(PASSWORD)}
+                </p>
               </div>
             </div>
-
-            <br />
-            <div className="content-box-1"></div>
-            <div className="content-box-2">
-              {' '}
-              <div className="box-title-acc">Account Information</div>
-              <div className="box-content-acc-text">
-                Username:{' '}
-                <button
-                  className="btn pr-5"
-                  onClick={() => changeSetting('username')}
-                >
-                  <p style={{ fontSize: '30px' }}>{USERNAME}</p>
-                </button>
-                <br />
-                <br />
-                Email:{' '}
-                <button className="btn" onClick={() => changeSetting('email')}>
-                  <p style={{ fontSize: '30px' }}>{EMAIL}</p>
-                </button>{' '}
-                <br />
-                <br />
-                Location: USA
-                <br />
-                <br />
-                <div>
-                  Password:{' '}
-                  <button
-                    className="btn"
-                    onClick={() => changeSetting('password')}
-                  >
-                    {passwordDOMElement(PASSWORD)}{' '}
-                  </button>{' '}
-                </div>
-              </div>
-            </div>
-          </Col>
-        </Row>
-      </div>
-
-      {/* Footer here */}
-      <Footer />
-    </>
+          </div>
+        </Col>
+      </Row>
+    </div>
   );
 }
 

@@ -9,29 +9,25 @@ function ExistUser() {
 
   return (
     <div className="general_container">
-      <Row>
+      <Row style={{ marginRight: 0, marginLeft: 0 }}>
         <Col xs={3} lg={3}>
           <Sidebar />
         </Col>
 
-        <Col xs={9} lg={9}>
+        <Col xs={9} lg={9} style={{ position: 'relative' }}>
           <div className="blue-box-1"></div>
           <div className="blue-box-2">
             {' '}
             <div className="exist-title">Welcome back, {USERNAME}!</div>
           </div>
 
-          <br />
           <div className="content-box-1"></div>
           <div className="content-box-2"></div>
           <div className="box-title">My Courses</div>
           <div className="box-content">
             Intro to HTML, CSS
-            <br />
             <div className="mini-progress-1">Percent</div>
-            <br />
             Intro to Git
-            <br />
             <br />
           </div>
         </Col>
