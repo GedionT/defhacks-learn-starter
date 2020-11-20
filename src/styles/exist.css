@@ -7,8 +7,8 @@ body {
 }
 
 .general_container {
-  margin-right: -20px;
-  margin-left: -20px;
+  margin-right: -10px;
+  margin-left: -10px;
   padding-right: 0;
   padding-left: 0;
   width: 100%;
@@ -52,6 +52,7 @@ body {
   top: 97.3px;
   background: #faf7b7;
   transform: rotate(48.63deg);
+  z-index: -100;
 }
 
 .blue-box-1 {
@@ -81,7 +82,6 @@ body {
 }
 
 .exist-menu {
-  position: absolute;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
@@ -91,44 +91,8 @@ body {
   color: #000000;
 }
 
-.sub-menu-1 {
-  position: absolute;
-  width: 266px;
+.sub-menu {
   height: 69px;
-  left: 31px;
-  top: 222px;
-  background: #ffe2e2;
-}
-.sub-menu-2 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 332px;
-  background: #ffe2e2;
-}
-.sub-menu-3 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 442px;
-  background: #ffe2e2;
-}
-.sub-menu-4 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 552px;
-  background: #ffe2e2;
-}
-.sub-menu-5 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 662px;
   background: #ffe2e2;
 }
 
@@ -216,6 +180,7 @@ body {
   top: 564.36px;
   background: #c1bfee;
   transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
+  z-index: -100;
 }
 
 .shape-circle {
@@ -227,6 +192,7 @@ body {
   background: #ffe2e2;
   border-radius: 65%;
   transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: -100;
 }
 
 .box-content-acc {
