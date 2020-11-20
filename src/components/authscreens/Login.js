@@ -8,6 +8,8 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import firebase from '../firebase/base';
 import Footer from '../common/Footer';
 
+import Swal from 'sweetalert2';
+
 const SignIn = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -33,6 +35,11 @@ const SignIn = ({ history }) => {
         setError(err.message);
         setPassword('');
       });
+  };
+
+  const emailValid = (email) => {
+    const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
   };
 
   const signInWithGoogle = () => {
@@ -135,17 +142,64 @@ const SignIn = ({ history }) => {
             />
             <span>Sign in with Google</span>
           </Button>
-
-          <div className="text-center mt-3">
-            <p>
-              Don't have an account ? {'  '}
-              <Link to="/signup">Sign up here</Link>
-            </p>
-            <p>
-              <Link to="/reset">Forgot Password?</Link>
-            </p>
-          </div>
         </Form>
+        <div className="text-center mt-3">
+          <p>
+            Don't have an account ? {'  '}
+            <Link to="/signup">Sign up here</Link>
+          </p>
+          <button
+            className="btn"
+            style={{
+              padding: '5px',
+            }}
+            onClick={() => {
+              Swal.fire({
+                title: 'Enter your Email Address',
+                input: 'text',
+                inputAttributes: {
+                  autocapitalize: 'off',
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Send Reset Instructions',
+                showLoaderOnConfirm: true,
+                allowOutsideClick: () => !Swal.isLoading(),
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  if (emailValid(result.value)) {
+                    let auth = firebase.authreturns();
+                    auth
+                      .sendPasswordResetEmail(result.value)
+                      .then(function () {
+                        Swal.fire(
+                          'Sent!',
+                          'We have sent an password reset link to your Email',
+                          'success'
+                        );
+                      })
+                      .catch(function (error) {
+                        Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: "This email address hasn't been registered!",
+                        });
+                      });
+                    // If email is found in account database: Invoke reset action
+                    // Else: Fire error alert
+                  } else {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Invalid Email Address!',
+                    });
+                  }
+                }
+              });
+            }}
+          >
+            <p style={{ color: '#38BC9C' }}>Forgot Password?</p>
+          </button>
+        </div>
       </Container>
 
       {/* Footer fo here */}
