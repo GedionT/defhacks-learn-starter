@@ -8,7 +8,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import firebase from '../firebase/base';
 import Footer from '../common/Footer';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 
 const SignIn = ({ history }) => {
