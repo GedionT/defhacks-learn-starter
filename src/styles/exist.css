@@ -19,15 +19,12 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.1rem;
+  font-size: 2.5vw;
   color: #000000;
   text-align: center;
 }
 
 .user-id {
-  position: relative;
-  width: max-content;
-  margin: auto;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
@@ -82,14 +79,15 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 2.5vw;
   text-align: center;
   vertical-align: center;
   color: #000000;
 }
 
 .sub-menu {
-  height: 69px;
+  max-height: 70px;
+  height: 18vh;
   background: #ffe2e2;
 }
 
@@ -115,7 +113,7 @@ body {
   font-style: normal;
   text-align: center;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3vw;
   color: #222222;
 }
 
@@ -123,7 +121,7 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.5rem;
+  font-size: 2.5vw;
   text-align: left;
   color: #222222;
 }
@@ -132,7 +130,7 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
   /* identical to box height */
   color: #222222;
 }
@@ -141,7 +139,7 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 1.5rem;
+  font-size: 1.5vw;
 
   color: #222222;
 }
@@ -181,7 +179,7 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 1.8vw;
   line-height: 3rem;
   color: #000000;
 }
@@ -189,7 +187,7 @@ body {
 .box-title-acc {
   font-family: IBM Plex Mono;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3vw;
   text-align: center;
 
   color: #000000;

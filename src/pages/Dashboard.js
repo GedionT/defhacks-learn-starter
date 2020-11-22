@@ -9,12 +9,12 @@ import CardComponent from '../components/common/CardComponent';
 function Dashboard() {
   return (
     <div className="general_container">
-      <Row>
-        <Col xs={3} lg={3}>
+      <Row style={{ marginRight: 0, marginLeft: 0 }}>
+        <Col xs={3} md={3} lg={3}>
           <Sidebar />
         </Col>
 
-        <Col xs={9} lg={9}>
+        <Col xs={9} md={9} lg={9} style={{ position: 'relative' }}>
           <HeaderExistUser />
           <CardComponent />
         </Col>
