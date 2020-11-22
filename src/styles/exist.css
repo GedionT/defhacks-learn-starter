@@ -197,30 +197,24 @@ body {
 
 .green-box-1 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 345px;
-  top: 350px;
+  width: 98%;
+  /* height: 100%; */
+  left: 0%;
+  top: 40%;
   background: rgba(167, 215, 136, 0.6);
   border-radius: 6px;
 }
 
 .green-box-2 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 372px;
-  top: 323px;
+  width: 98%;
+  /* height: 100%; */
+  top: 35%;
   background: #a7d788;
   border-radius: 6px;
 }
 
 .act-cont {
-  position: absolute;
-  width: 292px;
-  height: 54px;
-  left: 701px;
-  top: 358px;
   font-family: Karla;
   font-style: normal;
   font-weight: bold;
@@ -231,11 +225,8 @@ body {
 }
 
 .cal-act {
-  position: absolute;
-  width: 400px;
-  height: 450px;
-  left: 650px;
-  top: 475px;
+  padding-left: 1%;
+  width: 98%;
 }
 
 .color {

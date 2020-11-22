@@ -16,14 +16,15 @@ function ExistActivity() {
 
         <Col xs={9} lg={9} style={{ position: 'relative' }}>
           <div className="blue-box-1"></div>
-          <div className="blue-box-2"></div>
-          <div className="exist-title">$username</div>
-          <br />
-          <div className="green-box-1"></div>
-          <div className="green-box-2"></div>
-          <div className="act-cont">Daily Activity</div>
-          <div className="cal-act">
-            <Calendar className="cal-act-1" />
+          <div className="blue-box-2">
+            <div className="exist-title">$username</div>
+          </div>
+
+          <div className="green-box-1">
+            <div className="act-cont">Daily Activity</div>
+            <div className="cal-act">
+              <Calendar />
+            </div>
           </div>
         </Col>
       </Row>
