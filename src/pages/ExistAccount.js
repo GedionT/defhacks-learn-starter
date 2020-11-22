@@ -5,7 +5,6 @@ import { Row, Col } from 'react-bootstrap';
 
 import '../styles/exist.css';
 import firebase from '../components/firebase/base';
-import Footer from '../components/common/Footer';
 import Sidebar from '../components/common/Sidebar';
 
 function ExistAccount() {
