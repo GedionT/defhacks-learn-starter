@@ -45,8 +45,8 @@ body {
 
 .exist-pattern {
   position: absolute;
-  width: 462.74px;
-  height: 896.36px;
+  width: 80%;
+  height: 80%;
   left: 235.26px;
   top: 97.3px;
   background: #faf7b7;
@@ -111,60 +111,38 @@ body {
 }
 
 .box-title {
-  position: absolute;
-  width: 447px;
-  height: 74px;
-  left: 428px;
-  top: 346px;
   font-family: IBM Plex Mono;
   font-style: normal;
+  text-align: center;
   font-weight: 600;
-  font-size: 60px;
-  line-height: 78px;
+  font-size: 3rem;
   color: #222222;
 }
 
 .box-content {
-  position: absolute;
-  width: 933px;
-  height: 323px;
-  left: 428px;
-  top: 460px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
-  line-height: 62px;
+  font-size: 2.5rem;
   text-align: left;
   color: #222222;
 }
 
 .mini-progress-1 {
-  width: 170px;
-  height: 28px;
-  left: 428px;
-  top: 554px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5rem;
   /* identical to box height */
   color: #222222;
 }
 
 .mini-progress-2 {
-  position: absolute;
-  width: 170px;
-  height: 28px;
-  left: 428px;
-  top: 745px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  /* identical to box height */
+  font-size: 1.5rem;
+
   color: #222222;
 }
 
