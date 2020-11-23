@@ -184,13 +184,6 @@ const SignIn = ({ history }) => {
                           text: "This email address hasn't been registered!",
                         });
                       });
-                    // If email is found in account database: Invoke reset action
-                    // Else: Fire error alert
-                    // Swal.fire(
-                    //   'Error!',
-                    //   'Account not found in the database!',
-                    //   'error'
-                    // );
                   } else {
                     Swal.fire({
                       icon: 'error',
