@@ -6,21 +6,25 @@ body {
   background-color: #eeffee;
 }
 
+.general_container {
+  margin-right: -10px;
+  margin-left: -10px;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
 .exist-title {
-  position: absolute;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 35px;
+  font-size: 2.5vw;
   color: #000000;
-  right: -25%;
-  transform: translateX(-50%);
+  text-align: center;
 }
 
 .user-id {
-  position: relative;
-  width: max-content;
-  margin: auto;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
@@ -31,36 +35,35 @@ body {
   transform: translateX(-50%);
 }
 
-.MuiSvgIcon-root{
+.MuiSvgIcon-root {
   top: 5% !important;
   left: 70% !important;
 }
 
 .exist-pattern {
   position: absolute;
-  width: 462.74px;
-  height: 896.36px;
+  width: 80%;
+  height: 80%;
   left: 235.26px;
   top: 97.3px;
   background: #faf7b7;
   transform: rotate(48.63deg);
+  z-index: -100;
 }
 
 .blue-box-1 {
   position: absolute;
-  width: 1022px;
-  height: 134px;
-  left: 363px;
-  top: 156px;
+  width: 98%;
+  height: 20%;
+  left: 0%;
+  top: 5%;
   background: rgba(219, 218, 255, 0.6);
 }
 
 .blue-box-2 {
   position: absolute;
-  width: 1022px !important;
-  height: 134px;
-  left: 388px;
-  top: 132px;
+  width: 98%;
+  height: 20%;
   background: #dbdaff;
 }
 
@@ -73,130 +76,71 @@ body {
 }
 
 .exist-menu {
-  position: absolute;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
-  font-size: 36px;
-  line-height: 42px;
+  font-size: 2.5vw;
   text-align: center;
+  vertical-align: center;
   color: #000000;
 }
 
-.sub-menu-1 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 222px;
-  background: #ffe2e2;
-}
-.sub-menu-2 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 332px;
-  background: #ffe2e2;
-}
-.sub-menu-3 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 442px;
-  background: #ffe2e2;
-}
-.sub-menu-4 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 552px;
-  background: #ffe2e2;
-}
-.sub-menu-5 {
-  position: absolute;
-  width: 266px;
-  height: 69px;
-  left: 31px;
-  top: 662px;
+.sub-menu {
+  max-height: 70px;
+  height: 18vh;
   background: #ffe2e2;
 }
 
 .content-box-1 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 363px;
-  top: 343px;
+  width: 98%;
+  height: 75%;
+  left: 0%;
+  top: 40%;
   background: rgba(255, 216, 131, 0.4);
 }
 
 .content-box-2 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 390px;
-  top: 315px;
+  width: 98%;
+  height: 75%;
+  top: 35%;
   background: #ffd883;
 }
 
 .box-title {
-  position: absolute;
-  width: 447px;
-  height: 74px;
-  left: 428px;
-  top: 346px;
   font-family: IBM Plex Mono;
   font-style: normal;
+  text-align: center;
   font-weight: 600;
-  font-size: 60px;
-  line-height: 78px;
+  font-size: 3vw;
   color: #222222;
 }
 
 .box-content {
-  position: absolute;
-  width: 933px;
-  height: 323px;
-  left: 428px;
-  top: 460px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
-  line-height: 62px;
+  font-size: 2.5vw;
   text-align: left;
   color: #222222;
 }
 
 .mini-progress-1 {
-  width: 170px;
-  height: 28px;
-  left: 428px;
-  top: 554px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5vw;
   /* identical to box height */
   color: #222222;
 }
 
 .mini-progress-2 {
-  position: absolute;
-  width: 170px;
-  height: 28px;
-  left: 428px;
-  top: 745px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  /* identical to box height */
+  font-size: 1.5vw;
+
   color: #222222;
 }
 
@@ -208,6 +152,7 @@ body {
   top: 564.36px;
   background: #c1bfee;
   transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
+  z-index: -100;
 }
 
 .shape-circle {
@@ -219,6 +164,7 @@ body {
   background: #ffe2e2;
   border-radius: 65%;
   transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: -100;
 }
 
 .box-content-acc {
@@ -230,73 +176,43 @@ body {
 }
 
 .box-content-acc-text {
-  position: absolute;
-  /* width: 946px;
-  height: 502px;
-  left: 446px;
-  top: 443px; */
-  left: 3vh;
-  margin: 0;
-  top: 50%;
-  -ms-transform: translateY(-50%);
-  transform: translateY(-50%);
-
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: 300;
-  font-size: 33px;
-  text-align: left;
-  line-height: 43px;
-  vertical-align: middle;
+  font-size: 1.8vw;
+  line-height: 3rem;
   color: #000000;
 }
 
 .box-title-acc {
-  position: block;
-  width: max-content;
-  padding-top: 1vh;
   font-family: IBM Plex Mono;
-  font-style: normal;
   font-weight: 600;
-  font-size: 7vh;
-  line-height: 78px;
+  font-size: 3vw;
   text-align: center;
-  margin: 0 auto;
-  /* border: 5px solid black; */
-
-  @media only screen and (min-width: 1200px) {
-    font-size: 30px;
-  }
 
   color: #000000;
 }
 
 .green-box-1 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 345px;
-  top: 350px;
+  width: 98%;
+  /* height: 100%; */
+  left: 0%;
+  top: 40%;
   background: rgba(167, 215, 136, 0.6);
   border-radius: 6px;
 }
 
 .green-box-2 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 372px;
-  top: 323px;
+  width: 98%;
+  /* height: 100%; */
+  top: 35%;
   background: #a7d788;
   border-radius: 6px;
 }
 
 .act-cont {
-  position: absolute;
-  width: 292px;
-  height: 54px;
-  left: 701px;
-  top: 358px;
   font-family: Karla;
   font-style: normal;
   font-weight: bold;
@@ -307,16 +223,12 @@ body {
 }
 
 .cal-act {
-  position: absolute;
-  width: 400px;
-  height: 450px;
-  left: 650px;
-  top: 475px;
+  padding-left: 1%;
+  width: 98%;
 }
 
 .color {
   color: #000000;
-  position: relative;
   display: inline-block;
   overflow: hidden;
   background: linear-gradient(to right, gold, gold 50%, black 50%);
@@ -326,6 +238,7 @@ body {
   background-size: 200% 100%;
   background-position: 100%;
   transition: background-position 275ms ease;
+  vertical-align: middle;
 }
 
 .color:hover {

@@ -8,7 +8,6 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 import firebase from '../firebase/base';
 import Footer from '../common/Footer';
 
-import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 
 const SignIn = ({ history }) => {
@@ -168,12 +167,24 @@ const SignIn = ({ history }) => {
               }).then((result) => {
                 if (result.isConfirmed) {
                   if (emailValid(result.value)) {
+                    let auth = firebase.authreturns();
+                    auth
+                      .sendPasswordResetEmail(result.value)
+                      .then(function () {
+                        Swal.fire(
+                          'Sent!',
+                          'We have sent an password reset link to your Email',
+                          'success'
+                        );
+                      })
+                      .catch(function (error) {
+                        Swal.fire({
+                          icon: 'error',
+                          title: 'Oops...',
+                          text: "This email address hasn't been registered!",
+                        });
+                      });
                     // If email is found in account database: Invoke reset action
-                    Swal.fire(
-                      'Sent!',
-                      'We have sent a password reset link to your Email',
-                      'success'
-                    );
                     // Else: Fire error alert
                     // Swal.fire(
                     //   'Error!',
@@ -191,7 +202,7 @@ const SignIn = ({ history }) => {
               });
             }}
           >
-            <p>Forgot Password?</p>
+            <p style={{ color: '#38BC9C' }}>Forgot Password?</p>
           </button>
         </div>
       </Container>

@@ -1,13 +1,13 @@
 import React from 'react';
 import '../../styles/exist.css';
 import '../../styles/dashboard.css';
-import { Card, Container, Row, Col } from 'react-bootstrap';
+import { Card, Row, Col } from 'react-bootstrap';
 
 function CardComponent() {
   return (
-    <Container>
+    <div className="card-container">
       <Row>
-        <Col>
+        <Col xs={12} md={6} lg={6}>
           <Card className="card-component">
             <Card.Body>
               <Card.Title>Intro to HTML/CSS</Card.Title>
@@ -18,7 +18,8 @@ function CardComponent() {
             </Card.Body>
           </Card>
         </Col>
-        <Col>
+
+        <Col xs={12} md={6} lg={6}>
           <Card className="card-component">
             <Card.Body>
               <Card.Title>Intro to Git</Card.Title>
@@ -29,8 +30,20 @@ function CardComponent() {
             </Card.Body>
           </Card>
         </Col>
+
+        <Col xs={12} md={6} lg={6}>
+          <Card className="card-component">
+            <Card.Body>
+              <Card.Title>Intro to JavaScript</Card.Title>
+              <hr style={{ color: 'white' }} />
+              <Card.Text>
+                <em>Next Lesson</em> Logging text to console
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
       </Row>
-    </Container>
+    </div>
   );
 }
 

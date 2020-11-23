@@ -1,32 +1,45 @@
 import React from 'react';
 import '../../styles/exist.css';
-import { Container, Col, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import LocalActivityIcon from '@material-ui/icons/LocalActivity';
+import firebase from '../firebase/base';
 
 function HeaderExistUser() {
+  let username = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().displayName
+    : 'user';
+  let id = firebase.getCurrentUsername()
+    ? firebase.getCurrentUsername().uid.substring(0, 12)
+    : '831723895734';
+
   return (
-    <div className="exist-main">
+    <div>
       <div className="blue-box-1"></div>
-      <Container className="blue-box-2">
+      <div className="blue-box-2">
         <Row>
-          <Col className="exist-title">$username</Col>
-          <Col className="exist-title">
-            <WhatshotIcon className="streak" style={{ fontSize: 40 }} /> Streak
-            : 4 days
+          <Col className="exist-title" xs={6} md={6} lg={6}>
+            {username}
+          </Col>
+          <Col className="exist-title" xs={6} md={6} lg={6}>
+            <WhatshotIcon className="streak" style={{ fontSize: '2.5vw' }} />
+            Streak : 4 days
           </Col>
         </Row>
-        <br />
-        <Row>
-          <Col className="user-id">User ID: 1234567890</Col>
-          <Col className="exist-title">
-            <LocalActivityIcon className="streak" style={{ fontSize: 40 }} />{' '}
+
+        <Row style={{ marginTop: '0.5%' }}>
+          <Col className="exist-title" xs={6} md={6} lg={6}>
+            User ID: {id}
+          </Col>
+          <Col className="exist-title" xs={6} md={6} lg={6}>
+            <LocalActivityIcon
+              className="streak"
+              style={{ fontSize: '2.5vw' }}
+            />
             Badges : 25
           </Col>
         </Row>
-      </Container>
-      <div className="green-box-1"></div>
-      <div className="green-box-2"></div>
+      </div>
     </div>
   );
 }
