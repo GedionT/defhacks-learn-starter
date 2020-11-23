@@ -22,13 +22,14 @@ function ExistUser() {
           </div>
 
           <div className="content-box-1"></div>
-          <div className="content-box-2"></div>
-          <div className="box-title">My Courses</div>
-          <div className="box-content">
-            Intro to HTML, CSS
-            <div className="mini-progress-1">Percent</div>
-            Intro to Git
-            <br />
+          <div className="content-box-2 pl-2">
+            <div className="box-title">My Courses</div>
+            <div className="box-content">
+              Intro to HTML, CSS
+              <div className="mini-progress-1">Percent</div>
+              Intro to Git
+              <br />
+            </div>
           </div>
         </Col>
       </Row>

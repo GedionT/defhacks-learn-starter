@@ -19,15 +19,12 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.1rem;
+  font-size: 2.5vw;
   color: #000000;
   text-align: center;
 }
 
 .user-id {
-  position: relative;
-  width: max-content;
-  margin: auto;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
@@ -45,8 +42,8 @@ body {
 
 .exist-pattern {
   position: absolute;
-  width: 462.74px;
-  height: 896.36px;
+  width: 80%;
+  height: 80%;
   left: 235.26px;
   top: 97.3px;
   background: #faf7b7;
@@ -82,14 +79,15 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
-  font-size: 1.8rem;
+  font-size: 2.5vw;
   text-align: center;
   vertical-align: center;
   color: #000000;
 }
 
 .sub-menu {
-  height: 69px;
+  max-height: 70px;
+  height: 18vh;
   background: #ffe2e2;
 }
 
@@ -111,60 +109,38 @@ body {
 }
 
 .box-title {
-  position: absolute;
-  width: 447px;
-  height: 74px;
-  left: 428px;
-  top: 346px;
   font-family: IBM Plex Mono;
   font-style: normal;
+  text-align: center;
   font-weight: 600;
-  font-size: 60px;
-  line-height: 78px;
+  font-size: 3vw;
   color: #222222;
 }
 
 .box-content {
-  position: absolute;
-  width: 933px;
-  height: 323px;
-  left: 428px;
-  top: 460px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 48px;
-  line-height: 62px;
+  font-size: 2.5vw;
   text-align: left;
   color: #222222;
 }
 
 .mini-progress-1 {
-  width: 170px;
-  height: 28px;
-  left: 428px;
-  top: 554px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
+  font-size: 1.5vw;
   /* identical to box height */
   color: #222222;
 }
 
 .mini-progress-2 {
-  position: absolute;
-  width: 170px;
-  height: 28px;
-  left: 428px;
-  top: 745px;
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 24px;
-  line-height: 28px;
-  /* identical to box height */
+  font-size: 1.5vw;
+
   color: #222222;
 }
 
@@ -203,7 +179,7 @@ body {
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: 300;
-  font-size: 1.8rem;
+  font-size: 1.8vw;
   line-height: 3rem;
   color: #000000;
 }
@@ -211,7 +187,7 @@ body {
 .box-title-acc {
   font-family: IBM Plex Mono;
   font-weight: 600;
-  font-size: 3rem;
+  font-size: 3vw;
   text-align: center;
 
   color: #000000;
@@ -219,30 +195,24 @@ body {
 
 .green-box-1 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 345px;
-  top: 350px;
+  width: 98%;
+  /* height: 100%; */
+  left: 0%;
+  top: 40%;
   background: rgba(167, 215, 136, 0.6);
   border-radius: 6px;
 }
 
 .green-box-2 {
   position: absolute;
-  width: 1020px;
-  height: 574px;
-  left: 372px;
-  top: 323px;
+  width: 98%;
+  /* height: 100%; */
+  top: 35%;
   background: #a7d788;
   border-radius: 6px;
 }
 
 .act-cont {
-  position: absolute;
-  width: 292px;
-  height: 54px;
-  left: 701px;
-  top: 358px;
   font-family: Karla;
   font-style: normal;
   font-weight: bold;
@@ -253,11 +223,8 @@ body {
 }
 
 .cal-act {
-  position: absolute;
-  width: 400px;
-  height: 450px;
-  left: 650px;
-  top: 475px;
+  padding-left: 1%;
+  width: 98%;
 }
 
 .color {
