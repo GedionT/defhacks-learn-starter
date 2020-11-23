@@ -168,14 +168,18 @@ const SignIn = ({ history }) => {
               }).then((result) => {
                 if (result.isConfirmed) {
                   if (emailValid(result.value)) {
+                    // If email is found in account database: Invoke reset action
                     Swal.fire(
                       'Sent!',
-                      'We have sent an password reset link to your Email',
+                      'We have sent a password reset link to your Email',
                       'success'
                     );
-
-                    // If email is found in account database: Invoke reset action
                     // Else: Fire error alert
+                    // Swal.fire(
+                    //   'Error!',
+                    //   'Account not found in the database!',
+                    //   'error'
+                    // );
                   } else {
                     Swal.fire({
                       icon: 'error',
