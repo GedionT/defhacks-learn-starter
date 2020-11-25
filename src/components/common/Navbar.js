@@ -10,6 +10,8 @@ function Navigation() {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
+  const [loggedIn, setLoggedIn] = useState(false);
+
   React.useEffect(() => {
     const fetchData = async () => {
       await firebase.db
@@ -95,11 +97,18 @@ function Navigation() {
         <Nav className="ml-auto">
           <Nav.Link href="/About">About</Nav.Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/signin">Login</NavDropdown.Item>
-            <NavDropdown.Item href="/signup">Register</NavDropdown.Item>
-            <NavDropdown.Item href="/signout">Logout</NavDropdown.Item>
+            {loggedIn ? (
+              <>
+                <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item href="/signout">Logout</NavDropdown.Item>
+              </>
+            ) : (
+              <>
+                <NavDropdown.Item href="/signin">Login</NavDropdown.Item>
+                <NavDropdown.Item href="/signup">Register</NavDropdown.Item>
+              </>
+            )}
           </NavDropdown>
         </Nav>
       </Navbar>
