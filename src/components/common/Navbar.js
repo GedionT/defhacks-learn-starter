@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 import SearchIcon from '@material-ui/icons/Search';
 import '../../styles/navbar.css';
 import Autosuggest from 'react-autosuggest';
@@ -76,8 +77,8 @@ function Navigation() {
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Home</Nav.Link>
-          <Nav.Link href="/explore">Explore</Nav.Link>
+          <Link to="/dashboard"> Home &nbsp; </Link>
+          <Link to="/explore">&nbsp; Explore &nbsp; </Link>
         </Nav>
 
         <Autosuggest
@@ -93,7 +94,7 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
-          <Nav.Link href="/About">About</Nav.Link>
+          <Link to="/About"> About &nbsp;</Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
             <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
             <NavDropdown.Divider />
