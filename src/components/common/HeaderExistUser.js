@@ -15,7 +15,6 @@ function HeaderExistUser() {
 
   return (
     <div>
-      <div className="blue-box-1"></div>
       <div className="blue-box-2">
         <Row>
           <Col className="exist-title" xs={6} md={6} lg={6}>

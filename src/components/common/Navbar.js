@@ -67,7 +67,7 @@ function Navigation() {
 
   return (
     <>
-      <Navbar bg="white" className="sticky-top" id="app_navbar">
+      <Navbar bg="white" id="app_navbar" sticky="top">
         <Navbar.Brand href="/">
           <img
             alt="logo"
