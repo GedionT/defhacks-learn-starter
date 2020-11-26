@@ -1,4 +1,5 @@
 # NOTE: This is still in progress, so if this fails it may need editing! 
+# If anyone wants to add some components, feel free to add them
 name: Lint
 on: push
 jobs:
@@ -13,3 +14,4 @@ jobs:
         
       - name: Run lint
         run: npm run lint
+
