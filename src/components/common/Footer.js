@@ -16,7 +16,7 @@ function Footer() {
     html.offsetHeight
   );
   return (
-    <footer className="ftr" style={{ top: `${docHeight + 150}px` }}>
+    <footer className="ftr">
       <div className="row">
         <div className="col">
           <div className="text-left">
