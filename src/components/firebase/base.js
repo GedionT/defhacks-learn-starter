@@ -11,7 +11,7 @@ class Firebase {
     this.googleProvider = new app.auth.GoogleAuthProvider();
   }
 
-  authreturns() {
+  authReturn() {
     return this.auth;
   }
 

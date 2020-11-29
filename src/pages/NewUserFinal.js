@@ -1,12 +1,23 @@
-import React from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import React, { useEffect, useContext } from 'react';
+import { Link, withRouter, useHistory } from 'react-router-dom';
 import '../styles/newuser.css';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
+import AppContext from '../context/AppContext';
 
 function NewUserFinal() {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const { user } = useContext(AppContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/signin');
+    }
+  });
+
   return (
     <div className="new-user">
       <img alt="" src="/assets/Polygon_6.png" className="polygon6" />
