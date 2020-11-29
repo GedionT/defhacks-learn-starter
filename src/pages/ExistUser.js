@@ -1,12 +1,22 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
+import AppContext from '../context/AppContext';
 
 function ExistUser() {
   const USERNAME = 'admin';
 
+  const { user } = useContext(AppContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/signin');
+    }
+  });
   return (
     <div className="general_container">
       <Row style={{ marginRight: 0, marginLeft: 0 }}>

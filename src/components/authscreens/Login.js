@@ -167,7 +167,7 @@ const SignIn = ({ history }) => {
               }).then((result) => {
                 if (result.isConfirmed) {
                   if (emailValid(result.value)) {
-                    let auth = firebase.authreturns();
+                    let auth = firebase.authReturn();
                     auth
                       .sendPasswordResetEmail(result.value)
                       .then(function () {

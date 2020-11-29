@@ -1,11 +1,13 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 import { Row, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
 
 import '../styles/exist.css';
 import firebase from '../components/firebase/base';
 import Sidebar from '../components/common/Sidebar';
+import AppContext from '../context/AppContext';
 
 function ExistAccount() {
   let username = firebase.getCurrentUsername()
@@ -17,6 +19,15 @@ function ExistAccount() {
   let email = firebase.getCurrentUsername()
     ? firebase.getCurrentUsername().email
     : 'defhacks@xyz.com';
+
+  const { user } = useContext(AppContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/signin');
+    }
+  });
 
   var ID = id;
   const [USERNAME, setUsername] = useState(username);
