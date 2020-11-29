@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Route, Switch } from 'react-router-dom';
 import './styles/index.css';
 
@@ -6,8 +6,9 @@ import './styles/index.css';
 import Navbar from './components/common/Navbar';
 import LogIn from './components/authscreens/Login';
 import Signup from './components/authscreens/Signup';
-//import Calendar from './components/calendar/calendar';
-// import Recover from './components/authscreens/Recover';
+
+// Context import
+import AppContext from './context/AppContext';
 
 // page import
 import Dashboard from './pages/Dashboard';
@@ -23,21 +24,31 @@ import Course from './pages/Course';
 import NotFound from './pages/NotFound';
 
 function App() {
+  const context = useContext(AppContext);
   return (
     <div className="App">
       <Navbar />
       <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/dashboard" component={Dashboard} />
-        <Route exact path="/signin" component={LogIn} />
-        <Route exact path="/signup" component={Signup} />
-        <Route exact path="/about" component={About} />
-        <Route exact path="/newuser" component={NewUser} />
-        <Route exact path="/newusercourses" component={NewUserCourses} />
-        <Route exact path="/newuserfinal" component={NewUserFinal} />
-        <Route exact path="/ExistUser" component={ExistUser} />
-        <Route exact path="/account" component={ExistAccount} />
-        <Route exact path="/ExistActivity" component={ExistActivity} />
+        {context.user ? (
+          <>
+            <Route path="/" exact component={Home} />
+            <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/about" component={About} />
+            <Route exact path="/newuser" component={NewUser} />
+            <Route exact path="/newusercourses" component={NewUserCourses} />
+            <Route exact path="/newuserfinal" component={NewUserFinal} />
+            <Route exact path="/ExistUser" component={ExistUser} />
+            <Route exact path="/account" component={ExistAccount} />
+            <Route exact path="/ExistActivity" component={ExistActivity} />
+          </>
+        ) : (
+          <>
+            <Route path="/" exact component={Home} />
+            <Route exact path="/signin" component={LogIn} />
+            <Route exact path="/signup" component={Signup} />
+            <Route exact path="/about" component={About} />
+          </>
+        )}
 
         <Route path="/course" component={Course} />
 
