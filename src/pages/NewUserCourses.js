@@ -1,11 +1,15 @@
-import React, { useState } from 'react';
-import { Link as RouteLink, withRouter } from 'react-router-dom';
+import React, { useState, useEffect, useContext } from 'react';
+import { Link as RouteLink, withRouter, useHistory } from 'react-router-dom';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import { useTheme } from '@material-ui/core/styles';
 import '../styles/newuser.css';
 import { Link } from 'react-scroll';
+import AppContext from '../context/AppContext';
 
 const NewUserCourses = () => {
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
   const [isActiveJS, toggleClassJS] = useState(false);
   const [isActivePro, toggleClassPro] = useState(false);
   const [isActiveGit, toggleClassGit] = useState(false);
@@ -14,8 +18,15 @@ const NewUserCourses = () => {
   const [showPanelPro, togglePanelPro] = useState(false);
   const [showPanelGit, togglePanelGit] = useState(false);
   const [showPanelHC, togglePanelHC] = useState(false);
-  const theme = useTheme();
-  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const { user } = useContext(AppContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/signin');
+    }
+  });
 
   return (
     <div className="new-user">
