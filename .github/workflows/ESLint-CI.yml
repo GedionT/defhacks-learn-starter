@@ -1,7 +1,9 @@
 # NOTE: This is still in progress, so if this fails it may need editing! 
 # If anyone wants to add some components, feel free to add them
 name: Lint
-on: push
+on: 
+  push:
+    branches: master
 jobs:
   build:
     runs-on: ubuntu-latest
