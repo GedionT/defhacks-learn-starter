@@ -4,13 +4,16 @@ import { BrowserRouter as Router } from 'react-router-dom';
 import ReactDOM from 'react-dom';
 
 import App from './App';
+import ContextWrapper from './context/ContextWrapper';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <App />
-    </Router>
+    <ContextWrapper>
+      <Router>
+        <App />
+      </Router>
+    </ContextWrapper>
   </React.StrictMode>,
   rootElement
 );
