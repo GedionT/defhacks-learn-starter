@@ -90,10 +90,6 @@ function Navigation() {
               Home
             </Nav.Link>
           )}
-
-          <Nav.Link as={Link} to="/explore">
-            Explore
-          </Nav.Link>
         </Nav>
 
         <Autosuggest
@@ -110,9 +106,6 @@ function Navigation() {
 
         <Nav className="ml-auto">
           <Link to="/About"> About &nbsp;</Link>
-          <Nav.Link as={Link} to="/About">
-            About
-          </Nav.Link>
 
           <NavDropdown title="Account" id="basic-nav-dropdown">
             {user ? (
