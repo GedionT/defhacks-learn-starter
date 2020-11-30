@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
-import SearchIcon from '@material-ui/icons/Search';
 import { Link } from 'react-router-dom';
+import SearchIcon from '@material-ui/icons/Search';
 import '../../styles/navbar.css';
 import Autosuggest from 'react-autosuggest';
 import firebase from '../firebase/base';
@@ -79,6 +79,8 @@ function Navigation() {
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
+          <Link to="/dashboard"> Home &nbsp; </Link>
+          <Link to="/explore">&nbsp; Explore &nbsp; </Link>
           {user ? (
             <Nav.Link as={Link} to="/dashboard">
               Home
@@ -107,9 +109,11 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
+          <Link to="/About"> About &nbsp;</Link>
           <Nav.Link as={Link} to="/About">
             About
           </Nav.Link>
+
           <NavDropdown title="Account" id="basic-nav-dropdown">
             {user ? (
               <>
