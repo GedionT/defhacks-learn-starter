@@ -9,7 +9,7 @@ Does your PR solve any issues/bugs opened or raised in this repo?
 
 If you've mentioned **Yes** above, then mention the Issue no here (with #), else ignore it:
 
-**Issue No**:
+**Issue No or name**:
 
 Is it a bug fix, security fix, feature update, UI Update or other?
 

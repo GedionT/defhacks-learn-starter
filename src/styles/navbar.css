@@ -1,3 +1,8 @@
+.body
+{
+  position: relative;
+}
+
 .center-search {
   margin: 0 auto;
   text-align: center;
