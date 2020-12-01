@@ -117,7 +117,7 @@ function Navigation() {
               <>
                 <NavDropdown.Item as={Link} to="/profile">
                   Profile
-                </NavDropdown.Item>
+                </NavDrop down.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item onClick={() => firebase.logout()}>
                   Logout
