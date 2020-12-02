@@ -22,7 +22,7 @@
     "bootswatch": "^4.5.3",
     "draft-js": "^0.11.7",
     "firebase": "^8.1.1",
-    "mdbreact": "^4.27.0",
+    "mdbreact": "^5.0.0",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-autosuggest": "^10.0.4",
@@ -31,12 +31,12 @@
     "react-calendar": "^3.2.1",
     "react-dark-theme": "^1.1.1",
     "react-dom": "^17.0.1",
-    "react-responsive": "^8.1.1",
+    "react-responsive": "^8.2.0",
     "react-router-dom": "5.2.0",
     "react-scripts": "^4.0.1",
     "react-sticky": "^6.0.3",
     "rfs": "^9.0.3",
-    "sweetalert2": "^10.10.4"
+    "sweetalert2": "^10.11.0"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
