@@ -82,16 +82,16 @@ function Navigation() {
         </Navbar.Brand>
         <Nav className="mr-auto">
           {user ? (
-            <Nav.Link as={Link} to="/dashboard">
+            <Nav.Link className="nav-link-text" as={Link} to="/dashboard">
               Home
             </Nav.Link>
           ) : (
-            <Nav.Link as={Link} to="/signin">
+            <Nav.Link className="nav-link-text" as={Link} to="/signin">
               Home
             </Nav.Link>
           )}
 
-          <Nav.Link as={Link} to="/explore">
+          <Nav.Link className="nav-link-text" as={Link} to="/explore">
             Explore
           </Nav.Link>
         </Nav>
@@ -109,7 +109,7 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
-          <Nav.Link as={Link} to="/About">
+          <Nav.Link className="nav-link-text" as={Link} to="/About">
             About
           </Nav.Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
