@@ -111,6 +111,8 @@ const SignIn = ({ history }) => {
             style={{
               width: matches ? '50%' : null,
               marginLeft: matches ? '25%' : null,
+              backgroundColor: '#99C87A',
+              border: 'none',
             }}
             block
           >
@@ -146,7 +148,15 @@ const SignIn = ({ history }) => {
         <div className="text-center mt-3">
           <p>
             Don't have an account ? {'  '}
-            <Link to="/signup">Sign up here</Link>
+            <Link
+              style={{
+                color: '#99C87A',
+                textDecoration: 'none',
+              }}
+              to="/signup"
+            >
+              Sign up here
+            </Link>
           </p>
           <button
             className="btn"
@@ -195,7 +205,7 @@ const SignIn = ({ history }) => {
               });
             }}
           >
-            <p style={{ color: '#38BC9C' }}>Forgot Password?</p>
+            <p style={{ color: '#99C87A' }}>Forgot Password?</p>
           </button>
         </div>
       </Container>
