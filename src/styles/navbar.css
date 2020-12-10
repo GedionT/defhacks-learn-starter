@@ -2,7 +2,9 @@
 {
   position: relative;
 }
-
+.nav-link-text:hover {
+  border-bottom: 2px solid #011204;
+}
 .center-search {
   margin: 0 auto;
   text-align: center;
@@ -20,6 +22,7 @@
 .search-input:focus {
   background-color: #f1f5f1;
   outline: none;
+  outline-width: 0;
 }
 
 .search {
