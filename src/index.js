@@ -5,15 +5,16 @@ import ReactDOM from 'react-dom';
 
 import { AuthProvider } from './components/firebase/context';
 import App from './App';
+import ContextWrapper from './context/ContextWrapper';
 
 const rootElement = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
-    <AuthProvider>
+    <ContextWrapper>
       <Router>
         <App />
       </Router>
-    </AuthProvider>
+    </ContextWrapper>
   </React.StrictMode>,
   rootElement
 );

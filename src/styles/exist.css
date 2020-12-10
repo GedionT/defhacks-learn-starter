@@ -51,20 +51,23 @@ body {
   z-index: -100;
 }
 
-.blue-box-1 {
+/* .blue-box-1 {
   position: absolute;
   width: 98%;
   height: 20%;
   left: 0%;
   top: 5%;
   background: rgba(219, 218, 255, 0.6);
-}
+} */
 
 .blue-box-2 {
   position: absolute;
-  width: 98%;
-  height: 20%;
+  width: 100%;
+  height: 25%;
   background: #dbdaff;
+  -webkit-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
+  -moz-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
+  box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 0.7);
 }
 
 .exist-course {

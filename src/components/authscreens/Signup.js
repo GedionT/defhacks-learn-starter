@@ -158,6 +158,8 @@ const SignUp = ({ history }) => {
             style={{
               width: matches ? '50%' : null,
               marginLeft: matches ? '25%' : null,
+              backgroundColor: '#99C87A',
+              border: 'none',
             }}
             block
           >
@@ -194,7 +196,15 @@ const SignUp = ({ history }) => {
           <div className="text-center mt-3">
             <p>
               Already has an account ? {'  '}
-              <Link to="/signin">Log in here</Link>
+              <Link
+                style={{
+                  textdecoration: 'none',
+                  color: '#99C87A',
+                }}
+                to="/signin"
+              >
+                Log in here
+              </Link>
             </p>
           </div>
         </Form>

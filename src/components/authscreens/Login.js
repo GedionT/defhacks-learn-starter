@@ -72,142 +72,145 @@ const SignIn = ({ history }) => {
   return (
     <>
       <Container>
-        {!!user ? (
-          <Redirect to={{ pathname: '/dashboard' }} />
-        ) : (
-          <div>
-            {error !== null && <Alert variant="danger">{error}</Alert>}
-            <h1 style={{ textAlign: 'center' }}>Sign in</h1>
+        {error !== null && <Alert variant="danger">{error}</Alert>}
 
-            <Form onSubmit={signInWithEmailAndPasswordHandler}>
-              <Form.Group
-                controlId="formBasicEmail"
-                style={matches ? { width: '50%', marginLeft: '25%' } : null}
-              >
-                <Form.Label>Email address</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder="Enter email"
-                  value={email}
-                  onChange={onChangeHandler}
-                  required
-                />
-              </Form.Group>
+        <div>{/* Space for future decoration */}</div>
+        <h1 style={{ textAlign: 'center' }}>Sign in</h1>
 
-              <Form.Group
-                controlId="formBasicPassword"
-                style={matches ? { width: '50%', marginLeft: '25%' } : null}
-              >
-                <Form.Label>Password</Form.Label>
-                <Form.Control
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  value={password}
-                  onChange={onChangeHandler}
-                  required
-                />
-              </Form.Group>
+        <Form onSubmit={signInWithEmailAndPasswordHandler}>
+          <Form.Group
+            controlId="formBasicEmail"
+            style={matches ? { width: '50%', marginLeft: '25%' } : null}
+          >
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={onChangeHandler}
+              required
+            />
+          </Form.Group>
 
-              <Button
-                variant="success"
-                type="submit"
-                style={{
-                  width: matches ? '50%' : null,
-                  marginLeft: matches ? '25%' : null,
-                }}
-                block
-              >
-                Log in
-              </Button>
+          <Form.Group
+            controlId="formBasicPassword"
+            style={matches ? { width: '50%', marginLeft: '25%' } : null}
+          >
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={onChangeHandler}
+              required
+            />
+          </Form.Group>
 
-              <Button
-                variant="light"
-                type="button"
-                style={{
-                  width: matches ? '50%' : null,
-                  marginLeft: matches ? '25%' : null,
-                  backgroundColor: '#fff',
-                  boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
-                }}
-                block
-                onClick={signInWithGoogle}
-              >
-                <img
-                  src="/assets/google-logo.svg"
-                  alt="google-logo"
-                  style={{
-                    display: 'inline-block',
-                    maxWidth: '30px',
-                    maxHeight: '30px',
-                    marginLeft: '-5%',
-                    marginRight: '5%',
-                  }}
-                />
-                <span>Sign in with Google</span>
-              </Button>
-            </Form>
-            <div className="text-center mt-3">
-              <p>
-                Don't have an account ? {'  '}
-                <Link to="/signup">Sign up here</Link>
-              </p>
-              <button
-                className="btn"
-                style={{
-                  padding: '5px',
-                }}
-                onClick={() => {
-                  Swal.fire({
-                    title: 'Enter your Email Address',
-                    input: 'text',
-                    inputAttributes: {
-                      autocapitalize: 'off',
-                    },
-                    showCancelButton: true,
-                    confirmButtonText: 'Send Reset Instructions',
-                    showLoaderOnConfirm: true,
-                    allowOutsideClick: () => !Swal.isLoading(),
-                  }).then((result) => {
-                    if (result.isConfirmed) {
-                      if (emailValid(result.value)) {
-                        let auth = firebase.authreturns();
-                        auth
-                          .sendPasswordResetEmail(result.value)
-                          .then(function () {
-                            Swal.fire(
-                              'Sent!',
-                              'We have sent an password reset link to your Email',
-                              'success'
-                            );
-                          })
-                          .catch(function (error) {
-                            Swal.fire({
-                              icon: 'error',
-                              title: 'Oops...',
-                              text:
-                                "This email address hasn't been registered!",
-                            });
-                          });
-                        // If email is found in account database: Invoke reset action
-                        // Else: Fire error alert
-                      } else {
+          <Button
+            variant="success"
+            type="submit"
+            style={{
+              width: matches ? '50%' : null,
+              marginLeft: matches ? '25%' : null,
+              backgroundColor: '#99C87A',
+              border: 'none',
+            }}
+            block
+          >
+            Log in
+          </Button>
+
+          <Button
+            variant="light"
+            type="button"
+            style={{
+              width: matches ? '50%' : null,
+              marginLeft: matches ? '25%' : null,
+              backgroundColor: '#fff',
+              boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+            }}
+            block
+            onClick={signInWithGoogle}
+          >
+            <img
+              src="/assets/google-logo.svg"
+              alt="google-logo"
+              style={{
+                display: 'inline-block',
+                maxWidth: '30px',
+                maxHeight: '30px',
+                marginLeft: '-5%',
+                marginRight: '5%',
+              }}
+            />
+            <span>Sign in with Google</span>
+          </Button>
+        </Form>
+        <div className="text-center mt-3">
+          <p>
+            Don't have an account ? {'  '}
+            <Link
+              style={{
+                color: '#99C87A',
+                textDecoration: 'none',
+              }}
+              to="/signup"
+            >
+              Sign up here
+            </Link>
+          </p>
+          <button
+            className="btn"
+            style={{
+              padding: '5px',
+            }}
+            onClick={() => {
+              Swal.fire({
+                title: 'Enter your Email Address',
+                input: 'text',
+                inputAttributes: {
+                  autocapitalize: 'off',
+                },
+                showCancelButton: true,
+                confirmButtonText: 'Send Reset Instructions',
+                showLoaderOnConfirm: true,
+                allowOutsideClick: () => !Swal.isLoading(),
+              }).then((result) => {
+                if (result.isConfirmed) {
+                  if (emailValid(result.value)) {
+                    let auth = firebase.authReturn();
+                    auth
+                      .sendPasswordResetEmail(result.value)
+                      .then(function () {
+                        Swal.fire(
+                          'Sent!',
+                          'We have sent an password reset link to your Email',
+                          'success'
+                        );
+                      })
+                      .catch(function (error) {
                         Swal.fire({
                           icon: 'error',
                           title: 'Oops...',
                           text: 'Invalid Email Address!',
                         });
-                      }
-                    }
-                  });
-                }}
-              >
-                <p style={{ color: '#38BC9C' }}>Forgot Password?</p>
-              </button>
-            </div>
-          </div>
-        )}
+                      });
+                  } else {
+                    Swal.fire({
+                      icon: 'error',
+                      title: 'Oops...',
+                      text: 'Invalid Email Address!',
+                    });
+                  }
+                }
+              });
+            }}
+          >
+            <p style={{ color: '#99C87A' }}>Forgot Password?</p>
+          </button>
+        </div>
       </Container>
 
       {/* Footer fo here */}

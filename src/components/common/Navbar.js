@@ -1,14 +1,19 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
+import { Link } from 'react-router-dom';
 import '../../styles/navbar.css';
 import Autosuggest from 'react-autosuggest';
 import firebase from '../firebase/base';
+import AppContext from '../../context/AppContext';
 
 function Navigation() {
+  const { user } = useContext(AppContext);
   const [items, setItems] = useState([]);
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
+
+  const [loggedIn, setLoggedIn] = useState(false);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -65,7 +70,7 @@ function Navigation() {
 
   return (
     <>
-      <Navbar bg="white" className="sticky-top" id="app_navbar">
+      <Navbar bg="white" id="app_navbar" sticky="top">
         <Navbar.Brand href="/">
           <img
             alt="logo"
@@ -76,8 +81,19 @@ function Navigation() {
           />{' '}
         </Navbar.Brand>
         <Nav className="mr-auto">
-          <Nav.Link href="/dashboard">Home</Nav.Link>
-          <Nav.Link href="/explore">Explore</Nav.Link>
+          {user ? (
+            <Nav.Link className="nav-link-text" as={Link} to="/dashboard">
+              Home
+            </Nav.Link>
+          ) : (
+            <Nav.Link className="nav-link-text" as={Link} to="/signin">
+              Home
+            </Nav.Link>
+          )}
+
+          <Nav.Link className="nav-link-text" as={Link} to="/explore">
+            Explore
+          </Nav.Link>
         </Nav>
 
         <Autosuggest
@@ -93,13 +109,30 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
-          <Nav.Link href="/About">About</Nav.Link>
+          <Nav.Link className="nav-link-text" as={Link} to="/About">
+            About
+          </Nav.Link>
           <NavDropdown title="Account" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/profile">Profile</NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="/signin">Login</NavDropdown.Item>
-            <NavDropdown.Item href="/signup">Register</NavDropdown.Item>
-            <NavDropdown.Item href="/signout">Logout</NavDropdown.Item>
+            {user ? (
+              <>
+                <NavDropdown.Item as={Link} to="/profile">
+                  Profile
+                </NavDropdown.Item>
+                <NavDropdown.Divider />
+                <NavDropdown.Item onClick={() => firebase.logout()}>
+                  Logout
+                </NavDropdown.Item>{' '}
+              </>
+            ) : (
+              <>
+                <NavDropdown.Item as={Link} to="/signin">
+                  Login
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/signup">
+                  Register
+                </NavDropdown.Item>{' '}
+              </>
+            )}
           </NavDropdown>
         </Nav>
       </Navbar>
