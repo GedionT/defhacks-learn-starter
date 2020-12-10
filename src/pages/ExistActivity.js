@@ -28,7 +28,7 @@ function ExistActivity() {
         <Col xs={9} lg={9} style={{ position: 'relative' }}>
           <div className="blue-box-1"></div>
           <div className="blue-box-2">
-            <div className="exist-title">$username</div>
+            <div className="exist-title">{user.displayName}</div>
           </div>
 
           <div className="green-box-1">

@@ -7,8 +7,6 @@ import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
 function ExistUser() {
-  const USERNAME = 'admin';
-
   const { user } = useContext(AppContext);
   const history = useHistory();
 
@@ -28,7 +26,7 @@ function ExistUser() {
           <div className="blue-box-1"></div>
           <div className="blue-box-2">
             {' '}
-            <div className="exist-title">Welcome back, {USERNAME}!</div>
+            <div className="exist-title">Welcome back, {user.displayName}!</div>
           </div>
 
           <div className="content-box-1"></div>
