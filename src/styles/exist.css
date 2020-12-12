@@ -187,12 +187,26 @@ body {
   color: #000000;
 }
 
+.box-content-acc-edit-text {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.2vw;
+  line-height: 1rem;
+  color: #3a3a3a;
+  cursor: pointer;
+}
+
+.edit-icon {
+  font-size: 1.3vw!important;
+  padding-bottom: 0.1vw;
+}
+
 .box-title-acc {
   font-family: IBM Plex Mono;
   font-weight: 600;
   font-size: 3vw;
   text-align: center;
-
   color: #000000;
 }
 
