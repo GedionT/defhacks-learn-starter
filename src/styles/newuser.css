@@ -57,7 +57,7 @@
   font-size: 30px;
   line-height: 45px;
   color: #222222;
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 .radio-buttons {

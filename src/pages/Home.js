@@ -19,7 +19,7 @@ function Home() {
                 draggable="false"
               />
             </div>
-            <div className="col-12 col-md-6">
+            <div className="col-12 col-md-6 ">
               <h1 className="title"> Def Hacks Learn</h1>
               <br />
               <p className="greetingPart">
