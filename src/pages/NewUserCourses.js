@@ -5,6 +5,8 @@ import { useTheme } from '@material-ui/core/styles';
 import '../styles/newuser.css';
 import { Link } from 'react-scroll';
 import AppContext from '../context/AppContext';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const NewUserCourses = () => {
   const theme = useTheme();
@@ -22,6 +24,18 @@ const NewUserCourses = () => {
   const { user } = useContext(AppContext);
   const history = useHistory();
 
+  function AddToast(courseName) {
+    toast.success(`🚀 Your interest for ${courseName} is registered`, {
+      position: 'top-right',
+      autoClose: 3000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+    });
+  }
+
   useEffect(() => {
     if (!user) {
       history.push('/signin');
@@ -33,6 +47,17 @@ const NewUserCourses = () => {
       <img alt="" src="/assets/Polygon_6.png" className="polygon6" />
       <img alt="" src="/assets/Ellipse.png" className="ellipse" />
       <img alt="" src="/assets/Polygon_5.png" className="polygon5" />
+      <ToastContainer
+        position="top-right"
+        autoClose={3000}
+        hideProgressBar
+        newestOnTop
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+      />
       <div className="upper-box" style={matches ? { width: '85%' } : null}>
         Please select which course(s) you would like to <br /> take.
       </div>
@@ -56,6 +81,7 @@ const NewUserCourses = () => {
           ></div>
           <button
             className="interested"
+            onClick={() => AddToast('Basics of Programming')}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
@@ -90,6 +116,7 @@ const NewUserCourses = () => {
           ></div>
           <button
             className="interested"
+            onClick={() => AddToast('Intro to Javascript')}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
@@ -124,6 +151,7 @@ const NewUserCourses = () => {
           ></div>
           <button
             className="interested"
+            onClick={() => AddToast('Intro to HTML and CSS')}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
@@ -159,6 +187,7 @@ const NewUserCourses = () => {
           ></div>
           <button
             className="interested"
+            onClick={() => AddToast('Intro to Git')}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
