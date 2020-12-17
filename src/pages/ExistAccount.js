@@ -23,7 +23,7 @@ function ExistAccount() {
     }
   }, [user, history]);
 
-  const ID = user.uid;
+  const ID = user.uid.substr(0, 20);
   const [USERNAME, setUsername] = useState('user');
   const [PASSWORD, setPassword] = useState('helloworld');
   const [EMAIL, setEmail] = useState('defhacks@xyz.com');
