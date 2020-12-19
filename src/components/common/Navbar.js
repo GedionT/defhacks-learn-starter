@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
-import { Link } from 'react-router-dom';
+import { useHistory, Link } from 'react-router-dom';
 import '../../styles/navbar.css';
 import Autosuggest from 'react-autosuggest';
 import firebase from '../firebase/base';
@@ -14,6 +14,8 @@ function Navigation() {
   const [suggestions, setSuggestions] = useState([]);
 
   const [loggedIn, setLoggedIn] = useState(false);
+
+  const history = useHistory();
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -119,7 +121,12 @@ function Navigation() {
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
-                <NavDropdown.Item onClick={() => firebase.logout()}>
+                <NavDropdown.Item
+                  onClick={() => {
+                    firebase.logout();
+                    history.push('/');
+                  }}
+                >
                   Logout
                 </NavDropdown.Item>{' '}
               </>
