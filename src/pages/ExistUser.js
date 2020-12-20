@@ -6,6 +6,8 @@ import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
+import { db } from '../firebase.js';
+
 function ExistUser() {
   const { user } = useContext(AppContext);
   const history = useHistory();
@@ -15,6 +17,50 @@ function ExistUser() {
       history.push('/signin');
     }
   });
+  var coursesList = [];
+  async function getDocuments() {
+    const events = await db.collection('Courses');
+    events.get().then((querySnapshot) => {
+      const tempDoc = querySnapshot.docs.map((doc) => {
+        return { id: doc.id };
+      });
+      tempDoc.forEach((doc) => {
+        console.log(doc.id);
+      });
+    });
+  }
+
+  useEffect(() => {
+    const coursesRef = db.collection('Courses');
+    coursesRef.get().then((querySnapshot) => {
+      const tempDoc = querySnapshot.docs.map((doc) => {
+        return { id: doc.id };
+      });
+      tempDoc.forEach((docID) => {
+        console.log(docID.id);
+        try {
+          coursesList.push(docID.id);
+          console.log('Pushed');
+        } catch (e) {
+          console.log('Push failed, ' + e);
+        }
+      });
+    });
+    db.collection('Courses')
+      .doc('Introduction to Web Development')
+      .collection('HTML')
+      .get()
+      .then((snapshot) => {
+        snapshot.forEach((doc) => {
+          if (!doc.exists) {
+            console.log("Doesn't exist");
+          } else {
+            console.log('Exist');
+          }
+        });
+      });
+  }, []);
+
   return (
     <div className="general_container">
       <Row style={{ marginRight: 0, marginLeft: 0 }}>
@@ -33,10 +79,11 @@ function ExistUser() {
           <div className="content-box-2 pl-2">
             <div className="box-title">My Courses</div>
             <div className="box-content">
-              Intro to HTML, CSS
-              <div className="mini-progress-1">Percent</div>
-              Intro to Git
-              <br />
+              <ul>
+                {coursesList.map((course) => {
+                  return <li>{course}</li>;
+                })}
+              </ul>
             </div>
           </div>
         </Col>
