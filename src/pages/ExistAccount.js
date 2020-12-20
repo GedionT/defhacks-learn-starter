@@ -3,6 +3,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Swal from 'sweetalert2';
 import { Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import EditIcon from '@material-ui/icons/Edit';
 
 import '../styles/exist.css';
 import firebase from '../components/firebase/base';
@@ -20,7 +21,7 @@ function ExistAccount() {
       setUsername(user.displayName);
       setEmail(user.email);
     }
-  });
+  }, [user, history]);
 
   const ID = user.uid;
   const [USERNAME, setUsername] = useState('user');
@@ -188,14 +189,37 @@ function ExistAccount() {
           <div className="content-box-2">
             <div className="box-title-acc">Account Information</div>
             <div className="box-content-acc-text">
-              <p onClick={() => changeSetting('username')}>
-                Username: {USERNAME}
+              <p>
+                Username: {USERNAME}{' '}
+                <span
+                  className="box-content-acc-edit-text"
+                  onClick={() => changeSetting('username')}
+                >
+                  <EditIcon className="edit-icon" />
+                  Edit
+                </span>
               </p>
-              <p onClick={() => changeSetting('email')}>Email: {EMAIL}</p>
+              <p>
+                Email: {EMAIL}{' '}
+                <span
+                  className="box-content-acc-edit-text"
+                  onClick={() => changeSetting('email')}
+                >
+                  <EditIcon className="edit-icon" />
+                  Edit
+                </span>
+              </p>
               <p>Location: USA</p>
               <div>
-                <p onClick={() => changeSetting('password')}>
-                  Password: {passwordDOMElement(PASSWORD)}
+                <p>
+                  Password: {passwordDOMElement(PASSWORD)}{' '}
+                  <span
+                    className="box-content-acc-edit-text"
+                    onClick={() => changeSetting('password')}
+                  >
+                    <EditIcon className="edit-icon" />
+                    Edit
+                  </span>
                 </p>
               </div>
             </div>
