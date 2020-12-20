@@ -13,7 +13,7 @@ function Navigation() {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  const [loggedIn, setLoggedIn] = useState(false);
+  // const [loggedIn, setLoggedIn] = useState(false);
 
   React.useEffect(() => {
     const fetchData = async () => {
