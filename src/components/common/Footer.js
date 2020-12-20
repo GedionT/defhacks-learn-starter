@@ -5,16 +5,17 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import { Link } from 'react-router-dom';
 
 function Footer() {
-//   const body = document.body;
-//   const html = document.documentElement;
+  //   const body = document.body;
+  //   const html = document.documentElement;
 
-//   const docHeight = Math.max(
-//     body.scrollHeight,
-//     body.offsetHeight,
-//     html.clientHeight,
-//     html.scrollHeight,
-//     html.offsetHeight
-//   );
+  //   const docHeight = Math.max(
+  //     body.scrollHeight,
+  //     body.offsetHeight,
+  //     html.clientHeight,
+  //     html.scrollHeight,
+  //     html.offsetHeight
+  //   );
+
   return (
     <footer className="ftr">
       <div className="row">

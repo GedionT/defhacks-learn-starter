@@ -6,6 +6,7 @@ import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import firebase from '../firebase/base';
+// import { AuthContext } from '../firebase/context';
 import Footer from '../common/Footer';
 
 import Swal from 'sweetalert2';
@@ -14,6 +15,8 @@ const SignIn = ({ history }) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
+
+  // const { user } = useContext(AuthContext);
 
   // These hooks from material-ui is used for checking the current width of the window
   // In particularly, check whether the window is over sm scale
@@ -191,7 +194,7 @@ const SignIn = ({ history }) => {
                         Swal.fire({
                           icon: 'error',
                           title: 'Oops...',
-                          text: "This email address hasn't been registered!",
+                          text: 'Invalid Email Address!',
                         });
                       });
                   } else {
