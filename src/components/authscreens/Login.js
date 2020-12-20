@@ -1,12 +1,12 @@
-import React, { useState, useContext } from 'react';
-import { Link, withRouter, Redirect } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { Alert, Form, Button, Container } from 'react-bootstrap';
 
 import { useTheme } from '@material-ui/core/styles';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import firebase from '../firebase/base';
-import { AuthContext } from '../firebase/context';
+// import { AuthContext } from '../firebase/context';
 import Footer from '../common/Footer';
 
 import Swal from 'sweetalert2';
@@ -16,7 +16,7 @@ const SignIn = ({ history }) => {
   const [password, setPassword] = useState('');
   const [error, setError] = useState(null);
 
-  const { user } = useContext(AuthContext);
+  // const { user } = useContext(AuthContext);
 
   // These hooks from material-ui is used for checking the current width of the window
   // In particularly, check whether the window is over sm scale
