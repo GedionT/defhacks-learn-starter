@@ -20,6 +20,18 @@ const NewUserCourses = () => {
   const [showPanelPro, togglePanelPro] = useState(false);
   const [showPanelGit, togglePanelGit] = useState(false);
   const [showPanelHC, togglePanelHC] = useState(false);
+  const [JSInterestedClassName, toggleJSInterestedClassName] = useState(
+    'interested'
+  );
+  const [ProInterestedClassName, toggleProInterestedClassName] = useState(
+    'interested'
+  );
+  const [GitInterestedClassName, toggleGitInterestedClassName] = useState(
+    'interested'
+  );
+  const [HCInterestedClassName, toggleHCInterestedClassName] = useState(
+    'interested'
+  );
 
   const { user } = useContext(AppContext);
   const history = useHistory();
@@ -80,8 +92,15 @@ const NewUserCourses = () => {
             }}
           ></div>
           <button
-            className="interested"
-            onClick={() => AddToast('Basics of Programming')}
+            className={ProInterestedClassName}
+            onClick={() => {
+              AddToast('Basics of Programming');
+              toggleProInterestedClassName(
+                ProInterestedClassName === 'interested'
+                  ? 'interested-selected'
+                  : 'interested'
+              );
+            }}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
@@ -115,8 +134,15 @@ const NewUserCourses = () => {
             }}
           ></div>
           <button
-            className="interested"
-            onClick={() => AddToast('Intro to Javascript')}
+            className={JSInterestedClassName}
+            onClick={() => {
+              AddToast('Intro to Javascript');
+              toggleJSInterestedClassName(
+                JSInterestedClassName === 'interested'
+                  ? 'interested-selected'
+                  : 'interested'
+              );
+            }}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
@@ -150,11 +176,19 @@ const NewUserCourses = () => {
             }}
           ></div>
           <button
-            className="interested"
-            onClick={() => AddToast('Intro to HTML and CSS')}
+            className={HCInterestedClassName}
+            onClick={() => {
+              AddToast('Intro to HTML and CSS');
+              toggleHCInterestedClassName(
+                HCInterestedClassName === 'interested'
+                  ? 'interested-selected'
+                  : 'interested'
+              );
+            }}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
+            <div class="check-icon"></div>
           </button>
         </div>
 
@@ -186,8 +220,15 @@ const NewUserCourses = () => {
             }}
           ></div>
           <button
-            className="interested"
-            onClick={() => AddToast('Intro to Git')}
+            className={GitInterestedClassName}
+            onClick={() => {
+              AddToast('Intro to Git');
+              toggleGitInterestedClassName(
+                GitInterestedClassName === 'interested'
+                  ? 'interested-selected'
+                  : 'interested'
+              );
+            }}
             style={matches ? { width: '10%', fontSize: '50%' } : null}
           >
             Interested
