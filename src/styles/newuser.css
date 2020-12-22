@@ -159,6 +159,21 @@
 }
 
 .interested {
+  background-color: white;
+  color: #4d9a4c;
+  width: 10%;
+  line-height: 25px;
+  font-size: 20px;
+  float: right;
+  margin-right: 5%;
+}
+
+.interested:hover {
+  background-color: #4d9a4c;
+  color: white;
+}
+
+.interested-selected {
   background-color: #4d9a4c;
   color: white;
   width: 10%;
