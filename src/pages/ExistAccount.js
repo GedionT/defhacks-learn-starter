@@ -73,8 +73,13 @@ function ExistAccount() {
                       setUsername(newUsername);
                     })
                     .catch(function (error) {
-                      console.log(error);
-                      Swal.fire(error, '', 'error');
+                      Swal.fire(
+                        error.message
+                          ? error.message
+                          : 'Error occured while updating username',
+                        '',
+                        'error'
+                      );
                     });
                 }
               }
@@ -109,7 +114,13 @@ function ExistAccount() {
                       setPassword(pwToUpdate[1]);
                     })
                     .catch((err) => {
-                      Swal.fire(err, '', 'error');
+                      Swal.fire(
+                        err.message
+                          ? err.message
+                          : 'Error occured while updating password',
+                        '',
+                        'error'
+                      );
                     });
                 } else {
                   Swal.fire("Password doesn't match!", '', 'error');
@@ -135,7 +146,6 @@ function ExistAccount() {
             if (result.value) {
               var newEmail = result.value[0];
 
-              // TASK FOR BACKEND: Make sure email isn't already taken in the account database
               if (newEmail !== null && newEmail !== '') {
                 if (newEmail !== EMAIL) {
                   if (emailValid(newEmail)) {
@@ -148,7 +158,13 @@ function ExistAccount() {
                         setEmail(newEmail);
                       })
                       .catch((err) => {
-                        Swal.fire(err, '', 'error');
+                        Swal.fire(
+                          err.message
+                            ? err.message
+                            : 'Error occured while updating email',
+                          '',
+                          'error'
+                        );
                       });
                   } else {
                     Swal.fire('Invalid Email!', '', 'error');
