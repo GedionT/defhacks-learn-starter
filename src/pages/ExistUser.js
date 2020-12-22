@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
@@ -6,14 +6,64 @@ import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
+import { db } from '../firebase.js';
+
 function ExistUser() {
   const { user } = useContext(AppContext);
   const history = useHistory();
+
+  const [courseList, setCourseList] = useState([]);
+
+  const [lessonList, setLessonList] = useState([]);
+
+  function getDocument() {
+    const coursesRef = db.collection('Courses');
+    var tempDoc = Array();
+    coursesRef.get().then((querySnapshot) => {
+      querySnapshot.forEach((docName) => {
+        setCourseList((oldCl) => [...oldCl, { name: docName.id }]);
+        querySnapshot.forEach((field) => {
+          console.log(field.data());
+          field.data().courseJSON.forEach((lesson) => {
+            console.log(lesson.lesson_name);
+            setLessonList((previousLesson) => [
+              ...previousLesson,
+              lesson.lesson_name,
+            ]);
+          });
+        });
+      });
+    });
+  }
+
+  function getLessonDocuments(collection) {
+    courseList.forEach((course) => {
+      console.log(course);
+    });
+  }
 
   useEffect(() => {
     if (!user) {
       history.push('/signin');
     }
+  });
+
+  useEffect(() => {
+    getDocument();
+    console.log(courseList);
+  }, []);
+
+  const coursesListComponent = courseList.map((c) => {
+    return (
+      <li>
+        {c.name}
+        <ul>
+          {lessonList.map((lesson) => {
+            return <li>{lesson}</li>;
+          })}
+        </ul>
+      </li>
+    );
   });
   return (
     <div className="general_container">
@@ -25,7 +75,6 @@ function ExistUser() {
         <Col xs={9} lg={9} style={{ position: 'relative' }}>
           <div className="blue-box-1"></div>
           <div className="blue-box-2">
-            {' '}
             <div className="exist-title">Welcome back, {user.displayName}!</div>
           </div>
 
@@ -33,10 +82,7 @@ function ExistUser() {
           <div className="content-box-2 pl-2">
             <div className="box-title">My Courses</div>
             <div className="box-content">
-              Intro to HTML, CSS
-              <div className="mini-progress-1">Percent</div>
-              Intro to Git
-              <br />
+              <ul>{coursesListComponent}</ul>
             </div>
           </div>
         </Col>
