@@ -56,10 +56,14 @@ const SignUp = ({ history }) => {
   const registerWithGoogle = () => {
     firebase
       .signInWithGoogle()
-      .then(() => {
+      .then((result) => {
         setEmail('');
         setPassword('');
-        history.push('/dashboard');
+        if (result.additionalUserInfo.isNewUser) {
+          history.push('/newuser');
+        } else {
+          history.push('/dashboard');
+        }
       })
       .catch((err) => {
         setError(err.message);
