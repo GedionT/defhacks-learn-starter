@@ -36,12 +36,6 @@ function ExistUser() {
     });
   }
 
-  function getLessonDocuments(collection) {
-    courseList.forEach((course) => {
-      console.log(course);
-    });
-  }
-
   useEffect(() => {
     if (!user) {
       history.push('/signin');
