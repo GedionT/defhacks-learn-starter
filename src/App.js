@@ -41,6 +41,7 @@ function App() {
             <Route exact path="/account" component={ExistAccount} />
             <Route exact path="/ExistActivity" component={ExistActivity} />
             <Route exact path="/course" component={Course} />
+            <Route path="*" exact component={NotFound} />
           </>
         ) : (
           <>
