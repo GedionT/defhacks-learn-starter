@@ -13,8 +13,6 @@ function Navigation() {
   const [value, setValue] = useState('');
   const [suggestions, setSuggestions] = useState([]);
 
-  // const [loggedIn, setLoggedIn] = useState(false);
-
   const history = useHistory();
 
   React.useEffect(() => {
@@ -84,16 +82,34 @@ function Navigation() {
         </Navbar.Brand>
         <Nav className="mr-auto">
           {user ? (
-            <Nav.Link className="nav-link-text" as={Link} to="/dashboard">
+            <Nav.Link
+              className="nav-link-text"
+              activeClassName="active"
+              as={Link}
+              to="/dashboard"
+              exact
+            >
               Home
             </Nav.Link>
           ) : (
-            <Nav.Link className="nav-link-text" as={Link} to="/signin">
+            <Nav.Link
+              className="nav-link-text"
+              activeClassName="active"
+              as={Link}
+              to="/signin"
+              exact
+            >
               Home
             </Nav.Link>
           )}
 
-          <Nav.Link className="nav-link-text" as={Link} to="/explore">
+          <Nav.Link
+            className="nav-link-text"
+            activeClassName="active"
+            as={Link}
+            to="/explore"
+            exact
+          >
             Explore
           </Nav.Link>
         </Nav>
@@ -111,7 +127,13 @@ function Navigation() {
         <SearchIcon className="search" style={{ fontSize: 32 }} />
 
         <Nav className="ml-auto">
-          <Nav.Link className="nav-link-text" as={Link} to="/About">
+          <Nav.Link
+            className="nav-link-text"
+            activeClassName="active"
+            as={Link}
+            to="/About"
+            exact
+          >
             About
           </Nav.Link>
           <NavDropdown title="Account" alignRight id="basic-nav-dropdown">

@@ -1,6 +1,12 @@
 .nav-link-text:hover {
   border-bottom: 2px solid #011204;
 }
+
+.active {
+  font-weight: 600;
+  border-bottom: 2px solid #011204;
+}
+
 .center-search {
   margin: 0 auto;
   text-align: center;
