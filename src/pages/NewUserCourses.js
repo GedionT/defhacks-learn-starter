@@ -51,6 +51,10 @@ const NewUserCourses = () => {
   useEffect(() => {
     if (!user) {
       history.push('/signin');
+    } else if (user.metadata) {
+      if (user.metadata.creationTime !== user.metadata.lastSignInTime) {
+        history.push('/dashboard');
+      }
     }
   });
 
