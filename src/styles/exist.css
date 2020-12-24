@@ -2,10 +2,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
 
-body {
-  background-color: #eeffee;
-}
-
 .general_container {
   margin-right: -10px;
   margin-left: -10px;
@@ -199,7 +195,7 @@ body {
 }
 
 .edit-icon {
-  font-size: 1.3vw!important;
+  font-size: 1.3vw !important;
   padding-bottom: 0.1vw;
 }
 
