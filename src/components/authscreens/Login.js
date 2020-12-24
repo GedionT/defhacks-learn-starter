@@ -48,10 +48,14 @@ const SignIn = ({ history }) => {
   const signInWithGoogle = () => {
     firebase
       .signInWithGoogle()
-      .then(() => {
+      .then((result) => {
         setEmail('');
         setPassword('');
-        history.push('/dashboard');
+        if (result.additionalUserInfo.isNewUser) {
+          history.push('/newuser');
+        } else {
+          history.push('/dashboard');
+        }
       })
       .catch((err) => {
         setError(err.message);
