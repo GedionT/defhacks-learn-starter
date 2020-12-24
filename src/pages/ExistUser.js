@@ -21,7 +21,7 @@ function ExistUser() {
 
   function getDocument() {
     const coursesRef = db.collection('Courses');
-    var tempDoc = Array();
+
     coursesRef.get().then((querySnapshot) => {
       querySnapshot.forEach((docName) => {
         setCourseList((oldCl) => [...oldCl, { name: docName.id }]);
@@ -47,7 +47,6 @@ function ExistUser() {
 
   useEffect(() => {
     getDocument();
-    console.log(courseList);
   }, []);
 
   const coursesListComponent = courseList.map((c) => {
