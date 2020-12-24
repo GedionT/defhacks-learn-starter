@@ -71,7 +71,7 @@ function Navigation() {
   };
 
   return (
-    <>
+    <div>
       <Navbar bg="white" id="app_navbar" sticky="top">
         <Navbar.Brand href="/">
           <img
@@ -143,7 +143,7 @@ function Navigation() {
           </NavDropdown>
         </Nav>
       </Navbar>
-    </>
+    </div>
   );
 }
 

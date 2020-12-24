@@ -48,7 +48,7 @@ function ExistUser() {
   useEffect(() => {
     getDocument();
     console.log(courseList);
-  }, []);
+  });
 
   const coursesListComponent = courseList.map((c) => {
     return (
