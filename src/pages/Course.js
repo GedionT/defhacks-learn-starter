@@ -9,7 +9,7 @@ import VideoPlayer from './Course-Components/videoPlayer';
 import CodePlayground from './Course-Components/codePlayground';
 import QuizPanel from './Course-Components/quizPanel';
 
-import { db } from '../firebase';
+// import { db } from '../firebase';
 
 const videoObj = {
   videoName: 'Introduction to HTML - Lesson 1',
@@ -22,12 +22,12 @@ function Course() {
 
   useEffect(() => {
     setNavbarHeight(document.getElementById('app_navbar').style.height);
-    console.log('Course');
-    db.collection('Courses')
-      .get()
-      .then((snapshot) => {
-        console.log('Test');
-      });
+    // console.log('Course');
+    // db.collection('Courses')
+    //   .get()
+    //   .then((snapshot) => {
+    //     console.log('Test');
+    //   });
   }, []);
 
   return (

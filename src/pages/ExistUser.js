@@ -6,7 +6,10 @@ import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
-import { db } from '../firebase.js';
+// import { db } from '../firebase.js';
+import firebase from 'firebase/app';
+
+const db = firebase.firestore();
 
 function ExistUser() {
   const { user } = useContext(AppContext);
