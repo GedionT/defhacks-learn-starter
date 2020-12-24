@@ -71,7 +71,7 @@ function Navigation() {
   };
 
   return (
-    <div>
+    <>
       <Navbar bg="white" id="app_navbar" sticky="top">
         <Navbar.Brand href="/">
           <img
@@ -114,7 +114,7 @@ function Navigation() {
           <Nav.Link className="nav-link-text" as={Link} to="/About">
             About
           </Nav.Link>
-          <NavDropdown title="Account" id="basic-nav-dropdown">
+          <NavDropdown title="Account" alignRight id="basic-nav-dropdown">
             {user ? (
               <>
                 <NavDropdown.Item as={Link} to="/profile">
@@ -143,7 +143,7 @@ function Navigation() {
           </NavDropdown>
         </Nav>
       </Navbar>
-    </div>
+    </>
   );
 }
 
