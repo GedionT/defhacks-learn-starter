@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/account" component={ExistAccount} />
             <Route exact path="/ExistActivity" component={ExistActivity} />
             <Route exact path="/course" component={Course} />
-            <Route component={NotFound} />
+            <Route path="*" exact component={NotFound} />
           </>
         ) : (
           <>
@@ -49,9 +49,9 @@ function App() {
             <Route exact path="/signin" component={LogIn} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/about" component={About} />
-            <Route component={NotFound} />
           </>
         )}
+        <Route component={NotFound} />
       </Switch>
     </div>
   );
