@@ -1,0 +1,294 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+.general_container {
+  margin-right: -10px;
+  margin-left: -10px;
+  padding-right: 0;
+  padding-left: 0;
+  width: 100%;
+  /* overflow-x: hidden; */
+}
+
+.exist-title {
+  font-family: IBM Plex Mono;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 2.5vw;
+  color: #000000;
+  text-align: center;
+}
+
+.user-id {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 35px;
+  line-height: 0px;
+  color: #000000;
+  right: -25%;
+  transform: translateX(-50%);
+}
+
+.MuiSvgIcon-root {
+  top: 5% !important;
+  left: 70% !important;
+}
+
+.exist-pattern {
+  position: absolute;
+  width: 80%;
+  height: 80%;
+  left: 235.26px;
+  top: 97.3px;
+  background: #faf7b7;
+  transform: rotate(48.63deg);
+  z-index: -100;
+}
+
+/* .blue-box-1 {
+  position: absolute;
+  width: 98%;
+  height: 20%;
+  left: 0%;
+  top: 5%;
+  background: rgba(219, 218, 255, 0.6);
+} */
+
+.blue-box-2 {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 25%;
+  background: #dbdaff;
+  -webkit-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
+  -moz-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
+  box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 0.7);
+}
+
+.exist-course {
+  position: absolute;
+  width: 1020px;
+  height: 574px;
+  left: 390px;
+  top: 315px;
+}
+
+.exist-menu {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 2vw;
+  text-align: center;
+  vertical-align: center;
+  color: #000000;
+}
+
+.sub-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  max-height: 70px;
+  height: 18vh;
+  background: #ffe2e2;
+}
+
+.content-box-1 {
+  position: absolute;
+  width: 98%;
+  height: 75%;
+  left: 0%;
+  top: 40%;
+  background: rgba(255, 216, 131, 0.4);
+}
+
+.content-box-2 {
+  position: absolute;
+  width: 98%;
+  height: 75%;
+  top: 35%;
+  background: #ffd883;
+}
+
+.box-title {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  text-align: center;
+  font-weight: 600;
+  font-size: 3vw;
+  color: #222222;
+}
+
+.box-content {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  color: #222222;
+  padding: 0 50px;
+}
+
+.mini-progress-1 {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5vw;
+  /* identical to box height */
+  color: #222222;
+}
+
+.mini-progress-2 {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1.5vw;
+
+  color: #222222;
+}
+
+.shape-tri {
+  position: absolute;
+  width: 611.99px;
+  height: 275.3px;
+  left: 1204.19px;
+  top: 564.36px;
+  background: #c1bfee;
+  transform: matrix(0.95, -0.32, -0.32, -0.95, 0, 0);
+  z-index: -100;
+}
+
+.shape-circle {
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  left: 1566.85px;
+  top: 149px;
+  background: #ffe2e2;
+  border-radius: 65%;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: -100;
+}
+
+.box-content-acc {
+  position: absolute;
+  width: 1043px;
+  height: 509px;
+  left: 446px;
+  top: 436px;
+}
+
+.box-content-acc-text {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 300;
+  font-size: 1.8vw;
+  line-height: 3rem;
+  color: #000000;
+}
+
+.box-content-acc-edit-text {
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: 100;
+  font-size: 1.2vw;
+  line-height: 1rem;
+  color: #3a3a3a;
+  cursor: pointer;
+}
+
+.edit-icon {
+  font-size: 1.3vw !important;
+  padding-bottom: 0.1vw;
+}
+
+.box-title-acc {
+  font-family: IBM Plex Mono;
+  font-weight: 600;
+  font-size: 3vw;
+  text-align: center;
+  color: #000000;
+}
+
+.green-box-1 {
+  position: absolute;
+  width: 98%;
+  /* height: 100%; */
+  left: 0%;
+  top: 40%;
+  background: rgba(167, 215, 136, 0.6);
+  border-radius: 6px;
+}
+
+.green-box-2 {
+  position: absolute;
+  width: 98%;
+  /* height: 100%; */
+  top: 35%;
+  background: #a7d788;
+  border-radius: 6px;
+}
+
+.act-cont {
+  font-family: Karla;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 45px;
+  line-height: 54px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.cal-act {
+  padding-left: 1%;
+  width: 98%;
+}
+
+.color {
+  color: #000000;
+  display: inline-block;
+  overflow: hidden;
+  background: linear-gradient(to right, gold, gold 50%, black 50%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: background-position 275ms ease;
+  vertical-align: middle;
+}
+
+.color:hover {
+  background-position: 0 100%;
+}
+
+.cal-act-1 {
+  color: black;
+  --fc-border-color: black;
+}
+
+ul > li > ul {
+  margin-left: 25px;
+  font-size: 15px;
+}
+
+@media only screen and (max-width: 620px) {
+  .sub-menu {
+    height: 50px;
+    width: 80px;
+    background: #ffe2e2;
+  }
+}
+
+@media only screen and (max-width: 846px) {
+  .exist-title {
+    font-size: 30px;
+  }
+}

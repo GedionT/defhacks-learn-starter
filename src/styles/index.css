@@ -1,8 +1,49 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+
 body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #ffffff;
 }
+
 .App {
-  text-align: center;
+  margin: 0px, 15px, 15px, 15px;
+  /* text-align: center; */
+}
+
+.Home {
+  padding-top: 35px;
+}
+
+.Navbar {
+  padding-top: 10px;
+  margin-top: 0px;
+  margin-bottom: 14px;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+.copyright {
+  font-family: 'Karla', sans-serif;
+  color: #777777;
+}
+
+/* This modifies the bootstrap class. Use with caution */
+.form-control {
+  color: #495057 !important;
+}
+
+@media (min-width: 768px) {
+  .navbar-brand.abs {
+    position: absolute;
+    width: 100%;
+    left: 0;
+    text-align: center;
+  }
 }

@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+.greeting {
+  font-family: 'Inter', sans-serif;
+  margin-left: 500px !important;
+}
+
+.start {
+  display: flex;
+  justify-content: center;
+}
+
+.description {
+  display: flex;
+  justify-content: center;
+}
+
+.form label {
+  font-family: 'Karla', sans-serif;
+}
+
+.mt-1 {
+  border: 1px solid #303030;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  width: 500px;
+  height: 60px;
+}
+
+.bg-green-400 {
+  background-color: #62a337;
+  font-size: 20px;
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  width: 475px;
+  height: 50px;
+  border: none;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}

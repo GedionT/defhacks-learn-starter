@@ -1,94 +1,229 @@
 import React, { useState } from 'react';
-// import { Link } from "react-router-dom";
+import { Link, withRouter } from 'react-router-dom';
 
-const SignUp = () => {
+import { Alert, Form, Button, Container } from 'react-bootstrap';
+import { useTheme } from '@material-ui/core/styles';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+
+import firebase from '../firebase/base';
+import Footer from '../common/Footer';
+
+import './Signup.css';
+
+const SignUp = ({ history }) => {
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [displayName, setDisplayName] = useState('');
   const [error, setError] = useState(null);
-  const createUserWithEmailAndPasswordHandler = (event, email, password) => {
+
+  // These hooks from material-ui is used for checking the current width of the window
+  // In particularly, check whether the window is over sm scale
+  const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.up('sm'));
+
+  const onRegister = async (event) => {
     event.preventDefault();
-    setEmail('');
-    setPassword('');
-    setDisplayName('');
+    const name = `${firstName} ${lastName}`;
+
+    if (!passwordValidate(password)) {
+      setError(
+        'Password need to contain one uppercase, one lowercase, one digit, one special character'
+      );
+      setPassword('');
+      return;
+    }
+
+    firebase
+      .register(name, email, password)
+      .then(() => {
+        //alert('Signup Successful');
+        setEmail('');
+        setPassword('');
+        setFirstName('');
+        setLastName('');
+        setError('');
+        history.replace('/newuser');
+      })
+      .catch((err) => {
+        // alert(`Error: ${err.message}`);
+        setError(err.message);
+        setEmail('');
+        setPassword('');
+      });
   };
+
+  const registerWithGoogle = () => {
+    firebase
+      .signInWithGoogle()
+      .then((result) => {
+        setEmail('');
+        setPassword('');
+        if (result.additionalUserInfo.isNewUser) {
+          history.push('/newuser');
+        } else {
+          history.push('/dashboard');
+        }
+      })
+      .catch((err) => {
+        setError(err.message);
+        setPassword('');
+      });
+  };
+
   const onChangeHandler = (event) => {
     const { name, value } = event.currentTarget;
-    if (name === 'userEmail') {
+    if (name === 'email') {
       setEmail(value);
-    } else if (name === 'userPassword') {
+    } else if (name === 'password') {
       setPassword(value);
-    } else if (name === 'displayName') {
-      setDisplayName(value);
+    } else if (name === 'firstName') {
+      setFirstName(value);
+    } else if (name === 'lastName') {
+      setLastName(value);
     }
   };
   return (
-    <div className="mt-8">
-      <h1 className="text-3xl mb-2 text-center font-bold">Sign Up</h1>
-      <div className="border border-blue-400 mx-auto w-11/12 md:w-2/4 rounded py-8 px-4 md:px-8">
-        {error !== null && (
-          <div className="py-4 bg-red-600 w-full text-white text-center mb-3">
-            {error}
-          </div>
-        )}
-        <form className="">
-          <label htmlFor="displayName" className="block">
-            Display Name:
-          </label>
-          <input
-            type="text"
-            className="my-1 p-1 w-full "
-            name="displayName"
-            value={displayName}
-            placeholder="E.g: Faruq"
-            id="displayName"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <label htmlFor="userEmail" className="block">
-            Email:
-          </label>
-          <input
-            type="email"
-            className="my-1 p-1 w-full"
-            name="userEmail"
-            value={email}
-            placeholder="E.g: faruq123@gmail.com"
-            id="userEmail"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <label htmlFor="userPassword" className="block">
-            Password:
-          </label>
-          <input
-            type="password"
-            className="mt-1 mb-3 p-1 w-full"
-            name="userPassword"
-            value={password}
-            placeholder="Your Password"
-            id="userPassword"
-            onChange={(event) => onChangeHandler(event)}
-          />
-          <button
-            className="bg-green-400 hover:bg-green-500 w-full py-2 text-white"
-            onClick={(event) => {
-              createUserWithEmailAndPasswordHandler(event, email, password);
-            }}
+    <>
+      <Container>
+        {error !== null && <Alert variant="danger">{error}</Alert>}
+        <span>
+          <h1 className="start">Welcome!</h1>
+          <p className="description">Sign up to join the fun!</p>
+        </span>
+
+        <Form onSubmit={onRegister}>
+          {/* For first name */}
+          <Form.Group
+            style={matches ? { width: '50%', marginLeft: '25%' } : null}
           >
-            Sign up
-          </button>
-        </form>
-        <p className="text-center my-3">or</p>
-        <button className="bg-red-500 hover:bg-red-600 w-full py-2 text-white">
-          Sign In with Google
-        </button>
-        <p className="text-center my-3">
-          Already have an account?{' '}
-          <Link to="/" className="text-blue-500 hover:text-blue-600">
-            Sign in here
-          </Link>
-        </p>
-      </div>
-    </div>
+            <Form.Label>First name</Form.Label>
+            <Form.Control
+              type="text"
+              name="firstName"
+              placeholder="First name"
+              value={firstName}
+              onChange={onChangeHandler}
+              required
+            />
+          </Form.Group>
+
+          {/* For last name */}
+          <Form.Group
+            style={matches ? { width: '50%', marginLeft: '25%' } : null}
+          >
+            <Form.Label>Last name</Form.Label>
+            <Form.Control
+              type="text"
+              name="lastName"
+              placeholder="Last name"
+              value={lastName}
+              onChange={onChangeHandler}
+            />
+          </Form.Group>
+
+          {/* For email address */}
+          <Form.Group
+            style={matches ? { width: '50%', marginLeft: '25%' } : null}
+          >
+            <Form.Label>Email address</Form.Label>
+            <Form.Control
+              autoComplete="off"
+              type="email"
+              name="email"
+              placeholder="Enter email"
+              value={email}
+              onChange={onChangeHandler}
+              required
+            />
+          </Form.Group>
+
+          {/* For password */}
+          <Form.Group
+            style={matches ? { width: '50%', marginLeft: '25%' } : null}
+          >
+            <Form.Label>Password</Form.Label>
+            <Form.Control
+              type="password"
+              autoComplete="off"
+              placeholder="Password"
+              name="password"
+              value={password}
+              onChange={onChangeHandler}
+              required
+              minLength={8}
+            />
+          </Form.Group>
+
+          {/* Register button */}
+          <Button
+            variant="success"
+            type="submit"
+            style={{
+              width: matches ? '50%' : null,
+              marginLeft: matches ? '25%' : null,
+              backgroundColor: '#99C87A',
+              border: 'none',
+            }}
+            block
+          >
+            Register
+          </Button>
+
+          {/* Register with Google button */}
+          <Button
+            variant="light"
+            type="button"
+            style={{
+              width: matches ? '50%' : null,
+              marginLeft: matches ? '25%' : null,
+              backgroundColor: '#fff',
+              boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+            }}
+            block
+            onClick={registerWithGoogle}
+          >
+            <img
+              src="/assets/google-logo.svg"
+              alt="google-logo"
+              style={{
+                display: 'inline-block',
+                maxWidth: '30px',
+                maxHeight: '30px',
+                marginLeft: '-5%',
+                marginRight: '5%',
+              }}
+            />
+            <span>Continue with Google</span>
+          </Button>
+
+          <div className="text-center mt-3">
+            <p>
+              Already has an account ? {'  '}
+              <Link
+                style={{
+                  textdecoration: 'none',
+                  color: '#99C87A',
+                }}
+                to="/signin"
+              >
+                Log in here
+              </Link>
+            </p>
+          </div>
+        </Form>
+      </Container>
+
+      {/* Footer go here */}
+      <Footer />
+    </>
   );
 };
-export default SignUp;
+
+export default withRouter(SignUp);
+
+const passwordValidate = (password) => {
+  // String of length 8 or more, contain at least on digit, one uppercase, one lowercase and one special character
+  const regex = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z])(?=.*\W).{8,}$/gm;
+  return regex.test(password);
+};

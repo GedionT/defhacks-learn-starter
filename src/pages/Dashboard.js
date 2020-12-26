@@ -1,12 +1,35 @@
-import React from 'react';
-import Profile from '../components/profile';
+import React, { useContext, useEffect } from 'react';
+import { Row, Col } from 'react-bootstrap';
+import { useHistory } from 'react-router-dom';
+
+import Sidebar from '../components/common/Sidebar';
+import HeaderExistUser from '../components/common/HeaderExistUser';
+import CardComponent from '../components/common/CardComponent';
+
+import AppContext from '../context/AppContext';
 
 function Dashboard() {
+  const { user } = useContext(AppContext);
+  const history = useHistory();
+
+  useEffect(() => {
+    if (!user) {
+      history.push('/signin');
+    }
+  });
+
   return (
-    <div className="Dashboard">
-      <h1>Dashboard </h1>
-      <h4> This is your dashboard </h4>
-      <Profile />
+    <div className="general_container">
+      <Row style={{ marginRight: 0, marginLeft: 0 }}>
+        <Col xs={3} md={3} lg={3}>
+          <Sidebar />
+        </Col>
+
+        <Col xs={9} md={9} lg={9} style={{ position: 'relative' }}>
+          <HeaderExistUser />
+          <CardComponent />
+        </Col>
+      </Row>
     </div>
   );
 }

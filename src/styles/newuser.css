@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Karla&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@600&display=swap');
+
+.polygon6 {
+  position: absolute;
+  left: -133.2px;
+  top: 60%;
+}
+
+.ellipse {
+  position: absolute;
+  width: 295px;
+  height: 295px;
+  left: -16px;
+  top: 25%;
+}
+
+.polygon5 {
+  position: absolute;
+  width: 300px;
+  height: 400px;
+  left: 1050px;
+  top: 250px;
+}
+
+.upper-box {
+  position: absolute;
+  width: 85%;
+  height: 25%;
+  left: 135.11px;
+  top: 133px;
+  background-color: #faf7b7;
+  box-shadow: -19px 22px 0px 0px rgba(239, 234, 121, 0.39);
+  padding-top: 2%;
+  font-family: Karla;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 30px;
+  line-height: 45px;
+  text-align: center;
+  color: #222222;
+}
+
+.lower-box {
+  position: absolute;
+  width: 85%;
+  height: 60%;
+  left: 131px;
+  top: 350px;
+  background-color: #b2de8e;
+  box-shadow: -19px 22px 0px 0px rgba(77, 154, 76, 0.49);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  padding-top: 2%;
+  font-size: 30px;
+  line-height: 45px;
+  color: #222222;
+  overflow-y: auto;
+}
+
+.radio-buttons {
+  padding-left: 10%;
+  text-align: left !important;
+}
+
+.box {
+  background-color: #c4c4c4;
+  height: 20px;
+  width: 20px;
+}
+
+.submit {
+  position: absolute;
+  width: 161px;
+  height: 51.9px;
+  left: 80%;
+  top: 85%;
+  background: #4d9a4c;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  right: 0;
+  bottom: 0;
+  color: #ffffff;
+}
+
+/* body{
+  min-height: 120vh;
+} */
+
+.lower-box-final {
+  position: absolute;
+  width: 85%;
+  height: 78%;
+  left: 131px;
+  top: 100px;
+  background-color: #b2de8e;
+  box-shadow: -19px 22px 0px 0px rgba(77, 154, 76, 0.49);
+  font-family: Inter;
+  font-style: normal;
+  font-weight: normal;
+  padding-top: 2%;
+  font-size: 30px;
+  line-height: 45px;
+  color: #222222;
+  text-align: center;
+}
+
+.continue {
+  position: absolute;
+  width: 161px;
+  height: 51.9px;
+  top: 80%;
+  background: #4d9a4c;
+  box-shadow: -11px 10px 5px 0px rgba(77, 154, 76, 0.67);
+  border-radius: 5px;
+  left: 43%;
+  color: #ffffff;
+}
+
+.lower-box-content {
+  font-weight: bold;
+}
+
+.options {
+  width: 100%;
+  text-align: left;
+  background-color: #d3d3d3;
+  border-radius: 5px;
+  border-style: solid;
+  border-color: #b2de8e;
+  padding: 5px 5px 5px 5px;
+}
+
+.info-panel {
+  font-size: 20px;
+  text-align: left;
+  background-color: #f1f1f1;
+  line-height: 30px;
+}
+
+.arrow-down {
+  width: 0px;
+  height: 0px;
+  border-top: 25px solid #2da04e;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  float: right;
+}
+
+.arrow-up {
+  width: 0px;
+  height: 0px;
+  border-bottom: 25px solid #2da04e;
+  border-left: 12.5px solid transparent;
+  border-right: 12.5px solid transparent;
+  float: right;
+}
+
+.interested {
+  background-color: white;
+  color: #4d9a4c;
+  width: 10%;
+  line-height: 25px;
+  font-size: 20px;
+  float: right;
+  margin-right: 5%;
+}
+
+.interested:hover {
+  background-color: #4d9a4c;
+  color: white;
+}
+
+.interested-selected {
+  background-color: #4d9a4c;
+  color: white;
+  width: 10%;
+  line-height: 25px;
+  font-size: 20px;
+  float: right;
+  margin-right: 5%;
+}

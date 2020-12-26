@@ -3,12 +3,15 @@
     "public": "build",
     "ignore": [
       "firebase.json",
-      "README.md",
-      ".firebaserc",
-      ".git",
-      ".gitignore",
       "**/.*",
       "**/node_modules/**"
+    ],
+    "cleanUrls": true,
+    "rewrites": [
+      {
+        "source": "**",
+        "destination": "/index.html"
+      }
     ]
   }
 }

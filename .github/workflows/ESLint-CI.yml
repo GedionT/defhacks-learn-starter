@@ -1,0 +1,21 @@
+# NOTE: This is still in progress, so if this fails it may need editing! 
+# If anyone wants to add some components, feel free to add them
+name: Lint
+on: 
+  push:
+    branches: master
+  pull_request:
+    branches: master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout files
+        uses: actions/checkout@v2
+        
+      - name: Install dependencies
+        run: npm install
+        
+      - name: Run lint
+        run: npm run lint
+

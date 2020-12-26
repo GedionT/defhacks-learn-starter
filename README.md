@@ -1,26 +1,29 @@
-# Def Hacks Learn - CS Outreach Website Starter
+# Def Hacks Learn - CS Outreach Learning Platform
 
-## Instructions:
+[![Firebase-CD Actions Status](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/workflows/Firebase-CD/badge.svg)](https://github.com/Def-Hacks-CS-Outreach/def-hacks-learn/actions)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/afd7d8ad160c426280810c7b80749ca9)](https://www.codacy.com/gh/alphaX86/def-hacks-learn/dashboard?utm_source=github.com&utm_medium=referral&utm_content=alphaX86/def-hacks-learn&utm_campaign=Badge_Grade)
+
+## Instructions
 
 To install on your local machine
 
-- git clone 'the_repo_url.git'
-- cd repo
-- npm install
+- `git clone REPO_URL`
+- `cd def-hacks-learn`
+- `npm install`
 
-# To start making actual changes:
+# To start making actual changes
 
-If you are not added as a contributor to the repository, you won't be able to make actual
-changes because you are missing the environment variables. Therefore, once you are done 
+If you are not added as a contributor to the repository, you will not be able to make actual
+changes because you are missing the environment variables. Therefore, once you are done
 installing all the dependencies, to start out making actual changes that interacts with
-firebase, create a .env file in the root directory. 
+firebase, create a .env file in the root directory.
 
 - if using linux or have bash installed, inside your terminal
-    -- touch .env
+  -- touch .env
 - if running windows machine, inside command prompt (cmd)
-    -- echo > .env
+  -- echo > .env
 
-Next, ask for environment variables from the project lead and drop it in the .env file. You 
+Next, ask for environment variables from the project lead and drop it in the .env file. You
 can now start making your changes to the deployed site.
 
 # Before pushing code or submitting a PR
@@ -41,23 +44,24 @@ src folder.
 
 ## Quick Map
 
-  - def-hacks-learn/
-    - public/
-        - index.html
-        - favicon.ico
-        - assets/
-            - images/
-    - src/
-        - firebase/
-        - components/
-        - styles/
-        - pages/
-        - App.js
-        - Index.js
-   - package.json
-   - README.md
-        
+- def-hacks-learn/
+  - public/
+    - index.html
+    - favicon.ico
+    - assets/
+      - images/
+  - src/
+    - components/
+      - authscreens/
+      - common/
+      - firebase/
+    - styles/
+    - pages/
+    - App.js
+    - Index.js
+- package.json
+- README.md
 
+`! Please enable eslint and prettier extension in your local code editor to ensure code format rules.`
 
-! Please enable eslint and prettier extension in your local code editor to ensure 
-code fromat rules.
+This is the test for pull request only
