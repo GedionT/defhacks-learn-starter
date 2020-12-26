@@ -31,8 +31,8 @@ function App() {
       <Switch>
         {context.user ? (
           <>
-            <Route path="/" exact component={Home} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/about" component={About} />
             <Route exact path="/newuser" component={NewUser} />
             <Route exact path="/newusercourses" component={NewUserCourses} />
@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/account" component={ExistAccount} />
             <Route exact path="/ExistActivity" component={ExistActivity} />
             <Route exact path="/course" component={Course} />
-            <Route path="*" exact component={NotFound} />
+            <Route component={NotFound} />
           </>
         ) : (
           <>
@@ -49,9 +49,9 @@ function App() {
             <Route exact path="/signin" component={LogIn} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/about" component={About} />
+            <Route component={NotFound} />
           </>
         )}
-        <Route component={NotFound} />
       </Switch>
     </div>
   );

@@ -1,10 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import scrollAnimate from 'aos';
+import 'aos/dist/aos.css';
 import '../styles/home.css';
 
 import Footer from '../components/common/Footer';
 
 function Home() {
+  useEffect(() => {
+    scrollAnimate.init({ duration: 2000 });
+  }, []);
+
   return (
     <>
       <div className="Home">
@@ -53,7 +59,10 @@ function Home() {
             <h2 className="hq-txt">Why Computer Science?</h2>{' '}
           </div>
 
-          <div className="d-flex justify-content-end m-5 homeAnswer">
+          <div
+            data-aos="fade-left"
+            className="d-flex justify-content-end m-5 homeAnswer"
+          >
             <p className="">
               Technology is seeping into just about every line of work. It’s
               become necessary for everyone to learn about computers, an
@@ -62,7 +71,7 @@ function Home() {
             </p>
           </div>
         </div>
-        <div className="end">
+        <div data-aos="fade-right" className="end">
           <p className="col-8 col-md-7 hook">So what are you waiting for?</p>
           <Link
             to="/signup"
