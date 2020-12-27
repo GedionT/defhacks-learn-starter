@@ -31,8 +31,8 @@ function App() {
       <Switch>
         {context.user ? (
           <>
-            <Route path="/" exact component={Home} />
-            <Route path="/dashboard" component={Dashboard} />
+            <Route exact path="/" component={Home} />
+            <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/about" component={About} />
             <Route exact path="/newuser" component={NewUser} />
             <Route exact path="/newusercourses" component={NewUserCourses} />
