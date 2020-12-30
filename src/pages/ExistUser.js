@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState, useReducer } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
@@ -16,31 +16,33 @@ function ExistUser() {
   const history = useHistory();
 
   const [courseList, setCourseList] = useState([]);
-
   const [lessonList, setLessonList] = useState([]);
+  const [courseIndex, setCourseIndex] = useState(0);
 
   function getDocument() {
     const coursesRef = db.collection('Courses');
-
     //Querying through the Course collection
     coursesRef.get().then((querySnapshot) => {
-      // Quering through each document
+      // Querying through each document
       querySnapshot.forEach((docName) => {
+        console.log(docName.id);
         // Append the course to course array.
-        setCourseList((oldCl) => [...oldCl, { name: docName.id }]);
+        setCourseList((oldCl) => [
+          ...oldCl,
+          { name: docName.id, lessonList: [] },
+        ]);
         querySnapshot.forEach((field) => {
           // console.log(field.data()); // Debugging purpose
-          // Each course is an array of object
+          // Each course is an array of object, loop through each lesson
           field.data().courseJSON.forEach((lesson) => {
-            console.log(lesson.lesson_name);
+            var L_NAME = lesson.lesson_name;
             // Append each lesson to lesson
-            setLessonList((previousLesson) => [
-              ...previousLesson,
-              lesson.lesson_name,
-            ]);
+            setLessonList((prevState) => [...prevState, L_NAME]);
           });
         });
+        setLessonList([]);
       });
+      setCourseIndex((prevState) => prevState + 1);
     });
   }
 
@@ -56,16 +58,34 @@ function ExistUser() {
     getDocument();
   }, []);
 
+  // Debug: Print courseList when it is updated:
+  useEffect(() => {
+    console.log(courseList);
+    courseList.forEach((course, index) => {
+      if (Array.isArray(course)) {
+        setCourseList(courseList.filter((c) => c !== course));
+      }
+    });
+  }, [courseList]);
+  useEffect(() => {
+    if (lessonList.length !== 0) {
+      setCourseList((prevState) => [
+        ...prevState,
+        (prevState[courseIndex].lessonList = lessonList),
+      ]);
+    }
+  }, [lessonList]);
+
   // Creates the list component from our arrays
   const coursesListComponent = courseList.map((c) => {
     return (
       <li>
         {c.name}
         <ul>
-          {/*Map through lesson array and append as nested list*/}
-          {lessonList.map((lesson) => {
-            return <li>{lesson}</li>;
-          })}
+          {/*/!*Map through lesson array and append as nested list*!/*/}
+          {/*{c.lessonList.map((lesson) => {*/}
+          {/*  return <li>{lesson}</li>;*/}
+          {/*})}*/}
         </ul>
       </li>
     );

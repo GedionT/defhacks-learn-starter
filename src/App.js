@@ -41,7 +41,7 @@ function App() {
             <Route exact path="/account" component={ExistAccount} />
             <Route exact path="/ExistActivity" component={ExistActivity} />
             <Route exact path="/course" component={Course} />
-            <Route path="*" exact component={NotFound} />
+            {/*<Route path="*" exact component={NotFound} />*/}
           </>
         ) : (
           <>
@@ -51,7 +51,7 @@ function App() {
             <Route exact path="/about" component={About} />
           </>
         )}
-        <Route component={NotFound} />
+        {/*<Route component={NotFound} />*/}
       </Switch>
     </div>
   );
