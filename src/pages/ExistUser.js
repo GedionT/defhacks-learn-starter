@@ -22,13 +22,18 @@ function ExistUser() {
   function getDocument() {
     const coursesRef = db.collection('Courses');
 
+    //Querying through the Course collection
     coursesRef.get().then((querySnapshot) => {
+      // Quering through each document
       querySnapshot.forEach((docName) => {
+        // Append the course to course array.
         setCourseList((oldCl) => [...oldCl, { name: docName.id }]);
         querySnapshot.forEach((field) => {
-          console.log(field.data());
+          // console.log(field.data()); // Debugging purpose
+          // Each course is an array of object
           field.data().courseJSON.forEach((lesson) => {
             console.log(lesson.lesson_name);
+            // Append each lesson to lesson
             setLessonList((previousLesson) => [
               ...previousLesson,
               lesson.lesson_name,
@@ -39,21 +44,25 @@ function ExistUser() {
     });
   }
 
+  // If user is not signed in, forbid the user from browsing this page
   useEffect(() => {
     if (!user) {
       history.push('/signin');
     }
   });
 
+  // Set documents during first render
   useEffect(() => {
     getDocument();
   }, []);
 
+  // Creates the list component from our arrays
   const coursesListComponent = courseList.map((c) => {
     return (
       <li>
         {c.name}
         <ul>
+          {/*Map through lesson array and append as nested list*/}
           {lessonList.map((lesson) => {
             return <li>{lesson}</li>;
           })}
