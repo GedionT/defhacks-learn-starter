@@ -8,6 +8,7 @@ import AppContext from '../context/AppContext';
 
 // import { db } from '../firebase.js';
 import firebase from 'firebase/app';
+import { CodeRounded } from '@material-ui/icons';
 
 const db = firebase.firestore();
 
@@ -17,6 +18,7 @@ function ExistUser() {
 
   const [courseList, setCourseList] = useState([]);
   const [lessonList, setLessonList] = useState([]);
+  const [CourseName, setCourseName] = useState([]);
   const [courseIndex, setCourseIndex] = useState(0);
 
   function getDocument() {
@@ -25,12 +27,8 @@ function ExistUser() {
     coursesRef.get().then((querySnapshot) => {
       // Querying through each document
       querySnapshot.forEach((docName) => {
-        console.log(docName.id);
-        // Append the course to course array.
-        setCourseList((oldCl) => [
-          ...oldCl,
-          { name: docName.id, lessonList: [] },
-        ]);
+        // Append the course to courseName array.
+        setCourseName((prevState) => [...prevState, docName.id]);
         querySnapshot.forEach((field) => {
           // console.log(field.data()); // Debugging purpose
           // Each course is an array of object, loop through each lesson
@@ -38,7 +36,14 @@ function ExistUser() {
             var L_NAME = lesson.lesson_name;
             // Append each lesson to lesson
             setLessonList((prevState) => [...prevState, L_NAME]);
+            if (lessonList.length !== 0) {
+              setCourseList((prevState) => [
+                ...prevState,
+                (prevState[courseIndex].lessonList = lessonList),
+              ]);
+            }
           });
+          setLessonList([]);
         });
         setLessonList([]);
       });
@@ -58,15 +63,26 @@ function ExistUser() {
     getDocument();
   }, []);
 
-  // Debug: Print courseList when it is updated:
   useEffect(() => {
     console.log(courseList);
+
+    // Remove all array entries
     courseList.forEach((course, index) => {
       if (Array.isArray(course)) {
         setCourseList(courseList.filter((c) => c !== course));
       }
     });
   }, [courseList]);
+
+  useEffect(() => {
+    CourseName.forEach((course) => {
+      setCourseList((prevState) => [
+        ...prevState,
+        { name: course, lessonList: [] },
+      ]);
+    });
+  }, [CourseName]);
+
   useEffect(() => {
     if (lessonList.length !== 0) {
       setCourseList((prevState) => [

@@ -103,8 +103,8 @@
 .content-box-1 {
   position: absolute;
   width: 98%;
-  height: 75%;
-  left: 0%;
+  height: 95%;
+  left: -1%;
   top: 40%;
   background: rgba(255, 216, 131, 0.4);
 }
@@ -112,7 +112,7 @@
 .content-box-2 {
   position: absolute;
   width: 98%;
-  height: 75%;
+  height: 95%;
   top: 35%;
   background: #ffd883;
 }
