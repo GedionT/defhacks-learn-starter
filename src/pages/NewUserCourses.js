@@ -8,7 +8,7 @@ import AppContext from '../context/AppContext';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-const NewUserCourses = () => {
+const NewUserCourses = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
@@ -52,8 +52,13 @@ const NewUserCourses = () => {
     if (!user) {
       history.push('/signin');
     } else if (user.metadata) {
+      // Check if the user is logged on for the first time
       if (user.metadata.creationTime !== user.metadata.lastSignInTime) {
+        // Redirect to dashboard if it is not the first time
         history.push('/dashboard');
+      } else if (!props.location.state) {
+        // If the page is not rendered from /newuser, return it to /newuser
+        history.push('/newuser');
       }
     }
   });
