@@ -18,9 +18,7 @@ function ExistUser() {
   const [lessonList, setLessonList] = useState([]);
   const [CourseNames, setCourseName] = useState([]);
   const [EnrolledCourses, setEnrolledCourses] = useState([]);
-  const USER_ID = async () => {
-    return user.uid;
-  };
+  const [USER_ID, setUSER_ID] = useState('');
 
   function getLessonList() {
     const coursesRef = db.collection('Courses');
@@ -37,11 +35,33 @@ function ExistUser() {
   useEffect(() => {
     if (!user) {
       history.push('/signin');
+    } else {
+      setUSER_ID(user.uid);
     }
   });
 
+  useEffect(() => {
+    if (USER_ID !== '') {
+      async function getEnrolledCourses() {
+        setUSER_ID(user.uid);
+        const userCollection = await db
+          .collection(USER_ID + '-profile')
+          .doc('Enrolled Courses');
+
+        const doc = await userCollection
+          .get()
+          .then((doc) => {
+            setEnrolledCourses(doc.data().enrolledCourses);
+          })
+          .catch((err) => console.log(err));
+      }
+      getEnrolledCourses();
+    }
+  }, [USER_ID]);
+
   // Set documents during first render
   useEffect(() => {
+    setUSER_ID(user.uid);
     async function getCourseName() {
       const coursesRef = await db.collection('Courses');
       //Querying through the Course collection
@@ -53,22 +73,7 @@ function ExistUser() {
       });
     }
 
-    async function getEnrolledCourses() {
-      const userCollection = db
-        .collection(USER_ID + '-profile')
-        .doc('Enrolled Courses');
-
-      const doc = await userCollection.get();
-      if (!doc.exists) {
-        await console.log('No such document!');
-      } else {
-        // console.log(doc.data());
-        doc.data().enrolledCourses.forEach((course) => {
-          setEnrolledCourses((prevState) => [...prevState, course]);
-        });
-      }
-    }
-    getEnrolledCourses();
+    // getEnrolledCourses();
     getCourseName();
     getLessonList();
   }, []);
