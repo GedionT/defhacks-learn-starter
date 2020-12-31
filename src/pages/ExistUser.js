@@ -6,7 +6,6 @@ import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
-// import { db } from '../firebase.js';
 import firebase from 'firebase/app';
 
 const db = firebase.firestore();
@@ -15,52 +14,67 @@ function ExistUser() {
   const { user } = useContext(AppContext);
   const history = useHistory();
 
-  const [courseList, setCourseList] = useState([]);
-
   const [lessonList, setLessonList] = useState([]);
+  const [CourseNames, setCourseName] = useState([]);
 
-  function getDocument() {
+  function getLessonList() {
     const coursesRef = db.collection('Courses');
-
-    coursesRef.get().then((querySnapshot) => {
-      querySnapshot.forEach((docName) => {
-        setCourseList((oldCl) => [...oldCl, { name: docName.id }]);
-        querySnapshot.forEach((field) => {
-          console.log(field.data());
-          field.data().courseJSON.forEach((lesson) => {
-            console.log(lesson.lesson_name);
-            setLessonList((previousLesson) => [
-              ...previousLesson,
-              lesson.lesson_name,
-            ]);
-          });
+    coursesRef.get().then((snapshot) => {
+      if (snapshot) {
+        snapshot.forEach((doc) => {
+          setLessonList((prevState) => [...prevState, doc.data().courseJSON]);
         });
-      });
+      }
     });
   }
 
+  // If user is not signed in, forbid the user from browsing this page
   useEffect(() => {
     if (!user) {
       history.push('/signin');
     }
   });
 
+  // Set documents during first render
   useEffect(() => {
-    getDocument();
+    async function getCourseName() {
+      const coursesRef = await db.collection('Courses');
+      //Querying through the Course collection
+      coursesRef.get().then((snapshot) => {
+        snapshot.forEach((doc) => {
+          setCourseName((prevState) => [...prevState, doc.id]);
+          // setLessonList((prevState) => [...prevState, new Array(0)]);
+        });
+      });
+    }
+    getCourseName();
+    getLessonList();
   }, []);
 
-  const coursesListComponent = courseList.map((c) => {
+  useEffect(() => {
+    // console.log(CourseNames);
+  }, [CourseNames]);
+
+  // useEffect(() => {
+  //   lessonList.forEach((lessonArr, index) => {
+  //     console.log(lessonArr[index]);
+  //   });
+  // }, [lessonList]);
+
+  // Creates the list component from our arrays
+  const coursesListComponent = CourseNames.map((course, Cindex) => {
     return (
       <li>
-        {c.name}
+        {course}
         <ul>
-          {lessonList.map((lesson) => {
-            return <li>{lesson}</li>;
+          {lessonList[Cindex].map((lesson) => {
+            return <li>{lesson.lesson_name}</li>;
           })}
         </ul>
       </li>
     );
   });
+
   return (
     <div className="general_container">
       <Row style={{ marginRight: 0, marginLeft: 0 }}>

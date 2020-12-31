@@ -11,6 +11,7 @@ import QuizPanel from './Course-Components/quizPanel';
 
 // import { db } from '../firebase';
 
+// Dummy object
 const videoObj = {
   videoName: 'Introduction to HTML - Lesson 1',
   instructor: 'John Doe',
