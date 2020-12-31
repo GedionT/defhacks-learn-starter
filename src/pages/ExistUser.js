@@ -17,6 +17,10 @@ function ExistUser() {
 
   const [lessonList, setLessonList] = useState([]);
   const [CourseNames, setCourseName] = useState([]);
+  const [EnrolledCourses, setEnrolledCourses] = useState([]);
+  const USER_ID = async () => {
+    return user.uid;
+  };
 
   function getLessonList() {
     const coursesRef = db.collection('Courses');
@@ -49,16 +53,30 @@ function ExistUser() {
       });
     }
 
+    async function getEnrolledCourses() {
+      const userCollection = db
+        .collection(USER_ID + '-profile')
+        .doc('Enrolled Courses');
+
+      const doc = await userCollection.get();
+      if (!doc.exists) {
+        await console.log('No such document!');
+      } else {
+        // console.log(doc.data());
+        doc.data().enrolledCourses.forEach((course) => {
+          setEnrolledCourses((prevState) => [...prevState, course]);
+        });
+      }
+    }
+    getEnrolledCourses();
     getCourseName();
     getLessonList();
   }, []);
-  const [EnrolledCourses, setEnrolledCourses] = useState([]);
 
   async function saveEnrolledCourse(course) {
-    const username = user.displayName.toString().replace(/\s/g, '');
     // var admin = require('firebase-admin');
     const userCollection = await db
-      .collection(username + '-profile')
+      .collection(USER_ID + '-profile')
       .doc('Enrolled Courses');
 
     userCollection.get().then((snapshot) => {
@@ -98,32 +116,38 @@ function ExistUser() {
         backdrop: 'swal2-backdrop-show',
       }).then((result) => {
         if (result.isConfirmed) {
-          Swal.fire({
-            title: 'Success',
-            html:
-              'You are successfully enrolled in our <b>' +
-              course +
-              '</b> course, ' +
-              user.displayName +
-              '!',
-            icon: 'success',
-            confirmButtonText: 'Done',
-          }).then((result) => {
-            if (result.isConfirmed) {
-              setEnrolledCourses((prevState) => [...prevState, course]);
-            }
-          });
+          if (!EnrolledCourses.includes(course)) {
+            setEnrolledCourses((prevState) => [...prevState, course]);
+            Swal.fire({
+              title: 'Success',
+              html:
+                'You are successfully enrolled in our <b>' +
+                course +
+                '</b> course, ' +
+                user.displayName +
+                '!',
+              icon: 'success',
+              confirmButtonText: 'Done',
+            });
+          } else {
+            Swal.fire({
+              title: 'Failed',
+              icon: 'error',
+              html:
+                'You are already enrolled in our <b>' + course + '</b> course!',
+            });
+          }
         }
       });
     }
 
     var numLesson = lessonList[Cindex].length;
     return (
-      <li className="course-name" onClick={enrollPopup}>
+      <li id={Cindex} className="course-name" onClick={enrollPopup}>
         {course}
         <ul>
-          {lessonList[Cindex].map((lesson) => {
-            return <li>{lesson.lesson_name}</li>;
+          {lessonList[Cindex].map((lesson, Lindex) => {
+            return <li id={Lindex}>{lesson.lesson_name}</li>;
           })}
         </ul>
       </li>
