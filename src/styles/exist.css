@@ -275,9 +275,15 @@
 }
 
 ul > li > ul {
-  margin-left: 25px;
+  margin-left: 45px;
   font-size: 15px;
   list-style: square;
+}
+
+li.course-name {
+  cursor: pointer;
+  display: inline-block;
+  margin-right: 30px;
 }
 
 @media only screen and (max-width: 620px) {

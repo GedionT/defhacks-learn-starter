@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
 
 // component import
@@ -50,7 +50,6 @@ function App() {
             <Route exact path="/about" component={About} />
           </>
         )}
-        <Route component={NotFound} />
       </Switch>
     </div>
   );

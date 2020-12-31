@@ -7,6 +7,7 @@ import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
 import firebase from 'firebase/app';
+import Swal from 'sweetalert2';
 
 const db = firebase.firestore();
 
@@ -47,14 +48,41 @@ function ExistUser() {
         });
       });
     }
+
     getCourseName();
     getLessonList();
   }, []);
 
   // Creates the list component from our arrays
   const coursesListComponent = CourseNames.map((course, Cindex) => {
+    function enrollPopup() {
+      Swal.fire({
+        icon: 'info',
+        title: course,
+        html: '<b>Number of Lessons: </b>' + numLesson,
+        showCloseButton: true,
+        showCancelButton: true,
+        cancelButtonText: 'Cancel',
+        confirmButtonText: 'Enroll this Course',
+        focusConfirm: true,
+        backdrop: 'swal2-backdrop-show',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            title: 'Success',
+            html:
+              'You are successfully enrolled in our <b>' +
+              course +
+              '</b> course!',
+            icon: 'success',
+            confirmButtonText: 'Done',
+          });
+        }
+      });
+    }
+    var numLesson = lessonList[Cindex].length;
     return (
-      <li>
+      <li className="course-name" onClick={enrollPopup}>
         {course}
         <ul>
           {lessonList[Cindex].map((lesson) => {
@@ -80,7 +108,7 @@ function ExistUser() {
 
           <div className="content-box-1"></div>
           <div className="content-box-2 pl-2">
-            <div className="box-title">My Courses</div>
+            <div className="box-title">Available Courses</div>
             <div className="box-content">
               <ul>{coursesListComponent}</ul>
             </div>
