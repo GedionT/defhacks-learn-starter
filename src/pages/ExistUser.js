@@ -51,16 +51,6 @@ function ExistUser() {
     getLessonList();
   }, []);
 
-  useEffect(() => {
-    // console.log(CourseNames);
-  }, [CourseNames]);
-
-  // useEffect(() => {
-  //   lessonList.forEach((lessonArr, index) => {
-  //     console.log(lessonArr[index]);
-  //   });
-  // }, [lessonList]);
-
   // Creates the list component from our arrays
   const coursesListComponent = CourseNames.map((course, Cindex) => {
     return (
