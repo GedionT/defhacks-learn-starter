@@ -12,6 +12,7 @@ function Dashboard() {
   const { user } = useContext(AppContext);
   const history = useHistory();
 
+  // If user is not signed in, forbid the user from browsing this page
   useEffect(() => {
     if (!user) {
       history.push('/signin');

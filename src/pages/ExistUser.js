@@ -9,6 +9,7 @@ import AppContext from '../context/AppContext';
 // import { db } from '../firebase.js';
 import firebase from 'firebase/app';
 import { CodeRounded } from '@material-ui/icons';
+import { forEach } from 'react-bootstrap/ElementChildren';
 
 const db = firebase.firestore();
 
@@ -16,38 +17,30 @@ function ExistUser() {
   const { user } = useContext(AppContext);
   const history = useHistory();
 
-  const [courseList, setCourseList] = useState([]);
   const [lessonList, setLessonList] = useState([]);
-  const [CourseName, setCourseName] = useState([]);
-  const [courseIndex, setCourseIndex] = useState(0);
+  const [CourseNames, setCourseName] = useState([]);
+  const [courseCount, setCourseCount] = useState(0);
 
-  function getDocument() {
+  function getCourseName() {
     const coursesRef = db.collection('Courses');
     //Querying through the Course collection
-    coursesRef.get().then((querySnapshot) => {
-      // Querying through each document
-      querySnapshot.forEach((docName) => {
-        // Append the course to courseName array.
-        setCourseName((prevState) => [...prevState, docName.id]);
-        querySnapshot.forEach((field) => {
-          // console.log(field.data()); // Debugging purpose
-          // Each course is an array of object, loop through each lesson
-          field.data().courseJSON.forEach((lesson) => {
-            var L_NAME = lesson.lesson_name;
-            // Append each lesson to lesson
-            setLessonList((prevState) => [...prevState, L_NAME]);
-            if (lessonList.length !== 0) {
-              setCourseList((prevState) => [
-                ...prevState,
-                (prevState[courseIndex].lessonList = lessonList),
-              ]);
-            }
-          });
-          setLessonList([]);
-        });
-        setLessonList([]);
+    coursesRef.get().then((snapshot) => {
+      snapshot.forEach((doc) => {
+        setCourseName((prevState) => [...prevState, doc.id]);
+        setCourseCount((prevState) => prevState + 1);
+        // setLessonList((prevState) => [...prevState, new Array(0)]);
       });
-      setCourseIndex((prevState) => prevState + 1);
+    });
+  }
+
+  function getLessonList() {
+    const coursesRef = db.collection('Courses');
+    coursesRef.get().then((snapshot) => {
+      if (snapshot) {
+        snapshot.forEach((doc) => {
+          setLessonList((prevState) => [...prevState, doc.data().courseJSON]);
+        });
+      }
     });
   }
 
@@ -60,52 +53,34 @@ function ExistUser() {
 
   // Set documents during first render
   useEffect(() => {
-    getDocument();
+    getCourseName();
+    getLessonList();
   }, []);
 
   useEffect(() => {
-    console.log(courseList);
-
-    // Remove all array entries
-    courseList.forEach((course, index) => {
-      if (Array.isArray(course)) {
-        setCourseList(courseList.filter((c) => c !== course));
-      }
-    });
-  }, [courseList]);
+    console.log(CourseNames);
+  }, [CourseNames]);
 
   useEffect(() => {
-    CourseName.forEach((course) => {
-      setCourseList((prevState) => [
-        ...prevState,
-        { name: course, lessonList: [] },
-      ]);
-    });
-  }, [CourseName]);
+    console.log(courseCount);
+  }, [courseCount]);
 
-  useEffect(() => {
-    if (lessonList.length !== 0) {
-      setCourseList((prevState) => [
-        ...prevState,
-        (prevState[courseIndex].lessonList = lessonList),
-      ]);
-    }
-  }, [lessonList]);
+  // useEffect(() => {
+  //   lessonList.forEach((lessonArr, index) => {
+  //     console.log(lessonArr[index]);
+  //   });
+  // }, [lessonList]);
 
   // Creates the list component from our arrays
-  const coursesListComponent = courseList.map((c) => {
+  const coursesListComponent = CourseNames.map((course, Cindex) => {
     return (
       <li>
-        {c.name}
-        <ul>
-          {/*/!*Map through lesson array and append as nested list*!/*/}
-          {/*{c.lessonList.map((lesson) => {*/}
-          {/*  return <li>{lesson}</li>;*/}
-          {/*})}*/}
-        </ul>
+        {course}
+        <ul>{Cindex}</ul>
       </li>
     );
   });
+
   return (
     <div className="general_container">
       <Row style={{ marginRight: 0, marginLeft: 0 }}>
