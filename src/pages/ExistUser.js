@@ -76,7 +76,7 @@ function ExistUser() {
     return (
       <li>
         {course}
-        <ul>{Cindex}</ul>
+        <ul>Okay boomer</ul>
       </li>
     );
   });
