@@ -44,24 +44,33 @@ function ExistUser() {
     if (USER_ID !== '') {
       async function getEnrolledCourses() {
         setUSER_ID(user.uid);
-        const userCollection = await db
-          .collection(USER_ID + '-profile')
-          .doc('Enrolled Courses');
+        const userCollection = await db.collection('users').doc(USER_ID);
 
-        const doc = await userCollection
-          .get()
-          .then((doc) => {
-            setEnrolledCourses(doc.data().enrolledCourses);
-          })
-          .catch((err) => console.log(err));
+        const doc = await userCollection.onSnapshot(
+          (dSnap) => {
+            // console.log(dSnap.data().enrolledCourses);
+            try {
+              setEnrolledCourses(dSnap.data().enrolledCourses);
+            } catch (e) {
+              console.log('Fetching data now');
+            }
+          },
+          (err) => {
+            Promise.reject(new Error('Fetching data now'));
+          }
+        );
       }
-      getEnrolledCourses();
+
+      getEnrolledCourses()
+        .then(() => {})
+        .catch((err) => console.log(err));
     }
   }, [USER_ID]);
 
   // Set documents during first render
   useEffect(() => {
     setUSER_ID(user.uid);
+
     async function getCourseName() {
       const coursesRef = await db.collection('Courses');
       //Querying through the Course collection
@@ -80,9 +89,7 @@ function ExistUser() {
 
   async function saveEnrolledCourse(course) {
     // var admin = require('firebase-admin');
-    const userCollection = await db
-      .collection(USER_ID + '-profile')
-      .doc('Enrolled Courses');
+    const userCollection = await db.collection('users').doc(USER_ID);
 
     userCollection.get().then((snapshot) => {
       if (snapshot.exists) {
@@ -95,9 +102,6 @@ function ExistUser() {
         });
       }
     });
-    // const res = await userCollection.set({
-    //   enrolledCourses: course,
-    // });
   }
 
   useEffect(() => {
