@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState, useReducer } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
@@ -6,10 +6,7 @@ import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
 import AppContext from '../context/AppContext';
 
-// import { db } from '../firebase.js';
 import firebase from 'firebase/app';
-import { CodeRounded } from '@material-ui/icons';
-import { forEach } from 'react-bootstrap/ElementChildren';
 
 const db = firebase.firestore();
 
@@ -19,19 +16,6 @@ function ExistUser() {
 
   const [lessonList, setLessonList] = useState([]);
   const [CourseNames, setCourseName] = useState([]);
-  const [courseCount, setCourseCount] = useState(0);
-
-  function getCourseName() {
-    const coursesRef = db.collection('Courses');
-    //Querying through the Course collection
-    coursesRef.get().then((snapshot) => {
-      snapshot.forEach((doc) => {
-        setCourseName((prevState) => [...prevState, doc.id]);
-        setCourseCount((prevState) => prevState + 1);
-        // setLessonList((prevState) => [...prevState, new Array(0)]);
-      });
-    });
-  }
 
   function getLessonList() {
     const coursesRef = db.collection('Courses');
@@ -53,17 +37,23 @@ function ExistUser() {
 
   // Set documents during first render
   useEffect(() => {
+    async function getCourseName() {
+      const coursesRef = await db.collection('Courses');
+      //Querying through the Course collection
+      coursesRef.get().then((snapshot) => {
+        snapshot.forEach((doc) => {
+          setCourseName((prevState) => [...prevState, doc.id]);
+          // setLessonList((prevState) => [...prevState, new Array(0)]);
+        });
+      });
+    }
     getCourseName();
     getLessonList();
   }, []);
 
   useEffect(() => {
-    console.log(CourseNames);
+    // console.log(CourseNames);
   }, [CourseNames]);
-
-  useEffect(() => {
-    console.log(courseCount);
-  }, [courseCount]);
 
   // useEffect(() => {
   //   lessonList.forEach((lessonArr, index) => {
@@ -76,7 +66,11 @@ function ExistUser() {
     return (
       <li>
         {course}
-        <ul>Okay boomer</ul>
+        <ul>
+          {lessonList[Cindex].map((lesson) => {
+            return <li>{lesson.lesson_name}</li>;
+          })}
+        </ul>
       </li>
     );
   });
