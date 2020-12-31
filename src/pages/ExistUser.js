@@ -46,24 +46,26 @@ function ExistUser() {
         setUSER_ID(user.uid);
         const userCollection = await db.collection('users').doc(USER_ID);
 
-        const doc = await userCollection.onSnapshot(
-          (dSnap) => {
-            // console.log(dSnap.data().enrolledCourses);
-            try {
-              setEnrolledCourses(dSnap.data().enrolledCourses);
-            } catch (e) {
-              console.log('Fetching data now');
+        try {
+          const doc = await userCollection.onSnapshot(
+            (dSnap) => {
+              // console.log(dSnap.data().enrolledCourses);
+              try {
+                setEnrolledCourses(dSnap.data().enrolledCourses);
+              } catch (e) {
+                console.log('Fetching data now');
+              }
+            },
+            (err) => {
+              Promise.reject(new Error('Fetching data now'));
             }
-          },
-          (err) => {
-            Promise.reject(new Error('Fetching data now'));
-          }
-        );
+          );
+        } catch (e) {
+          console.log(e);
+        }
       }
 
-      getEnrolledCourses()
-        .then(() => {})
-        .catch((err) => console.log(err));
+      getEnrolledCourses().catch((err) => console.log(err));
     }
   }, [USER_ID]);
 
@@ -88,26 +90,33 @@ function ExistUser() {
   }, []);
 
   async function saveEnrolledCourse(course) {
-    // var admin = require('firebase-admin');
-    const userCollection = await db.collection('users').doc(USER_ID);
+    try {
+      // var admin = require('firebase-admin');
+      const userCollection = await db.collection('users').doc(USER_ID);
 
-    userCollection.get().then((snapshot) => {
-      if (snapshot.exists) {
-        const res = userCollection.update({
-          enrolledCourses: course,
-        });
-      } else {
-        const res = userCollection.set({
-          enrolledCourses: course,
-        });
-      }
-    });
+      userCollection.get().then((snapshot) => {
+        // If user previously enrolled courses, the document exists, update the field
+        if (snapshot.exists) {
+          const res = userCollection.update({
+            enrolledCourses: course,
+          });
+        } else {
+          // If not, create a new field in the user document
+          const res = userCollection.set({
+            enrolledCourses: course,
+          });
+        }
+      });
+    } catch (e) {
+      // It throws an error if user has no enrolledCourses, catch this error and save our enrolledCourses array with an empty array.
+      console.log(e);
+      setEnrolledCourses([]);
+    }
   }
 
+  // Push course to firestore when EnrolledCourse state is updated
   useEffect(() => {
-    if (EnrolledCourses.length !== 0) {
-      saveEnrolledCourse(EnrolledCourses);
-    }
+    saveEnrolledCourse(EnrolledCourses);
   }, [EnrolledCourses]);
 
   // Creates the list component from our arrays
@@ -144,6 +153,44 @@ function ExistUser() {
               icon: 'error',
               html:
                 'You are already enrolled in our <b>' + course + '</b> course!',
+              showCancelButton: true,
+              cancelButtonText: 'I want to unenroll',
+              cancelButtonColor: '#B4071B',
+            }).then((result) => {
+              if (result.isDismissed) {
+                Swal.fire({
+                  icon: 'warning',
+                  title: 'Confirm',
+                  text: 'Are you sure you want to unenroll?',
+                  showConfirmButton: true,
+                  confirmButtonText: 'Yes, I want to unenroll!',
+                  showCancelButton: true,
+                }).then((result) => {
+                  if (result.isConfirmed) {
+                    try {
+                      setEnrolledCourses(
+                        EnrolledCourses.filter(
+                          (enrolledCourse) => enrolledCourse !== course
+                        )
+                      );
+                      Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        html:
+                          'You have unenrolled in our <b>' +
+                          course +
+                          '</b> course! We hope to see you again!',
+                      });
+                    } catch (e) {
+                      Swal.fire({
+                        icon: 'error',
+                        title: 'Failed!',
+                        text: e,
+                      });
+                    }
+                  }
+                });
+              }
             });
           }
         }
