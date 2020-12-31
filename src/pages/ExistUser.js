@@ -52,10 +52,40 @@ function ExistUser() {
     getCourseName();
     getLessonList();
   }, []);
+  const [EnrolledCourses, setEnrolledCourses] = useState([]);
+
+  async function saveEnrolledCourse(course) {
+    const username = user.displayName.toString().replace(/\s/g, '');
+    // var admin = require('firebase-admin');
+    const userCollection = await db
+      .collection(username + '-profile')
+      .doc('Enrolled Courses');
+
+    userCollection.get().then((snapshot) => {
+      if (snapshot.exists) {
+        const res = userCollection.update({
+          enrolledCourses: course,
+        });
+      } else {
+        const res = userCollection.set({
+          enrolledCourses: course,
+        });
+      }
+    });
+    // const res = await userCollection.set({
+    //   enrolledCourses: course,
+    // });
+  }
+
+  useEffect(() => {
+    if (EnrolledCourses.length !== 0) {
+      saveEnrolledCourse(EnrolledCourses);
+    }
+  }, [EnrolledCourses]);
 
   // Creates the list component from our arrays
   const coursesListComponent = CourseNames.map((course, Cindex) => {
-    function enrollPopup() {
+    async function enrollPopup() {
       Swal.fire({
         icon: 'info',
         title: course,
@@ -73,13 +103,20 @@ function ExistUser() {
             html:
               'You are successfully enrolled in our <b>' +
               course +
-              '</b> course!',
+              '</b> course, ' +
+              user.displayName +
+              '!',
             icon: 'success',
             confirmButtonText: 'Done',
+          }).then((result) => {
+            if (result.isConfirmed) {
+              setEnrolledCourses((prevState) => [...prevState, course]);
+            }
           });
         }
       });
     }
+
     var numLesson = lessonList[Cindex].length;
     return (
       <li className="course-name" onClick={enrollPopup}>
