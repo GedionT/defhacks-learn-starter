@@ -40,7 +40,7 @@
     "react-sticky": "^6.0.3",
     "react-toastify": "^6.2.0",
     "rfs": "^9.0.3",
-    "sweetalert2": "^10.12.6"
+    "sweetalert2": "^10.12.7"
   },
   "devDependencies": {
     "css-loader": "^5.0.1",
