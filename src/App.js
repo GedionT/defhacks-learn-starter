@@ -29,6 +29,7 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
+        <Route component={NotFound} />
         {context.user ? (
           <>
             <Route exact path="/" component={Home} />
