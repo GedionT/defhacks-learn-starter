@@ -1,5 +1,10 @@
 import React, { useContext } from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+  Redirect,
+} from 'react-router-dom';
 import './styles/index.css';
 
 // component import
@@ -29,7 +34,6 @@ function App() {
     <div className="App">
       <Navbar />
       <Switch>
-        <Route component={NotFound} />
         {context.user ? (
           <>
             <Route exact path="/" component={Home} />
@@ -42,6 +46,15 @@ function App() {
             <Route exact path="/account" component={ExistAccount} />
             <Route exact path="/ExistActivity" component={ExistActivity} />
             <Route exact path="/course" component={Course} />
+            <Route path="*">
+              <Redirect to={'/'} />
+            </Route>
+            <Route exact path="/signup">
+              <Redirect to={'/dashboard'} />
+            </Route>
+            <Route exact path="/signin">
+              <Redirect to={'/dashboard'} />
+            </Route>
           </>
         ) : (
           <>
@@ -49,6 +62,9 @@ function App() {
             <Route exact path="/signin" component={LogIn} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/about" component={About} />
+            <Route path="*">
+              <Redirect to={'/'} />
+            </Route>
           </>
         )}
       </Switch>
