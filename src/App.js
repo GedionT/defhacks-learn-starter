@@ -30,19 +30,6 @@ import NotFound from './pages/NotFound';
 
 function App() {
   const context = useContext(AppContext);
-  const currentRoutes = [
-    'dashboard',
-    'about',
-    'newuser',
-    'newusercourses',
-    'newuserfinal',
-    'existuser',
-    'account',
-    'ExistActivity',
-    'course',
-    'signin',
-    'signout',
-  ];
   return (
     <div className="App">
       <Navbar />
