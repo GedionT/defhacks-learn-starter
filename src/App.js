@@ -72,9 +72,6 @@ function App() {
           <Route exact path="/signin" component={LogIn} />
           <Route exact path="/signup" component={Signup} />
           <Route exact path="/about" component={About} />
-          <Route path="*">
-            <Redirect to={'/'} />
-          </Route>
           <Route exact component={NotFound} />
         </Switch>
       )}
