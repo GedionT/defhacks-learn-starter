@@ -15,7 +15,7 @@
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.5vw;
+  font-size: min(max(1px, 3vw), 36px);
   color: #000000;
   text-align: center;
 }
@@ -78,7 +78,7 @@
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
-  font-size: 2.5vw;
+  font-size: min(max(1px, 3vw), 36px);
   text-align: center;
   vertical-align: center;
   color: #000000;
