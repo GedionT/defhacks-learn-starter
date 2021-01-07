@@ -17,7 +17,9 @@
   font-weight: normal;
   font-size: 2.5vw;
   color: #000000;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-id {
@@ -87,6 +89,9 @@
 .sub-menu {
   max-height: 70px;
   height: 18vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: #ffe2e2;
 }
 
@@ -105,6 +110,7 @@
   height: 95%;
   top: 35%;
   background: #ffd883;
+  overflow-y: auto;
 }
 
 .box-title {
@@ -124,6 +130,7 @@
   text-align: left;
   color: #222222;
   padding: 0 50px;
+  overflow-y: auto;
 }
 
 .mini-progress-1 {
@@ -173,6 +180,7 @@
   height: 509px;
   left: 446px;
   top: 436px;
+  overflow-y: auto;
 }
 
 .box-content-acc-text {
@@ -182,6 +190,7 @@
   font-size: 1.8vw;
   line-height: 3rem;
   color: #000000;
+  overflow-y: auto;
 }
 
 .box-content-acc-edit-text {
@@ -274,6 +283,12 @@ li.course-name {
   cursor: pointer;
   display: inline-block;
   margin-right: 30px;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  color: #222222;
 }
 
 @media only screen and (max-width: 620px) {
