@@ -282,6 +282,7 @@ ul > li > ul {
 li.course-name {
   cursor: pointer;
   display: inline-block;
+  margin-left: 30px;
   margin-right: 30px;
   font-family: IBM Plex Mono;
   font-style: normal;
