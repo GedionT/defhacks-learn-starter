@@ -38,7 +38,6 @@
     "react-scripts": "^4.0.1",
     "react-scroll": "^1.8.1",
     "react-sticky": "^6.0.3",
-    "react-toastify": "^6.2.0",
     "rfs": "^9.0.3",
     "sweetalert2": "^10.12.6"
   },

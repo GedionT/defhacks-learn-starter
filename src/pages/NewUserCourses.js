@@ -6,9 +6,8 @@ import '../styles/newuser.css';
 import { Link } from 'react-scroll';
 import AppContext from '../context/AppContext';
 import { Spinner } from 'react-bootstrap';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import SchoolIcon from '@material-ui/icons/School';
+import Swal from 'sweetalert2';
 import firebase from 'firebase/app';
 
 const db = firebase.firestore();
@@ -46,15 +45,29 @@ const NewUserCourses = (props) => {
     ];
     setCourseList(updatedCourses);
     if (courseList[courseIndex].interested) {
-      AddToast(
-        `🚀 Your interest for ${courseList[courseIndex].name} is registered`,
-        'success'
-      );
+      Swal.fire({
+        title: 'Success',
+        html:
+          'Your interest for <b>' +
+          courseList[courseIndex].name +
+          '</b> course is <i>registered</i>, ' +
+          user.displayName +
+          '!',
+        icon: 'success',
+        confirmButtonText: 'Done',
+      });
     } else {
-      AddToast(
-        `🚀 Your interest for ${courseList[courseIndex].name} is deregistered`,
-        'error'
-      );
+      Swal.fire({
+        title: 'Success',
+        html:
+          'Your interest for <b>' +
+          courseList[courseIndex].name +
+          '</b> course is <i>deregistered</i>, ' +
+          user.displayName +
+          '!',
+        icon: 'success',
+        confirmButtonText: 'Done',
+      });
     }
   };
 
@@ -67,23 +80,6 @@ const NewUserCourses = (props) => {
       },
     });
   };
-
-  function AddToast(toastMessage, toastType) {
-    const toastOptions = {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-    };
-    if (toastType === 'success') {
-      toast.success(toastMessage, toastOptions);
-    } else if (toastType === 'error') {
-      toast.error(toastMessage, toastOptions);
-    }
-  }
 
   useEffect(() => {
     if (!user) {
@@ -132,17 +128,6 @@ const NewUserCourses = (props) => {
       <img alt="" src="/assets/Polygon_6.png" className="polygon6" />
       <img alt="" src="/assets/Ellipse.png" className="ellipse" />
       <img alt="" src="/assets/Polygon_5.png" className="polygon5" />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <div className="upper-box" style={matches ? { width: '85%' } : null}>
         Please select which course(s) you would like to <br /> take.
       </div>

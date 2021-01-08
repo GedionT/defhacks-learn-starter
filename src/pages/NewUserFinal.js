@@ -44,6 +44,9 @@ function NewUserFinal(props) {
       .doc(USER_ID)
       .set(
         {
+          experience: props.location.state.experience
+            ? props.location.state.experience
+            : 'None',
           interestedCourses: interestedCourses,
         },
         { merge: true }
