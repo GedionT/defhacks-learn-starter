@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { Row, Col } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { Button, Spinner } from 'react-bootstrap';
 
 import Sidebar from '../components/common/Sidebar';
 import '../styles/exist.css';
@@ -8,28 +9,18 @@ import AppContext from '../context/AppContext';
 
 import firebase from 'firebase/app';
 import Swal from 'sweetalert2';
+import SchoolIcon from '@material-ui/icons/School';
 
 const db = firebase.firestore();
 
 function ExistUser() {
-  const { user } = useContext(AppContext);
+  const { user, courses } = useContext(AppContext);
   const history = useHistory();
 
-  const [lessonList, setLessonList] = useState([]);
-  const [CourseNames, setCourseName] = useState([]);
-  const [EnrolledCourses, setEnrolledCourses] = useState([]);
+  const [availableCourses, setAvailableCourses] = useState({});
+  const [coursesLoaded, setCoursesLoaded] = useState(false);
+  const [EnrolledCourses, setEnrolledCourses] = useState({}); // Object with key as the courseID
   const [USER_ID, setUSER_ID] = useState('');
-
-  function getLessonList() {
-    const coursesRef = db.collection('Courses');
-    coursesRef.get().then((snapshot) => {
-      if (snapshot) {
-        snapshot.forEach((doc) => {
-          setLessonList((prevState) => [...prevState, doc.data().courseJSON]);
-        });
-      }
-    });
-  }
 
   // If user is not signed in, forbid the user from browsing this page
   useEffect(() => {
@@ -38,94 +29,66 @@ function ExistUser() {
     } else {
       setUSER_ID(user.uid);
     }
-  });
+    // If courses is loaded in the context, set available courses
+    if (courses && courses !== availableCourses) {
+      setCoursesLoaded(true);
+      setAvailableCourses(courses);
+    }
+  }, [user, courses]);
 
+  // Update the enrolledcourses whenever it is updated in firestore
   useEffect(() => {
-    if (USER_ID !== '') {
-      async function getEnrolledCourses() {
-        setUSER_ID(user.uid);
-        const userCollection = await db.collection('users').doc(USER_ID);
-
-        try {
-          const doc = await userCollection.onSnapshot(
-            (dSnap) => {
-              // console.log(dSnap.data().enrolledCourses);
+    if (USER_ID) {
+      try {
+        db.collection('users')
+          .doc(USER_ID)
+          .onSnapshot(
+            (userSnapshot) => {
               try {
-                setEnrolledCourses(dSnap.data().enrolledCourses);
-              } catch (e) {
-                console.log('Fetching data now');
+                if (userSnapshot.data().enrolledCourses) {
+                  setEnrolledCourses(userSnapshot.data().enrolledCourses);
+                }
+              } catch (error) {
+                console.error(error);
               }
             },
             (err) => {
-              Promise.reject(new Error('Fetching data now'));
+              console.error(err);
             }
           );
-        } catch (e) {
-          console.log(e);
-        }
+      } catch (e) {
+        console.error(e);
       }
-
-      getEnrolledCourses().catch((err) => console.log(err));
     }
   }, [USER_ID]);
 
-  // Set documents during first render
-  useEffect(() => {
-    setUSER_ID(user.uid);
-
-    async function getCourseName() {
-      const coursesRef = await db.collection('Courses');
-      //Querying through the Course collection
-      coursesRef.get().then((snapshot) => {
-        snapshot.forEach((doc) => {
-          setCourseName((prevState) => [...prevState, doc.id]);
-          // setLessonList((prevState) => [...prevState, new Array(0)]);
-        });
-      });
-    }
-
-    // getEnrolledCourses();
-    getCourseName();
-    getLessonList();
-  }, []);
-
-  async function saveEnrolledCourse(course) {
-    try {
-      // var admin = require('firebase-admin');
-      const userCollection = await db.collection('users').doc(USER_ID);
-
-      userCollection.get().then((snapshot) => {
-        // If user previously enrolled courses, the document exists, update the field
-        if (snapshot.exists) {
-          const res = userCollection.update({
-            enrolledCourses: course,
-          });
-        } else {
-          // If not, create a new field in the user document
-          const res = userCollection.set({
-            enrolledCourses: course,
-          });
-        }
-      });
-    } catch (e) {
-      // It throws an error if user has no enrolledCourses, catch this error and save our enrolledCourses array with an empty array.
-      console.log(e);
-      setEnrolledCourses([]);
-    }
-  }
-
   // Push course to firestore when EnrolledCourse state is updated
   useEffect(() => {
-    saveEnrolledCourse(EnrolledCourses);
+    try {
+      if (USER_ID) {
+        // Set the enrolled courses for the user
+        db.collection('users').doc(USER_ID).set(
+          {
+            enrolledCourses: EnrolledCourses,
+          },
+          { merge: true } // This will merge the document if document already exists or create a new one if it does not exist
+        );
+      }
+    } catch (e) {
+      console.error(e);
+    }
   }, [EnrolledCourses]);
 
-  // Creates the list component from our arrays
-  const coursesListComponent = CourseNames.map((course, Cindex) => {
-    async function enrollPopup() {
+  const coursesListComponent = Object.keys(availableCourses).map((courseID) => {
+    const courseName = availableCourses[courseID].name;
+    const lessons = availableCourses[courseID].lessons;
+    const numberOfLessons = lessons.length;
+    let enrolled = courseID in EnrolledCourses;
+    function enrollPopup() {
       Swal.fire({
         icon: 'info',
-        title: course,
-        html: '<b>Number of Lessons: </b>' + numLesson,
+        title: courseName,
+        html: '<b>Number of Lessons: </b>' + numberOfLessons,
         showCloseButton: true,
         showCancelButton: true,
         cancelButtonText: 'Cancel',
@@ -134,13 +97,17 @@ function ExistUser() {
         backdrop: 'swal2-backdrop-show',
       }).then((result) => {
         if (result.isConfirmed) {
-          if (!EnrolledCourses.includes(course)) {
-            setEnrolledCourses((prevState) => [...prevState, course]);
+          if (!enrolled) {
+            setEnrolledCourses((prevState) => {
+              const currrentEnrolledCourses = { ...prevState };
+              currrentEnrolledCourses[courseID] = { currentLessonNumber: 0 };
+              return currrentEnrolledCourses;
+            });
             Swal.fire({
               title: 'Success',
               html:
                 'You are successfully enrolled in our <b>' +
-                course +
+                courseName +
                 '</b> course, ' +
                 user.displayName +
                 '!',
@@ -152,60 +119,75 @@ function ExistUser() {
               title: 'Failed',
               icon: 'error',
               html:
-                'You are already enrolled in our <b>' + course + '</b> course!',
-              showCancelButton: true,
-              cancelButtonText: 'I want to unenroll',
-              cancelButtonColor: '#B4071B',
-            }).then((result) => {
-              if (result.isDismissed) {
-                Swal.fire({
-                  icon: 'warning',
-                  title: 'Confirm',
-                  text: 'Are you sure you want to unenroll?',
-                  showConfirmButton: true,
-                  confirmButtonText: 'Yes, I want to unenroll!',
-                  showCancelButton: true,
-                }).then((result) => {
-                  if (result.isConfirmed) {
-                    try {
-                      setEnrolledCourses(
-                        EnrolledCourses.filter(
-                          (enrolledCourse) => enrolledCourse !== course
-                        )
-                      );
-                      Swal.fire({
-                        icon: 'success',
-                        title: 'Success!',
-                        html:
-                          'You have unenrolled in our <b>' +
-                          course +
-                          '</b> course! We hope to see you again!',
-                      });
-                    } catch (e) {
-                      Swal.fire({
-                        icon: 'error',
-                        title: 'Failed!',
-                        text: e,
-                      });
-                    }
-                  }
-                });
-              }
+                'You are already enrolled in our <b>' +
+                courseName +
+                '</b> course!',
             });
           }
         }
       });
     }
 
-    var numLesson = lessonList[Cindex].length;
+    function unenrollPopup() {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Confirm',
+        text: 'Are you sure you want to unenroll?',
+        showConfirmButton: true,
+        confirmButtonText: 'Yes, I want to unenroll!',
+        showCancelButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          try {
+            setEnrolledCourses((prevState) => {
+              // EnrolledCourses.filter(
+              //   (enrolledCourse) => enrolledCourse !== courseName
+              // )
+              const currrentEnrolledCourses = { ...prevState };
+              delete currrentEnrolledCourses[courseID];
+              return currrentEnrolledCourses;
+            });
+            Swal.fire({
+              icon: 'success',
+              title: 'Success!',
+              html:
+                'You have unenrolled in our <b>' +
+                courseName +
+                '</b> course! We hope to see you again!',
+            });
+          } catch (e) {
+            Swal.fire({
+              icon: 'error',
+              title: 'Failed!',
+              text: e,
+            });
+          }
+        }
+      });
+    }
+
     return (
-      <li id={Cindex} className="course-name" onClick={enrollPopup}>
-        {course}
-        <ul>
-          {lessonList[Cindex].map((lesson, Lindex) => {
-            return <li id={Lindex}>{lesson.lesson_name}</li>;
+      <li id={courseID} key={courseID} className="course-name">
+        {courseName}
+        <div>
+          {lessons.map((lesson, Lindex) => {
+            return (
+              <div>
+                <SchoolIcon /> {lesson.lesson_name}
+              </div>
+            );
           })}
-        </ul>
+        </div>
+        <br />
+        {enrolled ? (
+          <Button variant="danger" onClick={unenrollPopup}>
+            Unenroll
+          </Button>
+        ) : (
+          <Button variant="primary" onClick={enrollPopup}>
+            Enroll
+          </Button>
+        )}
       </li>
     );
   });
@@ -227,6 +209,13 @@ function ExistUser() {
           <div className="content-box-2 pl-2">
             <div className="box-title">Available Courses</div>
             <div className="box-content">
+              {!coursesLoaded && (
+                <Spinner
+                  className="spinner"
+                  animation="border"
+                  variant="primary"
+                />
+              )}
               <ul>{coursesListComponent}</ul>
             </div>
           </div>
