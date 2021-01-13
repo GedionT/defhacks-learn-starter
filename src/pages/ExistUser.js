@@ -226,9 +226,8 @@ function ExistUser() {
           <div className="content-box-1"></div>
           <div className="content-box-2 pl-2">
             <div className="box-title">Available Courses</div>
-            <div className="box-content">
-              <ul>{coursesListComponent}</ul>
-            </div>
+            <div className="box-content"></div>
+            <ul>{coursesListComponent}</ul>
           </div>
         </Col>
       </Row>
