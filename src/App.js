@@ -27,6 +27,7 @@ import ExistAccount from './pages/ExistAccount';
 import ExistActivity from './pages/ExistActivity';
 import Course from './pages/Course';
 import NotFound from './pages/NotFound';
+import Profile from './pages/Profile';
 
 function App() {
   const context = useContext(AppContext);
@@ -45,6 +46,7 @@ function App() {
           <Route exact path="/account" component={ExistAccount} />
           <Route exact path="/ExistActivity" component={ExistActivity} />
           <Route exact path="/course" component={Course} />
+          <Route exact path="/profile" component={Profile} />
           <Route exact component={NotFound} />
           <Route exact path="/signup">
             <Redirect to={'/dashboard'} />
