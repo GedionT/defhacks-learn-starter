@@ -20,14 +20,14 @@ function ExistUser() {
   const [availableCourses, setAvailableCourses] = useState({});
   const [coursesLoaded, setCoursesLoaded] = useState(false);
   const [EnrolledCourses, setEnrolledCourses] = useState({}); // Object with key as the courseID
-  const [USER_ID, setUSER_ID] = useState('');
+  const [userID, setUserID] = useState('');
 
   // If user is not signed in, forbid the user from browsing this page
   useEffect(() => {
     if (!user) {
       history.push('/signin');
     } else {
-      setUSER_ID(user.uid);
+      setUserID(user.uid);
     }
     // If courses is loaded in the context, set available courses
     if (courses && courses !== availableCourses) {
@@ -36,38 +36,29 @@ function ExistUser() {
     }
   }, [user, courses]);
 
-  // Update the enrolledcourses whenever it is updated in firestore
+  // Update the enrolledcourses whenever userID is updated
   useEffect(() => {
-    if (USER_ID) {
-      try {
-        db.collection('users')
-          .doc(USER_ID)
-          .onSnapshot(
-            (userSnapshot) => {
-              try {
-                if (userSnapshot.data().enrolledCourses) {
-                  setEnrolledCourses(userSnapshot.data().enrolledCourses);
-                }
-              } catch (error) {
-                console.error(error);
-              }
-            },
-            (err) => {
-              console.error(err);
-            }
-          );
-      } catch (e) {
-        console.error(e);
-      }
+    if (userID) {
+      db.collection('users')
+        .doc(userID)
+        .get()
+        .then((userDocument) => {
+          if (userDocument.exists && userDocument.data().enrolledCourses) {
+            setEnrolledCourses(userDocument.data().enrolledCourses);
+          }
+        })
+        .catch((err) => {
+          console.error(err);
+        });
     }
-  }, [USER_ID]);
+  }, [userID]);
 
   // Push course to firestore when EnrolledCourse state is updated
   useEffect(() => {
     try {
-      if (USER_ID) {
+      if (userID) {
         // Set the enrolled courses for the user
-        db.collection('users').doc(USER_ID).set(
+        db.collection('users').doc(userID).set(
           {
             enrolledCourses: EnrolledCourses,
           },
