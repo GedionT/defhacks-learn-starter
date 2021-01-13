@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from 'react';
-import { Row, Col } from 'react-bootstrap';
+import { Row, Col, Spinner } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 
 import Sidebar from '../components/common/Sidebar';
@@ -45,10 +45,15 @@ function Dashboard() {
 
         <Col xs={9} md={9} lg={9} style={{ position: 'relative' }}>
           <HeaderExistUser />
-          <CardComponent
-            enrolledCourses={enrolledCourses}
-            courseData={courses}
-          />
+          {!courses && (
+            <Spinner className="spinner" animation="border" variant="primary" />
+          )}
+          {courses && (
+            <CardComponent
+              enrolledCourses={enrolledCourses}
+              courseData={courses}
+            />
+          )}
         </Col>
       </Row>
     </div>

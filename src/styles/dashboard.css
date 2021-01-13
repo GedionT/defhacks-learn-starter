@@ -63,3 +63,11 @@
 .coursepage-btn:hover {
   box-shadow: none;
 }
+
+.spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031; /* High z-index so it is on top of the page */
+  top: 50%;
+  left: 60%;
+}
