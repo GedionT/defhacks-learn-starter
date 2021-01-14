@@ -45,7 +45,7 @@ function VideoPlayer(props) {
             if (choice === 'fas fa-play') setChoice('fas fa-pause');
             if (choice === 'fas fa-pause') setChoice('fas fa-play');
           }}
-          class={choice}
+          className={choice}
           style={trackIconCss}
         ></i>
         <i className="fas fa-backward" style={trackIconCss}></i>
