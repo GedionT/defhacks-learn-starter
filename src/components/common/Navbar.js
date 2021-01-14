@@ -141,6 +141,12 @@ function Navigation() {
           <NavDropdown title="Account" alignRight id="basic-nav-dropdown">
             {user ? (
               <>
+                <NavDropdown.Item as={Link} to="/dashboard">
+                  Dashboard
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/existuser">
+                  Courses
+                </NavDropdown.Item>
                 <NavDropdown.Item as={Link} to="/profile">
                   Profile
                 </NavDropdown.Item>

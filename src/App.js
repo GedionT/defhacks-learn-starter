@@ -42,9 +42,9 @@ function App() {
           <Route exact path="/newuser" component={NewUser} />
           <Route exact path="/newusercourses" component={NewUserCourses} />
           <Route exact path="/newuserfinal" component={NewUserFinal} />
-          <Route exact path="/ExistUser" component={ExistUser} />
+          <Route exact path="/existuser" component={ExistUser} />
           <Route exact path="/account" component={ExistAccount} />
-          <Route exact path="/ExistActivity" component={ExistActivity} />
+          <Route exact path="/existactivity" component={ExistActivity} />
           <Route exact path="/course" component={Course} />
           <Route exact path="/profile" component={Profile} />
           <Route exact component={NotFound} />
