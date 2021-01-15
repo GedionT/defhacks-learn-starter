@@ -3,13 +3,16 @@ import { Route, Switch, useHistory } from 'react-router-dom';
 import '../styles/course.css';
 import { Row, Col, Spinner } from 'react-bootstrap';
 import Sidebar from '../components/common/CourseSidebar';
+import NotFound from './NotFound';
 import AppContext from '../context/AppContext';
 import firebase from 'firebase/app';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
+import CourseHome from './Course-Components/courseHome';
 import VideoPlayer from './Course-Components/videoPlayer';
 import CodePlayground from './Course-Components/codePlayground';
 import QuizPanel from './Course-Components/quizPanel';
+import NotEnrolled from './Course-Components/NotEnrolled';
 
 // import { db } from '../firebase';
 
@@ -50,6 +53,7 @@ function Course({ match }) {
     }
   }, [user]);
 
+  // Update the enrolledCourseData state whenever the userID changes
   useEffect(() => {
     if (userID) {
       db.collection('users')
@@ -80,14 +84,18 @@ function Course({ match }) {
   }, [courses]);
 
   useEffect(() => {
-    if (enrolledCourseData) {
+    if (enrolledCourseData && enrolledCourseData[courseID]) {
       setCurrentLessonNumber(enrolledCourseData[courseID].currentLessonNumber);
     }
   }, [enrolledCourseData]);
 
   useEffect(() => {
     if (courseData) {
-      if (currentLessonNumber < courseData.lessons.length) {
+      // Check if the currentLessonNumber is valid
+      if (
+        currentLessonNumber > 0 &&
+        currentLessonNumber < courseData.lessons.length
+      ) {
         setCurrentLesson(courseData.lessons[currentLessonNumber]);
         // Update the currentLessonNumber in firstore for the user's enrolledCourses
         let updatedEnrolledCourses = enrolledCourseData;
@@ -130,8 +138,8 @@ function Course({ match }) {
         (!enrolledCourseData && (
           <Spinner className="spinner" animation="border" variant="primary" />
         ))}
-      {!courseData && <div>Course Not Found</div>}
-      {!isUserEnrolled && <div>You are not enrolled in this course</div>}
+      {coursesLoaded && !courseData && <NotFound />}
+      {coursesLoaded && courseData && !isUserEnrolled && <NotEnrolled />}
       {courseData && isUserEnrolled && (
         <Row>
           <Col xs={3} lg={3}>
@@ -159,7 +167,10 @@ function Course({ match }) {
             </button>
             <button
               className="navigation-button float-right"
-              disabled={currentLessonNumber >= courseData.lessons.length - 1}
+              disabled={
+                /* TODO: Conditionally check whether all objectives of lesson is completed before clicking on next lesson */
+                currentLessonNumber >= courseData.lessons.length - 1
+              }
               onClick={() => {
                 setCurrentLessonNumber(currentLessonNumber + 1);
               }}
@@ -169,7 +180,7 @@ function Course({ match }) {
             {(function () {
               switch (currentDisplay) {
                 case 'Home':
-                  return <div>Home</div>;
+                  return <CourseHome lessonData={currentLesson} />;
                   break;
                 case 'Videos':
                   return <VideoPlayer video={videoObj} />;

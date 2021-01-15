@@ -36,7 +36,14 @@ function VideoPlayer(props) {
     <div>
       <h1>{video.videoName}</h1>
 
-      <div className="video-player" style={videoPlayerCSS}>
+      <div className="video-container">
+        <iframe
+          className="responsive-iframe"
+          src="https://www.youtube.com/embed/vAfZ1trhlao"
+          title="video1"
+        ></iframe>
+      </div>
+      {/* <div className="video-player" style={videoPlayerCSS}>
         <h4>Video Player</h4>
       </div>
       <div className="track-bar" style={trackBarCSS}>
@@ -50,7 +57,7 @@ function VideoPlayer(props) {
         ></i>
         <i className="fas fa-backward" style={trackIconCss}></i>
         <i className="fas fa-forward" style={trackIconCss}></i>
-      </div>
+      </div> */}
       <h4>Instructor: {video.instructor}</h4>
       <h4>Published on: {video.createdDate}</h4>
     </div>
