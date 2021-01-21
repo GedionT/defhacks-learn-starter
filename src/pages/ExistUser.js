@@ -161,7 +161,7 @@ function ExistUser() {
       <li id={courseID} key={courseID} className="course-name">
         {courseName}
         <div>
-          {lessons.map((lesson, Lindex) => {
+          {lessons.map((lesson) => {
             return (
               <div>
                 <SchoolIcon /> {lesson.lesson_name}
