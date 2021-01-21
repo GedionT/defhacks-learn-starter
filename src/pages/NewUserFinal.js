@@ -16,7 +16,9 @@ function NewUserFinal() {
     if (!user) {
       history.push('/signin');
     } else if (user.metadata) {
+      // Check if the user is logged on for the first time
       if (user.metadata.creationTime !== user.metadata.lastSignInTime) {
+        // Redirect to dashboard if it is not the first time
         history.push('/dashboard');
       }
     }

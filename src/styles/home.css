@@ -5,6 +5,9 @@
 * {
   margin: 0;
   padding: 0;
+  max-width: 1800px;  
+  margin: 0 auto;
+  float: none;
 }
 
 html {
@@ -52,8 +55,10 @@ body {
   border: none;
   box-shadow: -5px 5px #c5cfd6;
   margin-top: auto;
-  width: 125px;
-  height: 40px;
+  width: 10vw;
+  max-width: 375px;
+  min-width: 125px;
+  height: 5vh;
   font-family: 'Karla', sans-serif;
   font-weight: bold;
   display: flex;
@@ -109,6 +114,7 @@ body {
   text-align: right;
   background: #faf7b7;
   box-shadow: 40px -30px rgba(219, 218, 225, 0.6);
+  max-width: 80vw;
 }
 
 .end {

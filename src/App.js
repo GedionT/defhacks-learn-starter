@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
 import './styles/index.css';
 
 // component import
@@ -41,7 +41,6 @@ function App() {
             <Route exact path="/account" component={ExistAccount} />
             <Route exact path="/ExistActivity" component={ExistActivity} />
             <Route exact path="/course" component={Course} />
-            <Route component={NotFound} />
           </>
         ) : (
           <>
@@ -49,7 +48,6 @@ function App() {
             <Route exact path="/signin" component={LogIn} />
             <Route exact path="/signup" component={Signup} />
             <Route exact path="/about" component={About} />
-            <Route component={NotFound} />
           </>
         )}
       </Switch>
