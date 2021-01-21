@@ -13,6 +13,10 @@
   margin-top: 2%;
 }
 
+.card-component:hover {
+  cursor: pointer;
+}
+
 .card-body {
   background: #43622f;
   border-color: #43622f;
@@ -29,4 +33,41 @@
 
 .card-text {
   font-size: 1.5vw;
+}
+
+.no-courses-container {
+  text-align: center;
+  position: absolute;
+  width: 98%;
+  left: 0%;
+  top: 30%;
+}
+
+.no-courses-paragraph {
+  font-size: medium;
+}
+
+.coursepage-btn,
+.coursepage-btn:focus {
+  width: 150px;
+  height: 50px;
+  border: none;
+  background-color: #72ba41;
+  color: #fff;
+  font-size: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 5px 1px 5px #fffca8;
+  outline: none;
+}
+
+.coursepage-btn:hover {
+  box-shadow: none;
+}
+
+.spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031; /* High z-index so it is on top of the page */
+  top: 50%;
+  left: 60%;
 }
