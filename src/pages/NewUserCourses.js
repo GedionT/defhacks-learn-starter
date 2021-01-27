@@ -19,7 +19,7 @@ const NewUserCourses = (props) => {
   const [courseList, setCourseList] = useState([]);
   const [coursesLoaded, setCourseLoaded] = useState(false);
 
-  const { user } = useContext(AppContext);
+  const { courses, user } = useContext(AppContext);
   const history = useHistory();
 
   const toggleCourseActive = (courseIndex) => {
@@ -94,34 +94,30 @@ const NewUserCourses = (props) => {
         history.push('/newuser');
       }
     }
-  });
+  }, [user]);
 
   useEffect(() => {
-    db.collection('Courses')
-      .get()
-      .then((courseDocuments) => {
-        let courses = [];
-        courseDocuments.forEach((courseDoc) => {
-          let lessons = [];
-          courseDoc.data().courseJSON.forEach((lesson) => {
-            lessons.push(lesson.lesson_name);
-          });
-          courses.push({
-            name: courseDoc.id,
-            isActive: false,
-            showPanel: false,
-            interested: false,
-            lessons: lessons,
-          });
+    if (courses) {
+      let coursesArray = [];
+      Object.keys(courses).map((courseID) => {
+        const courseName = courses[courseID].name;
+        let lessons = [];
+        courses[courseID].lessons.forEach((lesson) => {
+          lessons.push(lesson.lesson_name);
         });
-        setCourseList(courses);
-        setCourseLoaded(true);
-      })
-      .catch((courseError) => {
-        console.error(courseError);
-        setCourseLoaded(true);
+        coursesArray.push({
+          courseID: courseID,
+          name: courseName,
+          isActive: false,
+          showPanel: false,
+          interested: false,
+          lessons: lessons,
+        });
       });
-  }, []);
+      setCourseList(coursesArray);
+      setCourseLoaded(true);
+    }
+  }, [courses]);
 
   return (
     <div className="new-user">

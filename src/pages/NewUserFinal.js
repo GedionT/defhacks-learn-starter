@@ -38,7 +38,7 @@ function NewUserFinal(props) {
 
   const continueToDashboard = () => {
     const interestedCourses = props.location.state.courses.map(
-      (course) => course.name
+      (course) => course.courseID
     );
     db.collection('users')
       .doc(USER_ID)
