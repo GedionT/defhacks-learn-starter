@@ -84,7 +84,7 @@ function Navigation() {
           {user ? (
             <Nav.Link
               className="nav-link-text"
-              activeClassName="active"
+              activeClass="active"
               as={Link}
               to="/dashboard"
               exact
@@ -94,7 +94,7 @@ function Navigation() {
           ) : (
             <Nav.Link
               className="nav-link-text"
-              activeClassName="active"
+              activeClass="active"
               as={Link}
               to="/signin"
               exact
@@ -105,7 +105,7 @@ function Navigation() {
 
           <Nav.Link
             className="nav-link-text"
-            activeClassName="active"
+            activeClass="active"
             as={Link}
             to="/explore"
             exact
@@ -129,7 +129,7 @@ function Navigation() {
         <Nav className="ml-auto">
           <Nav.Link
             className="nav-link-text"
-            activeClassName="active"
+            activeClass="active"
             as={Link}
             to="/About"
             exact

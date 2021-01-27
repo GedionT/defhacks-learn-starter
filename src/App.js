@@ -1,5 +1,10 @@
 import React, { useContext } from 'react';
-import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+import {
+  Route,
+  Switch,
+  BrowserRouter as Router,
+  Redirect,
+} from 'react-router-dom';
 import './styles/index.css';
 
 // component import
@@ -28,29 +33,35 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Switch>
-        {context.user ? (
-          <>
-            <Route exact path="/" component={Home} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route exact path="/about" component={About} />
-            <Route exact path="/newuser" component={NewUser} />
-            <Route exact path="/newusercourses" component={NewUserCourses} />
-            <Route exact path="/newuserfinal" component={NewUserFinal} />
-            <Route exact path="/ExistUser" component={ExistUser} />
-            <Route exact path="/account" component={ExistAccount} />
-            <Route exact path="/ExistActivity" component={ExistActivity} />
-            <Route exact path="/course" component={Course} />
-          </>
-        ) : (
-          <>
-            <Route path="/" exact component={Home} />
-            <Route exact path="/signin" component={LogIn} />
-            <Route exact path="/signup" component={Signup} />
-            <Route exact path="/about" component={About} />
-          </>
-        )}
-      </Switch>
+      {context.user ? (
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/dashboard" component={Dashboard} />
+          <Route exact path="/about" component={About} />
+          <Route exact path="/newuser" component={NewUser} />
+          <Route exact path="/newusercourses" component={NewUserCourses} />
+          <Route exact path="/newuserfinal" component={NewUserFinal} />
+          <Route exact path="/ExistUser" component={ExistUser} />
+          <Route exact path="/account" component={ExistAccount} />
+          <Route exact path="/ExistActivity" component={ExistActivity} />
+          <Route exact path="/course/:id" component={Course} />
+          <Route exact component={NotFound} />
+          <Route exact path="/signup">
+            <Redirect to={'/dashboard'} />
+          </Route>
+          <Route exact path="/signin">
+            <Redirect to={'/dashboard'} />
+          </Route>
+        </Switch>
+      ) : (
+        <Switch>
+          <Route path="/" exact component={Home} />
+          <Route exact path="/signin" component={LogIn} />
+          <Route exact path="/signup" component={Signup} />
+          <Route exact path="/about" component={About} />
+          <Route exact component={NotFound} />
+        </Switch>
+      )}
     </div>
   );
 }
