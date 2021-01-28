@@ -27,7 +27,6 @@ import ExistAccount from './pages/ExistAccount';
 import ExistActivity from './pages/ExistActivity';
 import Course from './pages/Course';
 import NotFound from './pages/NotFound';
-import Profile from './pages/Profile';
 
 function App() {
   const context = useContext(AppContext);
@@ -42,11 +41,10 @@ function App() {
           <Route exact path="/newuser" component={NewUser} />
           <Route exact path="/newusercourses" component={NewUserCourses} />
           <Route exact path="/newuserfinal" component={NewUserFinal} />
-          <Route exact path="/existuser" component={ExistUser} />
+          <Route exact path="/ExistUser" component={ExistUser} />
           <Route exact path="/account" component={ExistAccount} />
-          <Route exact path="/existactivity" component={ExistActivity} />
-          <Route exact path="/course" component={Course} />
-          <Route exact path="/profile" component={Profile} />
+          <Route exact path="/ExistActivity" component={ExistActivity} />
+          <Route exact path="/course/:id" component={Course} />
           <Route exact component={NotFound} />
           <Route exact path="/signup">
             <Redirect to={'/dashboard'} />
