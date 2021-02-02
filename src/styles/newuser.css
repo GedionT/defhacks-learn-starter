@@ -72,10 +72,11 @@
 }
 
 .submit {
-  position: absolute;
+  float: right;
   width: 161px;
   height: 51.9px;
-  left: 80%;
+  margin-right: 5% !important;
+  margin-bottom: 5%;
   top: 85%;
   background: #4d9a4c;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
@@ -90,7 +91,7 @@
 } */
 
 .lower-box-final {
-  position: absolute;
+  position: fixed;
   width: 85%;
   height: 78%;
   left: 131px;
@@ -181,4 +182,12 @@
   font-size: 20px;
   float: right;
   margin-right: 5%;
+}
+
+.spinner {
+  display: block;
+  position: fixed;
+  z-index: 1031; /* High z-index so it is on top of the page */
+  top: 50%;
+  left: 50%; /* or: left: 50%; */
 }
