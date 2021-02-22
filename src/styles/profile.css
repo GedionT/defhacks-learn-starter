@@ -1,0 +1,13 @@
+.profile-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /*border: 1px solid gray;*/
+    -webkit-box-shadow: inset 5px 6px 33px 2px rgba(0,0,0,0.32);
+    box-shadow: inset 5px 6px 33px 2px rgba(0,0,0,0.32);
+    width: 50%;
+    margin: 0 auto;
+    border-radius: 16px;
+    flex-direction: column;
+    padding: 20px 0;
+}
