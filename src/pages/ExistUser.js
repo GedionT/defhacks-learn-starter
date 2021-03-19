@@ -161,7 +161,7 @@ function ExistUser() {
       <li id={courseID} key={courseID} className="course-name">
         {courseName}
         <div>
-          {lessons.map((lesson, Lindex) => {
+          {lessons.map((lesson) => {
             return (
               <div>
                 <SchoolIcon /> {lesson.lesson_name}
@@ -191,13 +191,11 @@ function ExistUser() {
         </Col>
 
         <Col xs={9} lg={9} style={{ position: 'relative' }}>
-          <div className="blue-box-1"></div>
           <div className="blue-box-2">
             <div className="exist-title">Welcome back, {user.displayName}!</div>
           </div>
 
-          <div className="content-box-1"></div>
-          <div className="content-box-2 pl-2">
+          <div className="content-box-2 pl-2 mt-4">
             <div className="box-title">Available Courses</div>
             <div className="box-content">
               {!coursesLoaded && (

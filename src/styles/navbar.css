@@ -12,6 +12,11 @@
   text-align: center;
   min-width: 900px;
   max-width: 1500px;
+  outline: none;
+}
+
+.react-autosuggest__input {
+  outline: none!important;
 }
 
 .search-input {

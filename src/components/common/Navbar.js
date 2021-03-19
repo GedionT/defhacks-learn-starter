@@ -103,15 +103,14 @@ function Navigation() {
             </Nav.Link>
           )}
 
-          <Nav.Link
-            className="nav-link-text"
-            activeClass="active"
-            as={Link}
-            to="/explore"
-            exact
-          >
-            Explore
-          </Nav.Link>
+          {/*<Nav.Link*/}
+          {/*  className="nav-link-text"*/}
+          {/*  activeClass="active"*/}
+          {/*  as={Link}*/}
+          {/*  exact*/}
+          {/*>*/}
+          {/*  Explore*/}
+          {/*</Nav.Link>*/}
         </Nav>
 
         <Autosuggest
@@ -139,7 +138,13 @@ function Navigation() {
           <NavDropdown title="Account" alignRight id="basic-nav-dropdown">
             {user ? (
               <>
-                <NavDropdown.Item as={Link} to="/profile">
+                <NavDropdown.Item as={Link} to="/dashboard">
+                  Dashboard
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/existuser">
+                  Courses
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/existactivity">
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />

@@ -66,6 +66,10 @@
   -webkit-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
   -moz-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
   box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 0.7);
+  margin-top: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .exist-course {
@@ -224,6 +228,7 @@
   top: 40%;
   background: rgba(167, 215, 136, 0.6);
   border-radius: 6px;
+  padding-bottom: 20px;
 }
 
 .green-box-2 {
@@ -243,6 +248,7 @@
   line-height: 54px;
   text-align: center;
   color: #ffffff;
+  margin-bottom: 30px;
 }
 
 .cal-act {
