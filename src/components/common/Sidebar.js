@@ -29,16 +29,15 @@ function Sidebar() {
         </Link>
       </div>
       <br />
-      <div className="sub-menu">
-        <Link
-          className="color"
-          onClick={() => alert('Coming soon!')}
-          to="/dashboard"
-        >
-          Settings
-        </Link>
-      </div>
-      <br />
+      {/*<div className="sub-menu">*/}
+      {/*  <Link*/}
+      {/*    className="color"*/}
+      {/*    onClick={() => alert('Coming soon!')}*/}
+      {/*    to="/dashboard"*/}
+      {/*  >*/}
+      {/*    Settings*/}
+      {/*  </Link>*/}
+      {/*</div>*/}
       <div className="sub-menu">
         <Link to="/About" className="color">
           About
