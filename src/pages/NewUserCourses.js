@@ -5,268 +5,187 @@ import { useTheme } from '@material-ui/core/styles';
 import '../styles/newuser.css';
 import { Link } from 'react-scroll';
 import AppContext from '../context/AppContext';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { Spinner } from 'react-bootstrap';
+import SchoolIcon from '@material-ui/icons/School';
+import Swal from 'sweetalert2';
+import firebase from 'firebase/app';
 
-const NewUserCourses = () => {
+const db = firebase.firestore();
+
+const NewUserCourses = (props) => {
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.up('sm'));
 
-  const [isActiveJS, toggleClassJS] = useState(false);
-  const [isActivePro, toggleClassPro] = useState(false);
-  const [isActiveGit, toggleClassGit] = useState(false);
-  const [isActiveHC, toggleClassHC] = useState(false);
-  const [showPanelJS, togglePanelJS] = useState(false);
-  const [showPanelPro, togglePanelPro] = useState(false);
-  const [showPanelGit, togglePanelGit] = useState(false);
-  const [showPanelHC, togglePanelHC] = useState(false);
-  const [JSInterestedClassName, toggleJSInterestedClassName] = useState(
-    'interested'
-  );
-  const [ProInterestedClassName, toggleProInterestedClassName] = useState(
-    'interested'
-  );
-  const [GitInterestedClassName, toggleGitInterestedClassName] = useState(
-    'interested'
-  );
-  const [HCInterestedClassName, toggleHCInterestedClassName] = useState(
-    'interested'
-  );
+  const [courseList, setCourseList] = useState([]);
+  const [coursesLoaded, setCourseLoaded] = useState(false);
 
-  const { user } = useContext(AppContext);
+  const { courses, user } = useContext(AppContext);
   const history = useHistory();
 
-  function AddToast(courseName) {
-    toast.success(`🚀 Your interest for ${courseName} is registered`, {
-      position: 'top-right',
-      autoClose: 3000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
+  const toggleCourseActive = (courseIndex) => {
+    const updatedCourses = [...courseList];
+    updatedCourses[courseIndex]['isActive'] = !courseList[courseIndex][
+      'isActive'
+    ];
+    setCourseList(updatedCourses);
+  };
+
+  const toggleCoursePanel = (courseIndex) => {
+    const updatedCourses = [...courseList];
+    updatedCourses[courseIndex]['showPanel'] = !courseList[courseIndex][
+      'showPanel'
+    ];
+    setCourseList(updatedCourses);
+  };
+
+  const toggleCourseInterested = (courseIndex) => {
+    const updatedCourses = [...courseList];
+    updatedCourses[courseIndex]['interested'] = !courseList[courseIndex][
+      'interested'
+    ];
+    setCourseList(updatedCourses);
+    if (courseList[courseIndex].interested) {
+      Swal.fire({
+        title: 'Success',
+        html:
+          'Your interest for <b>' +
+          courseList[courseIndex].name +
+          '</b> course is <i>registered</i>, ' +
+          user.displayName +
+          '!',
+        icon: 'success',
+        confirmButtonText: 'Done',
+      });
+    } else {
+      Swal.fire({
+        title: 'Success',
+        html:
+          'Your interest for <b>' +
+          courseList[courseIndex].name +
+          '</b> course is <i>deregistered</i>, ' +
+          user.displayName +
+          '!',
+        icon: 'success',
+        confirmButtonText: 'Done',
+      });
+    }
+  };
+
+  const submitCourses = () => {
+    history.push({
+      pathname: '/newuserfinal',
+      state: {
+        experience: props.location.state.experience,
+        courses: courseList.filter((course) => course.interested),
+      },
     });
-  }
+  };
 
   useEffect(() => {
     if (!user) {
       history.push('/signin');
     } else if (user.metadata) {
+      // Check if the user is logged on for the first time
       if (user.metadata.creationTime !== user.metadata.lastSignInTime) {
+        // Redirect to dashboard if it is not the first time
         history.push('/dashboard');
+      } else if (!props.location.state) {
+        // If the page is not rendered from /newuser, redirect it to /newuser
+        history.push('/newuser');
       }
     }
-  });
+  }, [user]);
+
+  useEffect(() => {
+    if (courses) {
+      let coursesArray = [];
+      Object.keys(courses).map((courseID) => {
+        const courseName = courses[courseID].name;
+        let lessons = [];
+        courses[courseID].lessons.forEach((lesson) => {
+          lessons.push(lesson.lesson_name);
+        });
+        coursesArray.push({
+          courseID: courseID,
+          name: courseName,
+          isActive: false,
+          showPanel: false,
+          interested: false,
+          lessons: lessons,
+        });
+      });
+      setCourseList(coursesArray);
+      setCourseLoaded(true);
+    }
+  }, [courses]);
 
   return (
     <div className="new-user">
       <img alt="" src="/assets/Polygon_6.png" className="polygon6" />
       <img alt="" src="/assets/Ellipse.png" className="ellipse" />
       <img alt="" src="/assets/Polygon_5.png" className="polygon5" />
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
       <div className="upper-box" style={matches ? { width: '85%' } : null}>
         Please select which course(s) you would like to <br /> take.
       </div>
       <div className="lower-box" style={matches ? { width: '85%' } : null}>
-        <div className="options">
-          <Link
-            activeClass="active"
-            to="options"
-            spy={true}
-            smooth={true}
-            offset={200}
-            duration={500}
-          ></Link>
-          Basics of Programming
-          <div
-            className={isActivePro ? 'arrow-up' : 'arrow-down'}
-            onClick={() => {
-              toggleClassPro(!isActivePro);
-              togglePanelPro(!showPanelPro);
-            }}
-          ></div>
-          <button
-            className={ProInterestedClassName}
-            onClick={() => {
-              AddToast('Basics of Programming');
-              toggleProInterestedClassName(
-                ProInterestedClassName === 'interested'
-                  ? 'interested-selected'
-                  : 'interested'
-              );
-            }}
-            style={matches ? { width: '10%', fontSize: '50%' } : null}
-          >
-            Interested
-          </button>
-        </div>
-        {showPanelPro && (
-          <div className="info-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            iaculis nisl dolor, eu condimentum ante auctor efficitur. Phasellus
-            placerat, dolor ac dignissim ornare, enim ligula sodales sapien, at
-            elementum magna sem ac eros. Nam eleifend magna in nisl porttitor,
-            sed venenatis nibh condimentum.
-          </div>
+        {!coursesLoaded && (
+          <Spinner className="spinner" animation="border" variant="primary" />
         )}
-
-        <div className="options">
-          <Link
-            activeClass="active"
-            to="options"
-            spy={true}
-            smooth={true}
-            offset={250}
-            duration={500}
-          ></Link>
-          Intro to JavaScript
-          <div
-            className={isActiveJS ? 'arrow-up' : 'arrow-down'}
-            onClick={() => {
-              toggleClassJS(!isActiveJS);
-              togglePanelJS(!showPanelJS);
-            }}
-          ></div>
-          <button
-            className={JSInterestedClassName}
-            onClick={() => {
-              AddToast('Intro to Javascript');
-              toggleJSInterestedClassName(
-                JSInterestedClassName === 'interested'
-                  ? 'interested-selected'
-                  : 'interested'
-              );
-            }}
-            style={matches ? { width: '10%', fontSize: '50%' } : null}
-          >
-            Interested
-          </button>
-        </div>
-
-        {showPanelJS && (
-          <div className="info-panel">
-            JavaScript is a dynamic computer programming language. It is
-            lightweight and most commonly used as a part of web pages, whose
-            implementations allow client-side script to interact with the user
-            and make dynamic pages.
-          </div>
-        )}
-
-        <div className="options">
-          <Link
-            activeClass="active"
-            to="options"
-            spy={true}
-            smooth={true}
-            offset={250}
-            duration={500}
-          ></Link>
-          Intro to HTML and CSS
-          <div
-            className={isActiveHC ? 'arrow-up' : 'arrow-down'}
-            onClick={() => {
-              toggleClassHC(!isActiveHC);
-              togglePanelHC(!showPanelHC);
-            }}
-          ></div>
-          <button
-            className={HCInterestedClassName}
-            onClick={() => {
-              AddToast('Intro to HTML and CSS');
-              toggleHCInterestedClassName(
-                HCInterestedClassName === 'interested'
-                  ? 'interested-selected'
-                  : 'interested'
-              );
-            }}
-            style={matches ? { width: '10%', fontSize: '50%' } : null}
-          >
-            Interested
-            <div class="check-icon"></div>
-          </button>
-        </div>
-
-        {showPanelHC && (
-          <div className="info-panel">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            iaculis nisl dolor, eu condimentum ante auctor efficitur. Phasellus
-            placerat, dolor ac dignissim ornare, enim ligula sodales sapien, at
-            elementum magna sem ac eros. Nam eleifend magna in nisl porttitor,
-            sed venenatis nibh condimentum.
-          </div>
-        )}
-
-        <div className="options">
-          <Link
-            activeClass="active"
-            to="options"
-            spy={true}
-            smooth={true}
-            offset={250}
-            duration={500}
-          ></Link>
-          Intro to Git
-          <div
-            className={isActiveGit ? 'arrow-up' : 'arrow-down'}
-            onClick={() => {
-              toggleClassGit(!isActiveGit);
-              togglePanelGit(!showPanelGit);
-            }}
-          ></div>
-          <button
-            className={GitInterestedClassName}
-            onClick={() => {
-              AddToast('Intro to Git');
-              toggleGitInterestedClassName(
-                GitInterestedClassName === 'interested'
-                  ? 'interested-selected'
-                  : 'interested'
-              );
-            }}
-            style={matches ? { width: '10%', fontSize: '50%' } : null}
-          >
-            Interested
-          </button>
-        </div>
-
-        {showPanelGit && (
-          <div className="info-panel">
-            <Link
-              activeClass="active"
-              to="options"
-              spy={true}
-              smooth={true}
-              offset={250}
-              duration={500}
-            ></Link>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam
-            iaculis nisl dolor, eu condimentum ante auctor efficitur. Phasellus
-            placerat, dolor ac dignissim ornare, enim ligula sodales sapien, at
-            elementum magna sem ac eros. Nam eleifend magna in nisl porttitor,
-            sed venenatis nibh condimentum.
-          </div>
-        )}
+        {courseList.map((course, courseIndex) => {
+          return (
+            <>
+              <div className="options">
+                <Link
+                  activeClass="active"
+                  to="options"
+                  spy={true}
+                  smooth={true}
+                  offset={200}
+                  duration={500}
+                ></Link>
+                {course.name}
+                <div
+                  className={course.isActive ? 'arrow-up' : 'arrow-down'}
+                  onClick={() => {
+                    toggleCourseActive(courseIndex);
+                    toggleCoursePanel(courseIndex);
+                  }}
+                ></div>
+                <button
+                  className={
+                    course.interested ? 'interested-selected' : 'interested'
+                  }
+                  onClick={() => {
+                    toggleCourseInterested(courseIndex);
+                  }}
+                  style={matches ? { width: '10%', fontSize: '50%' } : null}
+                >
+                  Interested
+                </button>
+              </div>
+              {course.showPanel && (
+                <div className="info-panel">
+                  Lessons Offered -
+                  {course.lessons.map((lesson, lessonIndex) => (
+                    <div>
+                      <SchoolIcon /> {lesson}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </>
+          );
+        })}
         <br />
-        <RouteLink to="/newuserfinal">
-          <input
-            type="submit"
-            value="Next"
-            className="submit"
-            style={
-              matches ? { width: '10%', fontSize: '70%', height: '15%' } : null
-            }
-          />
-        </RouteLink>
+        <input
+          type="submit"
+          value="Next"
+          className="submit"
+          onClick={submitCourses}
+          style={
+            matches ? { width: '10%', fontSize: '70%', height: '15%' } : null
+          }
+        />
       </div>
     </div>
   );

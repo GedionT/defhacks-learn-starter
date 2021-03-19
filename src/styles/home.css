@@ -5,6 +5,7 @@
 * {
   margin: 0;
   padding: 0;
+  float: none;
 }
 
 html {
@@ -52,8 +53,10 @@ body {
   border: none;
   box-shadow: -5px 5px #c5cfd6;
   margin-top: auto;
-  width: 125px;
-  height: 40px;
+  width: 10vw;
+  max-width: 375px;
+  min-width: 125px;
+  height: 5vh;
   font-family: 'Karla', sans-serif;
   font-weight: bold;
   display: flex;
@@ -109,12 +112,14 @@ body {
   text-align: right;
   background: #faf7b7;
   box-shadow: 40px -30px rgba(219, 218, 225, 0.6);
+  max-width: 80vw;
 }
 
 .end {
   margin-top: 120px;
   background-size: 100%;
   background-repeat: no-repeat;
+  margin-bottom: 100px;
 }
 
 .hook {

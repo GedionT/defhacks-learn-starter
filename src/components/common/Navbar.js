@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 import { useHistory, Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/navbar.css';
 import Autosuggest from 'react-autosuggest';
 import firebase from '../firebase/base';
@@ -86,7 +84,7 @@ function Navigation() {
           {user ? (
             <Nav.Link
               className="nav-link-text"
-              activeClassName="active"
+              activeClass="active"
               as={Link}
               to="/dashboard"
               exact
@@ -96,7 +94,7 @@ function Navigation() {
           ) : (
             <Nav.Link
               className="nav-link-text"
-              activeClassName="active"
+              activeClass="active"
               as={Link}
               to="/signin"
               exact
@@ -105,15 +103,14 @@ function Navigation() {
             </Nav.Link>
           )}
 
-          <Nav.Link
-            className="nav-link-text"
-            activeClassName="active"
-            as={Link}
-            to="/explore"
-            exact
-          >
-            Explore
-          </Nav.Link>
+          {/*<Nav.Link*/}
+          {/*  className="nav-link-text"*/}
+          {/*  activeClass="active"*/}
+          {/*  as={Link}*/}
+          {/*  exact*/}
+          {/*>*/}
+          {/*  Explore*/}
+          {/*</Nav.Link>*/}
         </Nav>
 
         <Autosuggest
@@ -131,7 +128,7 @@ function Navigation() {
         <Nav className="ml-auto">
           <Nav.Link
             className="nav-link-text"
-            activeClassName="active"
+            activeClass="active"
             as={Link}
             to="/About"
             exact
@@ -141,22 +138,19 @@ function Navigation() {
           <NavDropdown title="Account" alignRight id="basic-nav-dropdown">
             {user ? (
               <>
-                <NavDropdown.Item as={Link} to="/profile">
+                <NavDropdown.Item as={Link} to="/dashboard">
+                  Dashboard
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/existuser">
+                  Courses
+                </NavDropdown.Item>
+                <NavDropdown.Item as={Link} to="/existactivity">
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
                 <NavDropdown.Item
                   onClick={() => {
                     firebase.logout();
-                    toast.success('You have successfully logged out!', {
-                      position: 'top-right',
-                      autoClose: 3000,
-                      hideProgressBar: true,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                    });
                     history.push('/');
                   }}
                 >
@@ -176,17 +170,6 @@ function Navigation() {
           </NavDropdown>
         </Nav>
       </Navbar>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </>
   );
 }

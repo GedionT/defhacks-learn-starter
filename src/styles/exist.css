@@ -13,14 +13,13 @@
 
 .exist-title {
   font-family: IBM Plex Mono;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   font-style: normal;
   font-weight: normal;
-  font-size: 2.5vw;
+  font-size: min(max(1px, 3vw), 36px);
   color: #000000;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .user-id {
@@ -61,15 +60,16 @@
 
 .blue-box-2 {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   width: 100%;
   height: 25%;
   background: #dbdaff;
   -webkit-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
   -moz-box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 1);
   box-shadow: -38px 38px 0px -15px rgba(189, 189, 222, 0.7);
+  margin-top: 20px;
+  margin-bottom: 15px;
+  display: flex;
+  justify-content: center;
 }
 
 .exist-course {
@@ -84,27 +84,26 @@
   font-family: IBM Plex Mono;
   font-style: normal;
   font-weight: bold;
-  font-size: 2vw;
+  font-size: min(max(1px, 3vw), 36px);
   text-align: center;
   vertical-align: center;
   color: #000000;
 }
 
 .sub-menu {
+  max-height: 70px;
+  height: 18vh;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
-  max-height: 70px;
-  height: 18vh;
   background: #ffe2e2;
 }
 
 .content-box-1 {
   position: absolute;
   width: 98%;
-  height: 75%;
-  left: 0%;
+  height: 95%;
+  left: -1%;
   top: 40%;
   background: rgba(255, 216, 131, 0.4);
 }
@@ -112,9 +111,10 @@
 .content-box-2 {
   position: absolute;
   width: 98%;
-  height: 75%;
+  height: 95%;
   top: 35%;
   background: #ffd883;
+  overflow-y: auto;
 }
 
 .box-title {
@@ -134,6 +134,7 @@
   text-align: left;
   color: #222222;
   padding: 0 50px;
+  overflow-y: auto;
 }
 
 .mini-progress-1 {
@@ -183,6 +184,7 @@
   height: 509px;
   left: 446px;
   top: 436px;
+  overflow-y: auto;
 }
 
 .box-content-acc-text {
@@ -192,6 +194,7 @@
   font-size: 1.8vw;
   line-height: 3rem;
   color: #000000;
+  overflow-y: auto;
 }
 
 .box-content-acc-edit-text {
@@ -205,7 +208,7 @@
 }
 
 .edit-icon {
-  font-size: 1.3vw !important;
+  font-size: 1.3vw!important;
   padding-bottom: 0.1vw;
 }
 
@@ -225,6 +228,7 @@
   top: 40%;
   background: rgba(167, 215, 136, 0.6);
   border-radius: 6px;
+  padding-bottom: 20px;
 }
 
 .green-box-2 {
@@ -244,6 +248,7 @@
   line-height: 54px;
   text-align: center;
   color: #ffffff;
+  margin-bottom: 30px;
 }
 
 .cal-act {
@@ -275,8 +280,22 @@
 }
 
 ul > li > ul {
-  margin-left: 25px;
+  margin-left: 45px;
   font-size: 15px;
+  list-style: square;
+}
+
+li.course-name {
+  cursor: pointer;
+  display: inline-block;
+  margin-left: 30px;
+  margin-right: 30px;
+  font-family: IBM Plex Mono;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 20px;
+  text-align: left;
+  color: #222222;
 }
 
 @media only screen and (max-width: 620px) {
@@ -291,4 +310,12 @@ ul > li > ul {
   .exist-title {
     font-size: 30px;
   }
+}
+
+.spinner {
+  display: block;
+  position: absolute;
+  z-index: 1031; /* High z-index so it is on top of the page */
+  top: 50%;
+  left: 50%; /* or: left: 50%; */
 }

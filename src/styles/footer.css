@@ -1,10 +1,14 @@
+/*html, body {*/
+/*  margin: 0 !important;*/
+/*  padding: 0 !important;*/
+/*}*/
+
 .ftr {
   background-color: #99c87a;
   color: aliceblue;
   padding: 30px 100px;
-  position: absolute;
-  width: 100%;
-  margin-top: 350px;
+  width: 100vmax;
+  margin: 0;
 }
 
 .footer-copyright-text {
@@ -36,6 +40,8 @@ a:active {
   text-decoration: none;
 }
 
-span {
-  text-decoration: none;
+span, span:hover {
+  text-decoration: none !important;
 }
+
+
