@@ -2,8 +2,6 @@ import React, { useContext, useState } from 'react';
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap';
 import SearchIcon from '@material-ui/icons/Search';
 import { useHistory, Link } from 'react-router-dom';
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import '../../styles/navbar.css';
 import Autosuggest from 'react-autosuggest';
 import firebase from '../firebase/base';
@@ -105,15 +103,14 @@ function Navigation() {
             </Nav.Link>
           )}
 
-          <Nav.Link
-            className="nav-link-text"
-            activeClass="active"
-            as={Link}
-            to="/explore"
-            exact
-          >
-            Explore
-          </Nav.Link>
+          {/*<Nav.Link*/}
+          {/*  className="nav-link-text"*/}
+          {/*  activeClass="active"*/}
+          {/*  as={Link}*/}
+          {/*  exact*/}
+          {/*>*/}
+          {/*  Explore*/}
+          {/*</Nav.Link>*/}
         </Nav>
 
         <Autosuggest
@@ -154,15 +151,6 @@ function Navigation() {
                 <NavDropdown.Item
                   onClick={() => {
                     firebase.logout();
-                    toast.success('You have successfully logged out!', {
-                      position: 'top-right',
-                      autoClose: 3000,
-                      hideProgressBar: true,
-                      closeOnClick: true,
-                      pauseOnHover: true,
-                      draggable: true,
-                      progress: undefined,
-                    });
                     history.push('/');
                   }}
                 >
@@ -182,17 +170,6 @@ function Navigation() {
           </NavDropdown>
         </Nav>
       </Navbar>
-      <ToastContainer
-        position="top-right"
-        autoClose={3000}
-        hideProgressBar
-        newestOnTop
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
     </>
   );
 }
