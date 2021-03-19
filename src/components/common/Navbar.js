@@ -144,7 +144,7 @@ function Navigation() {
                 <NavDropdown.Item as={Link} to="/existuser">
                   Courses
                 </NavDropdown.Item>
-                <NavDropdown.Item as={Link} to="/profile">
+                <NavDropdown.Item as={Link} to="/existactivity">
                   Profile
                 </NavDropdown.Item>
                 <NavDropdown.Divider />
